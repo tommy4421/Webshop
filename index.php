@@ -4,6 +4,8 @@
 // Dit is het startscherm van de webwinkel.
 //
 
+//test
+
 // Zet het niveau van foutmeldingen zo dat warnings niet getoond worden.
 error_reporting(E_ERROR | E_PARSE);
 
