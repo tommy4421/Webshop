@@ -16,6 +16,9 @@ include ('includes/header.html');
 //include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
 include ('includes/mysqli_connect_localhost.php');
 
+ // Google analytics
+ include_once("includes/analyticstracking.php");
+
 //
 // bestellingenbeheer.php
 //

@@ -1,7 +1,8 @@
 <?php
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
-include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
+//include ('includes/mysqli_connect_localhost.php');
+include ('includes/mysqli_connect_localhost.php');
 
 
 /*** some basic sanity checks ***/

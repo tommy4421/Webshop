@@ -14,6 +14,9 @@ $page_title = 'Welkom in de WebWinkel';
 $active = 1;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
 include ('includes/header.html');
 
+ // Google analytics
+ include_once("includes/analyticstracking.php");
+
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
 // Dat maakt het gemakkelijk om je bestanden naar een remote server te verplaatsen.

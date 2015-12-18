@@ -5,6 +5,10 @@ error_reporting(E_ERROR | E_PARSE);
 $page_title = 'Winkelwagen';
 include ('includes/header.html');
 
+
+ // Google analytics
+ include_once("includes/analyticstracking.php");
+
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
 //include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
