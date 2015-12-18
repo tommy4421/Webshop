@@ -4,10 +4,11 @@
 // This file also establishes a connection to MySQL 
 // and selects the database.
 
-DEFINE ('DB_USER', '');
-DEFINE ('DB_PASSWORD', '');
-DEFINE ('DB_HOST', '');
-DEFINE ('DB_NAME', '');
+DEFINE ('servername', 'localhost');
+DEFINE ('username', 'bimivp2e4');
+DEFINE ('password', 'Welkom01');
+DEFINE ('dbname', 'avans_bimivp2e4');
+
 
 // Make the connection:
 // $conn = @mysqli_connect (DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) OR die ('Could not connect to MySQL: ' . mysqli_connect_error() );
