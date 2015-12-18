@@ -17,7 +17,7 @@ include ('includes/header.html');
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
 // Dat maakt het gemakkelijk om je bestanden naar een remote server te verplaatsen.
-include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
+include ('includes/mysqli_connect_'.$_SERVER['localhost'].'.php');
 
 echo '<h1>Welkom in de WebWinkel';
 
@@ -30,6 +30,7 @@ else echo "</h1>\n";
 // Stap 1: maak verbinding met MySQL.
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
+
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  
 // check connection
