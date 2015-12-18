@@ -7,7 +7,8 @@ include ('includes/header.html');
 
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
-include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
+//include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
+include ('includes/mysqli_connect_localhost.php');
 
 // Page header:
 echo '<h1>Winkelwagen</h1>';
