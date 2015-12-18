@@ -4,10 +4,11 @@
 // This file also establishes a connection to MySQL 
 // and selects the database.
 
-DEFINE ('DB_USER', 'root');
-DEFINE ('DB_PASSWORD', '');
-DEFINE ('DB_HOST', 'localhost');
-DEFINE ('DB_NAME', 'webwinkel');
 
+//Verbind met de database
+DEFINE ('servername', 'localhost');
+DEFINE ('username', 'bimivp2e4');
+DEFINE ('password', 'Welkom01');
+DEFINE ('dbname', 'avans_bimivp2e4');
 
 ?>
