@@ -17,7 +17,7 @@ include ('includes/header.html');
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
 // Dat maakt het gemakkelijk om je bestanden naar een remote server te verplaatsen.
-include ('includes/mysqli_connect_'.$_SERVER['localhost'].'.php');
+include ('includes/mysqli_connect_localhost.php');
 
 echo '<h1>Welkom in de WebWinkel';
 
