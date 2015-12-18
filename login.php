@@ -42,7 +42,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST') // && isset($_POST['email']) && isset
 			exit();
 		}
 
-		$sql = "SELECT `klantnr`, `naam` FROM `klant` WHERE `emailadres`='".$_POST['email']."';";
+		$sql = "SELECT `klantid`, `naam` FROM `klant` WHERE `emailadres`='".$_POST['email']."';";
 		// Voer de query uit 
 		$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
 		
@@ -52,10 +52,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST') // && isset($_POST['email']) && isset
 		} else {
 			$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
-			// Bij een ingelogde gebruiker bewaren we de naam en het klantnr in de sessie.
+			// Bij een ingelogde gebruiker bewaren we de naam en het klantid in de sessie.
 			// Hiermee kunnen we de klantnaam op het scherm tonen, en de winkelwagen aan 
-			// het juiste klantnr koppelen, zodat de bestelling later afgerond kan worden.
-			$_SESSION['klantnr'] = $row["klantnr"];
+			// het juiste klantid koppelen, zodat de bestelling later afgerond kan worden.
+			$_SESSION['klantid'] = $row["klantid"];
 			$_SESSION['klantnaam'] = $row["naam"];
 			// Sluit de connection
 			mysqli_close($conn);
