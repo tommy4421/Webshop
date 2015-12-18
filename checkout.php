@@ -66,7 +66,7 @@ if (empty($_SESSION['klantnr'])) {
 	// 
 	
 	// Bericht naar de gebruiker.
-	echo "<p>Uw bestelling is afgerond.</p>";
+	echo "<p>Bedankt voor uw bestelling bij tijdvooreenbox.nl! Uw bestelling is succesvol afgerond.</p>";
 
 	// Leeg de winkelwagen door deze uit de sessie te verwijderen.
 	// De overige gegevens in de sessie blijven behouden.
