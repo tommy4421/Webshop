@@ -26,7 +26,13 @@ if (empty($_SESSION['klantnr'])) {
 	// Afsluiten van bestelling en bestelregel opslaan in database
 
 	//connectie maken met database webwinkel
-	$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+	$servername = "localhost";
+        $username = "bimivp2e4";
+        $password = "Welkom01";
+        $dbname = "avans_bimivp2e4";
+
+
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
 	 
 	// check connection
 	if (mysqli_connect_errno()) {

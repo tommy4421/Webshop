@@ -16,7 +16,14 @@ echo '<h1>Registreren</h1>';
 // Stap 1: maak verbinding met MySQL.
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
-$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+//Verbind met de database
+$servername = "localhost";
+$username = "bimivp2e4";
+$password = "Welkom01";
+$dbname = "avans_bimivp2e4";
+
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
  
 // check connection
 if (mysqli_connect_errno()) {
