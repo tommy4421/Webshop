@@ -6,9 +6,9 @@
 
 
 //Verbind met de database
-DEFINE ('servername', 'localhost');
-DEFINE ('username', 'bimivp2e4');
-DEFINE ('password', 'Welkom01');
-DEFINE ('dbname', 'avans_bimivp2e4');
+DEFINE ('DB_HOST', 'localhost');
+DEFINE ('DB_USER', 'bimivp2e4');
+DEFINE ('DB_PASSWORD', 'Welkom01');
+DEFINE ('DB_NAME', 'avans_bimivp2e4');
 
 ?>
