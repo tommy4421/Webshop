@@ -12,15 +12,8 @@ include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
 // Page header:
 echo '<h1>Uw gegevens</h1>';
 
-//Verbind met de database
-$servername = "localhost";
-$username = "bimivp2e4";
-$password = "Welkom01";
-$dbname = "avans_bimivp2e4";
-
-
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
+//
+$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 // check connection
 if (mysqli_connect_errno()) {
 	printf("<p><b>Fout: verbinding met de database mislukt.</b><br/>\n%s</p>\n", mysqli_connect_error());
