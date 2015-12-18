@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //
 // index.php
 // Dit is het startscherm van de webwinkel.
@@ -30,7 +30,14 @@ else echo "</h1>\n";
 // Stap 1: maak verbinding met MySQL.
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
-$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+$servername = "localhost";
+$username = "bimivp2e4";
+$password = "Welkom01";
+$dbname = "avans_bimivp2e4";
+
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
  
 // check connection
 if (mysqli_connect_errno()) {
