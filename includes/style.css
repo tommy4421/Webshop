@@ -21,7 +21,8 @@ a:hover {
 body {
 	background:#ffffff;
 	color:#555;
-	font:0.8em Arial, Helvetica, "bitstream vera sans", sans-serif;
+	/*font:0.8em Arial, Helvetica, "bitstream vera sans", sans-serif;*/
+        font-family: 'Pacifico', cursive;
 }
 
 /* header */
@@ -160,14 +161,14 @@ body {
 	overflow: auto;
 }
 
-/* ---------------------- footer ----------------------------- */
+/* ---------------------- footer (aangepast) ----------------------------- */
 #footer {
-	border-top:1px solid #999; 
+	/*border-top:1px solid #999; 
 	height:50px;
 	margin:0 auto;
 	padding:10px;
+        width:751px;*/
 	text-align:center;
-	width:751px;
 }
 
 #links, #rechts {
