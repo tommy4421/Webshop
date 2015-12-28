@@ -163,11 +163,11 @@ body {
 
 /* ---------------------- footer (aangepast) ----------------------------- */
 #footer {
-	/*border-top:1px solid #999; 
+	border-top:1px solid #999; 
 	height:50px;
 	margin:0 auto;
 	padding:10px;
-        width:751px;*/
+        width:751px;
 	text-align:center;
 }
 
