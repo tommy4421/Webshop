@@ -9,7 +9,6 @@
 }
 
 
-
 /* general */
 a {
 	color: black;
@@ -242,7 +241,15 @@ ul
 	overflow: auto;
 }
 
+/* ---------------------- Home ----------------------------- */
 
+
+.streken{
+    background-color: #ff2c32;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
 
 /* ---------------------- footer (aangepast) ----------------------------- 
 #footer {
