@@ -56,29 +56,15 @@ ul
 
 
 
-
+ 
 
 /* Nieuwe menu */
 
-.navbar-custom {
-    background-color: #FF2C28;
-    color: #FF2C28;
-}
-
 .navbar-default {
-    background-color: #FF2C28;
-    color: #FF2C28;
-}
-
-.navbar-nav {
-    background-color: #FF2C28;
-    color: #FF2C28;
-}
-
-.navbar {
-    background-color: #FF2C28;
-    color: #FF2C28;
-}
+  background-color: #FF2C28;
+  background-image: none;
+  background-repeat: no-repeat;
+ }
 
 .navbar a {
     font-size: large;
