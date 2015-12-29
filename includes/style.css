@@ -21,8 +21,8 @@ a:hover {
 body {
 	background:#ffffff;
 	color:#555;
-	font:0.8em Arial, Helvetica, "bitstream vera sans", sans-serif;
-        /*font-family: 'Pacifico', cursive;*/
+	/*font:0.8em Arial, Helvetica, "bitstream vera sans", sans-serif;*/
+        font-family: 'Pacifico', cursive;
 }
 
 /* header */
