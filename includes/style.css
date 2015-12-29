@@ -6,6 +6,8 @@
 	padding: 0;
 }
 
+
+
 /* general */
 a {
 	color: black;
@@ -29,74 +31,6 @@ body {
 
 
 
-/* oude header 
-#header {
-	height:80px;
-	margin:0 auto;
-	width:751px;
-}
-
-#header h1 {
-	color:#888;
-	font-size:300%;
-	letter-spacing:-3px;
-	text-align:right;
-	padding:5px;
-	margin-bottom:-20px;
-}
-
-#header h2 {
-	color:#CCC;
-	font-size:200%;
-	letter-spacing:-2px;
-	text-align:right;
-}
-
-#navigation {
-	background:#fafafa;
-	border:1px solid #999;
-	margin:0 auto;
-	width:750px;
-	height:40px;
-	list-style:none;
-}
-
-#navigation li {
-	border-right: 1px solid #999;
-	float:left;
-	width:149px;
-	list-style:none;
-}
-
-#navigation a {
-	color:#555;
-	display:block;
-	line-height:40px;
-	text-align:center;
-}
-
-#navigation a:hover {
-    background: #AFE7E8;
-	color:#555;
-}
-
-#navigation .active {
-	background:#e3e3e3;
-	color:#777;
-}
-
-#menu {
-	float: left;
-	margin-top: -50px;
-	padding: 5px;
-}
-
-#menu a {
-	color: #555;
-	text-decoration:underline
-}
-*/
-
 /* header */
 
 .header {
@@ -116,7 +50,9 @@ body {
 }
 
 
-/* Nieuwe Menu */
+
+
+/* Nieuwe menu */
 
 .navbar {
     background-color: #FF2C28;
@@ -125,6 +61,8 @@ body {
 .navbar a {
     font-size: large;
 }
+
+
 
 /* content */
 #content {
@@ -143,6 +81,8 @@ body {
 #content p {
 	padding:20px 20px 0;
 }
+
+
 
 /* ---------------------- producten ----------------------------- */
 
@@ -194,7 +134,9 @@ body {
 	overflow: auto;
 }
 
-/* ---------------------- footer (aangepast) ----------------------------- */
+
+
+/* ---------------------- footer (aangepast) ----------------------------- 
 #footer {
 	border-top:1px solid #999; 
 	height:50px;
@@ -269,6 +211,8 @@ ul
 	list-style-type: none;
 }
 
+*/
+
 /* -------------------------------- */
 
 .errorlist, .error input{
@@ -313,16 +257,6 @@ form.formulier label {
 	width: 120px; /* Width of labels */
 	margin-left: 20px;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
