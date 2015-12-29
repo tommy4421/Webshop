@@ -8,19 +8,19 @@
 
 /* general */
 a {
-	color:#777;
+	color: black;
 	text-decoration:none;
 }
 
 a:hover {
-	color:#111;
+	color:grey;
 	text-decoration:none;
 }
 
 /* body */
 body {
-	background:#ffffff;
-	color:#555;
+	background: #ffffff;
+	color: #555;
 	/*font:0.8em Arial, Helvetica, "bitstream vera sans", sans-serif;*/
         font-family: 'Pacifico', cursive;
 }
