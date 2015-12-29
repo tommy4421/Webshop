@@ -3,7 +3,7 @@
 * {
 	border: 0;
 	margin: 0;
-	padding: 50px;
+	padding: 0;
 }
 
 /* general */
@@ -23,6 +23,7 @@ body {
 	color: #555;
 	/*font:0.8em Arial, Helvetica, "bitstream vera sans", sans-serif;*/
         font-family: 'Pacifico', cursive;
+        padding: 50px;
 }
 
 
