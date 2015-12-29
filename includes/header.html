@@ -63,11 +63,10 @@
         <div id="header">
             <img src="images/logobox.jpg" alt="Logo"  height="150" width="300">
         </div>
-     </header>
-
+     
     <?php
             // Toon de inhoud van je winkelwagen en de naam van de gebruiker linksboven in header.
-            echo "<ul id='menu'>\n";
+            echo "<ul class='account'>\n";
 
             // Een gebruiker is ingelogd wanneer $_SESSION['klantnr'] een waarde heeft (niet leeg is).
             // Opdracht: vul onderstaande code aan zodat de volgende functionaliteit werkt:
@@ -102,7 +101,7 @@
             // Hier kijken we of er een actief menu-item is. Zo niet, dan 0.
             if (!isset($active)) $active = 0;
     ?>
-    
+    </header>
     
     <nav class="navbar navbar-default">
       <div class="container-fluid">

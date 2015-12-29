@@ -102,9 +102,13 @@ body {
     top: 50px;
     margin: 40px;
 }
+
+.account{
+    float: right;
+}
 /* Nieuwe Menu */
 
-.navbar-default {
+.navbar {
     background-color: #FF2C28
 }
 
