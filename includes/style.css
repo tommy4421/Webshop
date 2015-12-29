@@ -117,8 +117,8 @@ body {
 
 /* Nieuwe Menu */
 
-.navbar-default {
-    background-color: #FF2C28
+.navbar {
+    background-color: #FF2C28;
 }
 
 .navbar a {
