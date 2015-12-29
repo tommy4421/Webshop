@@ -309,6 +309,7 @@ form.formulier label {
     bottom: 0;
     background-color: #ff2c32;
     width: auto;
+    height: auto;
 }
 
 
@@ -316,7 +317,7 @@ form.formulier label {
     float: left;
 }
 .nieuwsbrief {
-
+    text-align: center;
 }
 
 .socialmedia {
