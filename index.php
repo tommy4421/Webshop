@@ -95,5 +95,7 @@ mysqli_free_result($result);
 /* sluit de connection */
 mysqli_close($conn);
 
+include ('includes/home.html');
+
 include ('includes/footer.html');
 ?>
