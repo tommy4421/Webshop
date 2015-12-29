@@ -25,7 +25,7 @@ body {
         font-family: 'Pacifico', cursive;
 }
 
-/* header */
+/* oude header 
 #header {
 	height:80px;
 	margin:0 auto;
@@ -90,6 +90,13 @@ body {
 #menu a {
 	color: #555;
 	text-decoration:underline
+}
+*/
+
+/* Nieuwe Menu */
+
+.navbar{
+    background-color: #FF2C28
 }
 
 
