@@ -49,12 +49,18 @@ body {
 	text-decoration:underline
 }
 
+ul
+{
+	list-style-type: none;
+}
+
+
 
 
 
 /* Nieuwe menu */
 
-.navbar {
+.navbar-custom {
     background-color: #FF2C28;
 }
 
@@ -211,7 +217,7 @@ ul
 	list-style-type: none;
 }
 
-*/
+*/ 
 
 /* -------------------------------- */
 
