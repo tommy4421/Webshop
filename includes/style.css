@@ -25,6 +25,8 @@ body {
         font-family: 'Pacifico', cursive;
 }
 
+
+
 /* oude header 
 #header {
 	height:80px;
@@ -93,6 +95,13 @@ body {
 }
 */
 
+/* header */
+
+.header {
+    position: absolute;
+    top: 50px;
+    margin: 40px;
+}
 /* Nieuwe Menu */
 
 .navbar{

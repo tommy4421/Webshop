@@ -55,14 +55,18 @@
     
     
     <body>
+        
       <!-- Google analytics-->
      <?php include_once("analyticstracking.php") ?>
-    <div id="header">
-        
-        <img src="images/logobox.jpg" alt="Logo"  height="150" width="300">
-        
-    <h1>Tijdvooreenbox.nl</h1>
-    <h2>Orgineel kado!</h2>
+     
+     <header>
+        <div id="header">
+
+            <img src="images/logobox.jpg" alt="Logo"  height="150" width="300">
+
+        <h1>Tijdvooreenbox.nl</h1>
+        <h2>Orgineel kado!</h2>
+     </header>
 
     <?php
             // Toon de inhoud van je winkelwagen en de naam van de gebruiker linksboven in header.
@@ -101,8 +105,6 @@
             // Hier kijken we of er een actief menu-item is. Zo niet, dan 0.
             if (!isset($active)) $active = 0;
     ?>
-    
-    
     
     
     <nav class="navbar navbar-fixed-top">
