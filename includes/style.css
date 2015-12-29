@@ -62,6 +62,22 @@ ul
 
 .navbar-custom {
     background-color: #FF2C28;
+    color: #FF2C28;
+}
+
+.navbar-default {
+    background-color: #FF2C28;
+    color: #FF2C28;
+}
+
+.navbar-nav {
+    background-color: #FF2C28;
+    color: #FF2C28;
+}
+
+.navbar {
+    background-color: #FF2C28;
+    color: #FF2C28;
 }
 
 .navbar a {
