@@ -104,8 +104,17 @@ body {
 }
 
 .account{
-    float: right;
+        float: left;
+	margin-top: -50px;
+	padding: 5px;
 }
+
+.account a {
+	color: #555;
+	text-decoration:underline
+}
+
+
 /* Nieuwe Menu */
 
 .navbar {
