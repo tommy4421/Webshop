@@ -380,21 +380,23 @@ form.formulier label {
 /* Footer */
 
 .footer {
-    margin-top: 50px;
-    bottom: 0;
+    color: white;
+    font-size: large;
     background-color: #ff2c32;
-    width: auto;
-    height: auto;
+    height: 160px;
+    padding: 20px;
+    
 }
-
 
 .adres {
-    float: left;
+text-align: left;
 }
 .nieuwsbrief {
-    text-align: center;
+text-align: center;
+padding: 40px;
 }
 
 .socialmedia {
-    float: right;
+text-align: right;
+
 }
