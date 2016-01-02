@@ -19,6 +19,7 @@ include ('includes/header.html');
 // Per server is er een apart inlogbestand - localhost vs. remote server
 // Dat maakt het gemakkelijk om je bestanden naar een remote server te verplaatsen.
 //include ('includes/mysqli_connect_localhost.php');
+include ('includes/mysqli_connect_webpages.avans.nl');
 include ('includes/mysqli_connect_localhost.php');
 
 echo '<h1>Welkom op Tijdvooreenbox.nl!';
