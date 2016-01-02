@@ -243,13 +243,51 @@ ul
 
 /* ---------------------- Home ----------------------------- */
 
+.titel{
+    text-align: center;
+}
 
 .streken{
     background-color: #ff2c32;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
+    height: 50%;
     width: 100%;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+.tekens{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50%;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.streek{
+    background-color: #ff2c32;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50%;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.provincie{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50%;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 /* ---------------------- footer (aangepast) ----------------------------- 
