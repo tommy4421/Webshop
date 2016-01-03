@@ -25,21 +25,20 @@ if (mysqli_connect_errno()) {
 
 $email=$_POST['email'];
 $wachtwoord=$_POST['wachtwoord'];
-$tabel='Klant';
 
 // Deze code selecteert het ledennummer dat bij de ingevulde gebruikersnaam hoort.
 // De fetch array zorgt ervoor dat er als uitkomst van de query niet uitkomt 'resource id blabla', maar juist 
 // de letterlijke uitkomst, dus het ledennnummer.
 
-$naam1 = mysql_query("SELECT Naam FROM $tabel where Email='$email'");
+$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
 $naam2 = mysql_fetch_array($naam1);
 $naam = ($naam2['naam']);
 
-$klantid1 = mysql_query("SELECT KlantID FROM $tabel WHERE Email='$email'");
+$klantid1 = mysql_query("SELECT KlantID FROM Klant WHERE Email='$email'");
 $klantid2 = mysql_fetch_array($id1);
 $klantid = ($klantid2['KlantID']);
 
-$w8woord1 = mysql_query("SELECT Wachtwoord FROM $tabel WHERE Email='$email'");
+$w8woord1 = mysql_query("SELECT Wachtwoord FROM Klant WHERE Email='$email'");
 $w8woord2 = mysql_fetch_array($w8woord1);
 $w8woord = ($w8woord2['wachtwoord']);
 
@@ -51,11 +50,11 @@ $wachtwoord = mysql_real_escape_string($wachtwoord);
 
 // Deze code tel de rijen die er uit de query komen. Als de uitkomst precies 1 is, betekent dit dat de
 // ingevulde gebruikersnaam en wachtwoord de juiste combinatie zijn, en dus dat de gegevens kloppen
-$sql="SELECT * FROM $tabel WHERE Email='$email' and wachtwoord='$wachtwoord'";
+$sql="SELECT * FROM Klant WHERE Email='$email' and wachtwoord='$wachtwoord'";
 $result=mysql_query($sql);
 $count=mysql_num_rows($result);
 
-$adminquery="SELECT * FROM $tabel WHERE Email='$email' and Wachtwoord='$wachtwoord'";
+$adminquery="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
 $resultaat=mysql_query($adminquery);
 
 
