@@ -13,11 +13,11 @@ include ('includes/mysqli_connect_localhost.php');
 echo '<h1>Login</h1>';
  
 ?>
-	<p>Voer hier uw emailadres in. Nieuwe klant? <a href="registreer.php">Registreer hier</a>.</p>
+	<center><p>Voer hier uw emailadres in. Nieuwe klant? <a href="registreer.php">Registreer hier</a>.</p>
 
     <form action="checklogin.php" method="post" class="formulier">
       <fieldset>
-        <center>
+        
         <legend>Login</legend>
         <ol>
           <li>
