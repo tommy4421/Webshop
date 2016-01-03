@@ -31,12 +31,14 @@ $email=$_POST['email'];
 $wachtwoord=$_POST['wachtwoord'];
 
 // Maak de SQL query die onze bestellingen gaat opleveren.
+$sql = "SELECT * FROM `Klant` WHERE `Email`='$email';"; 
+
 $query="SELECT * FROM `Klant` WHERE Email='$email' and Wachtwoord='$wachtwoord'";
 $resultaat=mysql_query($query);
 
 // Voer de query uit en sla het resultaat op 
 		// Voer de query uit en vang fouten op 
-if( !($result = mysqli_query($resultaat)) ) {
+if( !($result = mysqli_query($conn, $sql, $resultaat)) ) {
 	echo "<p>Geen resultaten gevonden.</p>\n";
 } else {
 	if (mysql_num_rows($resultaat) > 0 ){
