@@ -41,7 +41,6 @@ $resultaat=mysql_query($query);
 if( !($result = mysqli_query($conn, $sql, $resultaat)) ) {
 	echo "<p>Geen resultaten gevonden.</p>\n";
 } else {
-	if (mysql_num_rows($resultaat) > 0 ){
 		echo "Test";
 	
 					    }
