@@ -9,6 +9,7 @@ include ('includes/header.html');
 // Per server is er een apart inlogbestand - localhost vs. remote server
 //include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
 include ('includes/mysqli_connect_localhost.php');
+include ('includes/mysqli_connect_webpages.avans.nl');
 
 ?>
 <?php
