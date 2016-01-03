@@ -45,7 +45,7 @@ $w8woord1 = mysql_query("SELECT Wachtwoord FROM Klant WHERE Email='$email'");
 $w8woord2 = mysql_fetch_array($w8woord1);
 $w8woord = ($w8woord2['wachtwoord']);
 
-echo '$naam';
+echo "$naam";
 /* maak de resultset leeg */
 mysqli_free_result($result);
 
