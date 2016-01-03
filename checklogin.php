@@ -31,19 +31,9 @@ $email=$_POST['email'];
 $wachtwoord=$_POST['wachtwoord'];
 
 // Maak de SQL query die onze bestellingen gaat opleveren.
-$sql = "SELECT * FROM `Klant` WHERE `Email`='$email';"; 
+$naam = "SELECT Naam FROM `Klant` WHERE `Email`='$email';"; 
 
-$naam1 = mysql_query("SELECT `Naam` FROM `Klant` WHERE `Email`='$email'");
-$naam2 = mysql_fetch_array($naam1);
-$naam = ($naam2['naam']);
 
-$klantnr1 = mysql_query("SELECT KlantID FROM Klant WHERE Email='$email'");
-$klantnr2 = mysql_fetch_array($id1);
-$klantnr = ($klantnr2['KlantID']);
-
-$w8woord1 = mysql_query("SELECT Wachtwoord FROM Klant WHERE Email='$email'");
-$w8woord2 = mysql_fetch_array($w8woord1);
-$w8woord = ($w8woord2['wachtwoord']);
 
 echo "$naam";
 /* maak de resultset leeg */
