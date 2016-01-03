@@ -84,12 +84,8 @@ $resultaat=mysql_query($adminquery);
 		header("refresh: 0; url=logindenied.php");
 		
         }
-echo "$naam";
 
 ?>
-
-</font>
-</body>
 
 <?php
 
