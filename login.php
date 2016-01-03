@@ -28,11 +28,11 @@ include ('includes/mysqli_connect_localhost.php');
           </li>
         </ol>
         <input type="submit" value="Login" class="button"/>
-      </center>
       </fieldset>
     </form>
 
       <p>Voer hier uw emailadres in. Nieuwe klant? <a href="registreer.php">Registreer hier</a>.</p>
+     </center>
 
 <?php	
 	include ('includes/footer.html');
