@@ -36,13 +36,13 @@ $resultaat=mysql_query($query);
 
 // Voer de query uit en sla het resultaat op 
 		// Voer de query uit en vang fouten op 
-if( !($result = mysqli_query($conn, $resultaat)) ) {
+if( !($result = mysqli_query($resultaat)) ) {
 	echo "<p>Geen resultaten gevonden.</p>\n";
 } else {
 	if (mysql_num_rows($resultaat) > 0 ){
 		echo "Test";
 	
-}
+					    }
 }
 /* maak de resultset leeg */
 mysqli_free_result($result);
