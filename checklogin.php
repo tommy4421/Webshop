@@ -33,7 +33,7 @@ $wachtwoord=$_POST['wachtwoord'];
 // Maak de SQL query die onze bestellingen gaat opleveren.
 $sql = "SELECT * FROM `Klant` WHERE `Email`='$email';"; 
 
-$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
+$naam1 = mysql_query("SELECT `Naam` FROM `Klant` WHERE `Email`='$email'");"; 
 $naam2 = mysql_fetch_array($naam1);
 $naam = ($naam2['naam']);
 
