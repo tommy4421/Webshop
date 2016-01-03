@@ -54,6 +54,9 @@ $sql="SELECT * FROM $tabel WHERE Email='$email' and wachtwoord='$wachtwoord'";
 $result=mysql_query($sql);
 $count=mysql_num_rows($result);
 
+$adminquery="SELECT * FROM $tabel WHERE Email='$email' and Wachtwoord='$wachtwoord'";
+$resultaat=mysql_query($adminquery);
+
 
 // Deze code checkt of de ingevulde gegevens kloppen, en hij checkt of de gebruiker een admin is.
 // Als de gebruiker een admin is, wordt dit opgeslagen met Session['admin'].
