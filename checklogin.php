@@ -38,8 +38,14 @@ $sql = "SELECT * FROM `Klant` WHERE `Email`='$email';";
 if( !($result = mysqli_query($conn, $sql)) ) {
 	echo "<p>Geen resultaten gevonden.</p>\n";
 } else {
+	// We zoeken één klant, dus slechts één row is nodig.
+	$row = mysqli_fetch_array($result);
 
-echo "test";
+	echo "<table>\n" ;
+	echo "<tr><td>Naam</td><td>".$row["Naam"]."</td></tr>\n" ;
+	echo "</table>\n" ;
+}
+
 /* maak de resultset leeg */
 mysqli_free_result($result);
 
