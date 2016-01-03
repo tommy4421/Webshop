@@ -27,8 +27,9 @@ if (mysqli_connect_errno()) {
 	exit();
 }
 
+$email=$_POST['email'];
+$wachtwoord=$_POST['wachtwoord'];
 
-$email='kjneeter@avans.nl';
 // Maak de SQL query die onze bestellingen gaat opleveren.
 $sql = "SELECT * FROM `Klant` WHERE `Email`='$email';"; 
 
