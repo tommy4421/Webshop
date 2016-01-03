@@ -16,7 +16,7 @@ include ('includes/mysqli_connect_localhost.php');
     <form action="checklogin.php" method="post" class="formulier">
       <fieldset>
         
-        <legend>Login</legend>
+        <legend><h1>Login</h1></legend>
         <ol>
           <li>
             <label for="email">E-mail</label>
@@ -31,7 +31,7 @@ include ('includes/mysqli_connect_localhost.php');
       </fieldset>
     </form>
 
-      <p>Voer hier uw emailadres in. Nieuwe klant? <a href="registreer.php">Registreer hier</a>.</p>
+      <p>Voer hier uw emailadres in. Nieuwe klant? <a href="registreer.php">Registreer hier</a>.</p><br />
      </center>
 
 <?php	
