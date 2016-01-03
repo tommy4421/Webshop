@@ -10,10 +10,10 @@ include ('includes/header.html');
 //include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
 include ('includes/mysqli_connect_localhost.php');
 // Page header:
-echo '<h1><center>Login</h1>';
+echo '<h1><center>Login</center></h1>';
  
 ?>
-	<p>Voer hier uw emailadres in. Nieuwe klant? <a href="registreer.php">Registreer hier</a>.</p>
+	<center></center><p>Voer hier uw emailadres in. Nieuwe klant? <a href="registreer.php">Registreer hier</a>.</p>
 
     <form action="checklogin.php" method="post" class="formulier">
       <fieldset>
