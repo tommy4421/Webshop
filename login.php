@@ -42,7 +42,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST') // && isset($_POST['email']) && isset
 			exit();
 		}
 
-		$sql = "SELECT `klantid`, `naam` FROM `Klant` WHERE `emailadres`='".$_POST['email']."';";
+		$sql = "SELECT `klantid`, `naam` FROM `Klant` WHERE `Email`='".$_POST['email']."';";
 		// Voer de query uit 
 		$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
 		
