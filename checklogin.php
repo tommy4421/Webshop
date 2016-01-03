@@ -43,7 +43,7 @@ if( !($result = mysqli_query($conn, $resultaat)) ) {
 		echo "Test";
 	
 }
-
+}
 /* maak de resultset leeg */
 mysqli_free_result($result);
 
