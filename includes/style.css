@@ -279,6 +279,28 @@ a:hover.slidesjs-stop {
 	overflow: auto
 }
 
+@media (max-width: 768px) {
+    
+    .logo{
+      width: 220px;
+    
+    }
+    .container {
+      padding:0;
+      margin:0;
+    }
+
+    body {
+      padding:0;
+    }
+
+    .navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top {
+      margin-left: 0;
+      margin-right: 0;
+      margin-bottom:0;
+    }
+}
+
 /*
 #content h1 {
 	border-bottom:1px dashed #999;
