@@ -74,9 +74,9 @@ $resultaat=mysql_query($adminquery);
         if ($admin['Admin'] == 1) {
             $_SESSION['Admin'] = 1;
 			
-			header ("Location:beheer.php");
+			header("Location:beheer.php");
         } else  {
-            header ("Location:login_success.php");
+            header("Location:login_success.php");
             $_SESSION['Admin'] = 0;
         } 
 		
