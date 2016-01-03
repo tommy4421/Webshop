@@ -33,20 +33,19 @@ $wachtwoord=$_POST['wachtwoord'];
 // Maak de SQL query die onze bestellingen gaat opleveren.
 $sql = "SELECT * FROM `Klant` WHERE `Email`='$email';"; 
 
-// Voer de query uit en sla het resultaat op 
-		// Voer de query uit en vang fouten op 
-if( !($result = mysqli_query($conn, $sql)) ) {
-	echo "<p>Geen resultaten gevonden.</p>\n";
-} else {
-	// We zoeken één klant, dus slechts één row is nodig.
-	$row = mysqli_fetch_array($result);
+$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
+$naam2 = mysql_fetch_array($naam1);
+$naam = ($naam2['naam']);
 
-	echo "<table>\n" ;
-	echo "<tr><td>Naam</td><td>".$row["Naam"]."</td></tr>\n" ;
-	echo "</table>\n" ;
-}
+$klantnr1 = mysql_query("SELECT KlantID FROM Klant WHERE Email='$email'");
+$klantnr2 = mysql_fetch_array($id1);
+$klantnr = ($klantnr2['KlantID']);
 
+$w8woord1 = mysql_query("SELECT Wachtwoord FROM Klant WHERE Email='$email'");
+$w8woord2 = mysql_fetch_array($w8woord1);
+$w8woord = ($w8woord2['wachtwoord']);
 
+echo '$naam';
 /* maak de resultset leeg */
 mysqli_free_result($result);
 
