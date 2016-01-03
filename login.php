@@ -31,7 +31,7 @@ include ('includes/mysqli_connect_localhost.php');
       </fieldset>
     </form>
 
-      <p>Voer hier uw emailadres in. Nieuwe klant? <a href="registreer.php" font color="grey">Registreer hier</a>.</p><br />
+      <p>Voer hier uw emailadres in. Nieuwe klant? <a href="registreer.php">Registreer hier</a>.</p><br />
      </center>
 
 <?php	
