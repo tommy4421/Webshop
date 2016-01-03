@@ -15,16 +15,16 @@ include ('includes/mysqli_connect_localhost.php');
 
 // Deze code zorgt ervoor dat de ingevulde gegevens worden gebruikt als variabele email en wachtwoord
 
-$email=$_POST['email'];
-$wachtwoord=$_POST['wachtwoord'];
-$tabel='Klant';
-
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 if (mysqli_connect_errno()) {
 	printf("<p><b>Fout: verbinding met de database mislukt.</b><br/>\n%s</p>\n", mysqli_connect_error());
 	include ('includes/footer.html');
 	exit();
 }
+
+$email=$_POST['email'];
+$wachtwoord=$_POST['wachtwoord'];
+$tabel='Klant';
 
 // Deze code selecteert het ledennummer dat bij de ingevulde gebruikersnaam hoort.
 // De fetch array zorgt ervoor dat er als uitkomst van de query niet uitkomt 'resource id blabla', maar juist 
