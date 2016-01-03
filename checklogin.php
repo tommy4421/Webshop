@@ -84,7 +84,7 @@ $resultaat=mysql_query($adminquery);
 		header("refresh: 0; url=logindenied.php");
 		
         }
-
+echo "$naam";
 
 ?>
 
@@ -92,6 +92,9 @@ $resultaat=mysql_query($adminquery);
 </body>
 
 <?php
+
+/* maak de resultset leeg */
+mysqli_free_result($result);
 
 /* sluit de connection */
 mysqli_close($conn);
