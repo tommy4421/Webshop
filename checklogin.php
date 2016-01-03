@@ -31,7 +31,7 @@ $email=$_POST['email'];
 $wachtwoord=$_POST['wachtwoord'];
 
 // Maak de SQL query die onze bestellingen gaat opleveren.
-$naam = "SELECT Naam FROM `Klant` WHERE `Email`='$email';"; 
+$naam = "'SELECT Naam FROM `Klant` WHERE `Email`='$email';" 
 
 
 
