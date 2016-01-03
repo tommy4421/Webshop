@@ -5,7 +5,6 @@
 error_reporting(E_ERROR | E_PARSE);
 $page_title = 'Tijdvooreenbox.nl ~ Login';
 include ('includes/header.html');
-include ('includes/logincheck.php');
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
 //include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
