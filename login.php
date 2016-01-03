@@ -17,6 +17,7 @@ echo '<h1>Login</h1>';
 
     <form action="checklogin.php" method="post" class="formulier">
       <fieldset>
+        <center>
         <legend>Login</legend>
         <ol>
           <li>
@@ -29,6 +30,7 @@ echo '<h1>Login</h1>';
           </li>
         </ol>
         <input type="submit" value="Login" class="button"/>
+      </center>
       </fieldset>
     </form>
 <?php	
