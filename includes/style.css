@@ -58,7 +58,7 @@ ul
 /* Banner (sider) */
 
 #slides {
-  display: none
+  display: none;
 }
 
 #slides .slidesjs-navigation {

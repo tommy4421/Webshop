@@ -22,8 +22,8 @@ include ('includes/header.html');
 include ('includes/mysqli_connect_webpages.avans.nl');
 include ('includes/mysqli_connect_localhost.php');
 
-echo '<h1>Welkom op Tijdvooreenbox.nl!';
-echo '<h3>Het orgineelste kado!';
+//echo '<h1>Welkom op Tijdvooreenbox.nl!';
+//echo '<h3>Het orgineelste kado!';
 
 // Print een aangepast welkomstbericht wanneer de gebruiker bekend is.
 if (isset($_SESSION['klantnaam'])) 
@@ -34,6 +34,13 @@ else echo "</h1>\n";
 // Stap 1: maak verbinding met MySQL.
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
+include ('includes/slider.html');
+
+include ('includes/home.html');
+
+include ('includes/footer.html');
+
+
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  
@@ -96,7 +103,5 @@ mysqli_free_result($result);
 /* sluit de connection */
 mysqli_close($conn);
 
-include ('includes/home.html');
 
-include ('includes/footer.html');
 ?>

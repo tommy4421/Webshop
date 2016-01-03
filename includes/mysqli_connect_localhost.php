@@ -7,7 +7,7 @@
 
 //Verbind met de database
 DEFINE ('DB_HOST', 'localhost');
-DEFINE ('DB_USER', 'bimivp2e4');
-DEFINE ('DB_PASSWORD', 'Welkom01');
+DEFINE ('DB_USER', 'root');
+DEFINE ('DB_PASSWORD', '');
 DEFINE ('DB_NAME', 'avans_bimivp2e4');
 ?>
