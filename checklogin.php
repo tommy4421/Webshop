@@ -39,12 +39,7 @@ if( !($result = mysqli_query($conn, $sql)) ) {
 	echo "<p>Geen resultaten gevonden.</p>\n";
 } else {
 
-$sql2="SELECT * FROM $tabel WHERE Email='$email' and wachtwoord='$wachtwoord'";
-$resultaat=mysql_query($sql2);
-$count=mysql_num_rows($result);
-
-if (mysql_num_rows($resultaat) > 0 ){
-	echo "Test";
+echo "test";
 /* maak de resultset leeg */
 mysqli_free_result($result);
 
