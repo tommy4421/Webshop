@@ -9,11 +9,9 @@ include ('includes/header.html');
 // Per server is er een apart inlogbestand - localhost vs. remote server
 //include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
 include ('includes/mysqli_connect_localhost.php');
-// Page header:
-echo '<h1><center>Login</center></h1>';
- 
+
 ?>
-	<center><p>Voer hier uw emailadres in. Nieuwe klant? <a href="registreer.php">Registreer hier</a>.</p>
+    <center>
 
     <form action="checklogin.php" method="post" class="formulier">
       <fieldset>
@@ -30,6 +28,7 @@ echo '<h1><center>Login</center></h1>';
           </li>
         </ol>
         <input type="submit" value="Login" class="button"/>
+      <p>Voer hier uw emailadres in. Nieuwe klant? <a href="registreer.php">Registreer hier</a>.</p>
       </center>
       </fieldset>
     </form>
