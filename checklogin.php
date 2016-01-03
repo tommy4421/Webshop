@@ -33,7 +33,7 @@ if (mysqli_connect_errno()) {
 
 $email='kjneeter@avans.nl';
 // Maak de SQL query die onze bestellingen gaat opleveren.
-$sql = "SELECT * FROM `klant` WHERE `email`='$email';"; 
+$sql = "SELECT * FROM `Klant` WHERE `Email`='$email';"; 
 
 // Voer de query uit en sla het resultaat op 
 		// Voer de query uit en vang fouten op 
