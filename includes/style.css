@@ -545,7 +545,8 @@ form.formulier label {
     color: white;
     font-size: large;
     background-color: #ff2c32;
-    height: 160px;
+    height: 30%;
+    width: 100%;
     padding: 30px;
     
 }
