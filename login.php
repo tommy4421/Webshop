@@ -21,11 +21,11 @@ echo '<h1>Login</h1>';
         <ol>
           <li>
             <label for="email">E-mail</label>
-            <input id="email" name="email" value="Email"/>
+            <input id="email" name="email" placeholder="Email"/>
           </li>
 		  <li>
             <label for="email">Wachtwoord</label>
-            <input id="wachtwoord" name="wachtwoord" value="Wachtwoord"/>
+            <input id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord"/>
           </li>
         </ol>
         <input type="submit" value="Login" class="button"/>
