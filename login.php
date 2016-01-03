@@ -20,11 +20,11 @@ include ('includes/mysqli_connect_localhost.php');
         <ol>
           <li>
             <label for="email">E-mail</label>
-            <input id="email" name="email" placeholder="Email hier"/>
+            <input id="email" name="email" placeholder="Email hier" REQUIRED/>
           </li>
 		  <li>
             <label for="email">Wachtwoord</label>
-            <input id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord hier"/>
+            <input id="wachtwoord" name="wachtwoord" placeholder="Wachtwoord hier" REQUIRED/>
           </li>
         </ol>
         <input type="submit" value="Login" class="button"/>
