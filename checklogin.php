@@ -16,9 +16,6 @@ include ('includes/header.html');
 include ('includes/mysqli_connect_webpages.avans.nl');
 include ('includes/mysqli_connect_localhost.php');
 
- // Google analytics
- include_once("includes/analyticstracking.php");
-
 // Zet het niveau van foutmeldingen zo dat warnings niet getoond worden.
 error_reporting(E_ERROR | E_PARSE);
 
