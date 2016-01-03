@@ -50,7 +50,7 @@ $wachtwoord = mysql_real_escape_string($wachtwoord);
 
 // Deze code tel de rijen die er uit de query komen. Als de uitkomst precies 1 is, betekent dit dat de
 // ingevulde gebruikersnaam en wachtwoord de juiste combinatie zijn, en dus dat de gegevens kloppen
-$sql="SELECT * FROM Klant WHERE Email='$email' and wachtwoord='$wachtwoord'";
+$sql="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
 $result=mysql_query($sql);
 $count=mysql_num_rows($result);
 
