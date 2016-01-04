@@ -30,6 +30,7 @@ if (mysqli_connect_errno()) {
 $email=$_POST['email'];
 $wachtwoord=$_POST['wachtwoord'];
 
+$conn ;
 // Maak de SQL query die onze bestellingen gaat opleveren.
 $sql = "SELECT * FROM `Klant` WHERE `Email`='$email';"; 
 
