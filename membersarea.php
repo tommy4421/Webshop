@@ -14,7 +14,7 @@ include ('includes/mysqli_connect_localhost.php');
 session_start();
 	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {;
 } else {
-    header("location: index.php");
+    header("location: login.php");
 }
 
 ob_end_flush();
