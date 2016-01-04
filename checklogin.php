@@ -46,7 +46,7 @@ if( !($result = mysqli_query($conn, $sql)) ) {
 else {
 $row = mysqli_fetch_array($result);
 	echo "<table>\n" ;
-	echo "<tr><td>Naam</td><td>".$row["naam"]."</td></tr>\n" ;
+	echo "<tr><td>Naam</td><td>".$row["Naam"]."</td></tr>\n" ;
 	echo "</table>\n" ; }
 
 
