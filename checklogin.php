@@ -59,20 +59,20 @@ mysql_select_db("$db_name")or die("Kan geen database selecteren!");
 // De fetch array zorgt ervoor dat er als uitkomst van de query niet uitkomt 'resource id blabla', maar juist 
 // de letterlijke uitkomst, dus het ledennnummer.
 
-$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
-$naam2 = mysql_fetch_array($naam1);
-$naam = ($naam2['Naam']);
-
-$klantnr1 = mysql_query("SELECT KlantID FROM Klant WHERE Email='$email'");
-$klantnr2 = mysql_fetch_array($id1);
-$klantnr = ($klantid2['KlantID']);
-
 $sql="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
 $resultaat=mysql_query($sql);
 $count=mysql_num_rows($resultaat);
 
   if (mysql_num_rows($resultaat) > 0 ){
         $admin=mysql_fetch_array($resultaat);
+
+	$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
+	$naam2 = mysql_fetch_array($naam1);
+	$naam = ($naam2['Naam']);
+
+	$klantnr1 = mysql_query("SELECT KlantID FROM Klant WHERE Email='$email'");
+	$klantnr2 = mysql_fetch_array($id1);
+	$klantnr = ($klantid2['KlantID']);
 
 		session_start();
 		$_SESSION['klantnr'] = $klantid;
@@ -89,7 +89,7 @@ $count=mysql_num_rows($resultaat);
             $_SESSION['Admin'] = 0;
         } 
 		
-		} else  {
+		else  {
 		header("refresh: 0; url=logindenied.php");
 		
         }
