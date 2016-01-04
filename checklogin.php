@@ -54,7 +54,7 @@ if (mysql_num_rows($resultaat) <= 0 ){
 elseif (mysql_num_rows($resultaat) > 0 ){
 	echo "Ja";
 }
-exit();
+
 /* maak de resultset leeg */
 mysqli_free_result($result);
 
