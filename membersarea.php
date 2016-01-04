@@ -17,7 +17,7 @@ session_start();
     header("location: login.php");
 }
 
-
+echo "Favorite animal is " . $_SESSION["Naam"] . ".";
 
 
 
