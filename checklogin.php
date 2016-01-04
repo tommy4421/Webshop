@@ -50,10 +50,8 @@ $resultaat=mysql_query($query);
 
 if (mysql_num_rows($resultaat) <= 0 ){
 	header("location:Logindenied.php"); 
-exit; 
 }
-
-if (mysql_num_rows($resultaat) > 0 ){
+elseif (mysql_num_rows($resultaat) > 0 ){
 	echo "Ja";
 }
 
