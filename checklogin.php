@@ -70,27 +70,29 @@ $klantnr = ($klantid2['KlantID']);
 $query="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
 $resultaat=mysql_query($query);
 
+$adminquery="SELECT * FROM $tabel WHERE Email='$email' and Wachtwoord='$wachtwoord'";
+$resultaat=mysql_query($adminquery);
+
   if (mysql_num_rows($resultaat) > 0 ){
         $admin=mysql_fetch_array($resultaat);
 
 		session_start();
-		$_SESSION['klantnr'] = $klantnr;
-		$_SESSION['klantnaam'] = $naam;
+		$_SESSION['klantnr'] = $klantid;
+		$_SESSION['Naam'] = $naam;
 		$_SESSION['Email'] = $email;
 		$_SESSION['loggedin'] = true;
-  }	
+		
         if ($admin['Admin'] == 1) {
             $_SESSION['Admin'] = 1;
-	header ("Location:beheer.php");
-        
-        	
+			
+			header ("Location:beheer.php");
         } else  {
             header ("Location:login_success.php");
             $_SESSION['Admin'] = 0;
         } 
 		
-	else  {
-	    header("refresh: 0; url=logindenied.php");
+		} else  {
+		header("refresh: 0; url=logindenied.php");
 		
         }
   				
