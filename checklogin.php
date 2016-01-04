@@ -64,7 +64,6 @@ $resultaat=mysql_query($sql);
 $count=mysql_num_rows($resultaat);
 
   if($count==1){
-        $admin=mysql_fetch_array($resultaat);
 
 	$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
 	$naam2 = mysql_fetch_array($naam1);
@@ -79,17 +78,9 @@ $count=mysql_num_rows($resultaat);
 		$_SESSION['Naam'] = $naam;
 		$_SESSION['Email'] = $email;
 		$_SESSION['loggedin'] = true;
+		header("refresh: 0; url=login_success.php");
 		
-        if ($admin['Admin'] == 1) {
-            $_SESSION['Admin'] = 1;
-			
-			header ("Location:beheer.php");
-        } else  {
-            header ("Location:login_success.php");
-            $_SESSION['Admin'] = 0;
-        } 
-		
-		}	else  {
+       } else  {
 		header("refresh: 0; url=logindenied.php");
 		
         }
