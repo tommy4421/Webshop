@@ -46,11 +46,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		$aErrors['email'] = 'Het e-mail addres is onjuist.';
 	}
 
-	//  De straat heeft letters, cijfers, spaties (minimaal 5)
-	if ( !isset($_POST['straat']) or !preg_match( '~^[\w\d ]{5,}$~', $_POST['straat'] ) ) {
-		$aErrors['straat'] = 'De straat is onjuist.';
-	}
-
 	//  Een plaatsnaam heeft letters, spaties en misschien een apostrof
 	if ( !isset($_POST['towncity']) or !preg_match( '~^[\w\d\' ]*$~', $_POST['towncity'] ) ) {
 		$aErrors['towncity'] = 'De stad is onjuist';
@@ -130,7 +125,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
       <select name="geslacht" id="geslacht"><option>man</option><option>vrouw</option></select><br />
       
       <label for="straat">Straat<em>*</em></label>
-		<input id="straat" name="adres" value="<?php echo isset($_POST['adres']) ? htmlspecialchars($_POST['adres']) : '' ?>" />
+		<input id="straat" name="adres" />
 	  </li>
       
       <label for="Toevoeging">Toevoeging</label>
