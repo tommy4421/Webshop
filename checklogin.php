@@ -50,7 +50,7 @@ $resultaat=mysql_query($query);
 
 if (mysql_num_rows($resultaat) > 0 ){
 	echo "Test";
-
+}
 
 /* maak de resultset leeg */
 mysqli_free_result($result);
