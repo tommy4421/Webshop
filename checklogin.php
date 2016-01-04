@@ -21,11 +21,11 @@ error_reporting(E_ERROR | E_PARSE);
 
 // Stap 1: maak verbinding met MySQL.
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-if (mysqli_connect_errno()) {
-	printf("<p><b>Fout: verbinding met de database mislukt.</b><br/>\n%s</p>\n", mysqli_connect_error());
-	include ('includes/footer.html');
-	exit();
-}
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
 
 $email=$_POST['email'];
 $wachtwoord=$_POST['wachtwoord'];
