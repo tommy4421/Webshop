@@ -37,15 +37,13 @@ $wachtwoord = mysql_real_escape_string($wachtwoord);
 
 // Maak de SQL query die onze bestellingen gaat opleveren.
 $sql = "SELECT * FROM `Klant` WHERE `Email`='$email' and `Wachtwoord`='$wachtwoord';"; 
-$result = $conn->query($sql);
-$count=mysql_num_rows($result);
+
+if( !($result = mysqli_query($conn, $sql)) ) {
+	echo "<p>Geen resultaten gevonden.</p>\n";
 // Voer de query uit en sla het resultaat op 
 		// Voer de query uit en vang fouten op 
-if (mysql_num_rows($count) > 0 ){
-	echo "Ja";
-				}
 else { 
-	echo "Nee";
+	echo "Ja";
 				}
 
 /* maak de resultset leeg */
