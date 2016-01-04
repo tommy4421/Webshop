@@ -63,7 +63,7 @@ $sql="SELECT * FROM Klant WHERE Email='$email' AND Wachtwoord='$wachtwoord'";
 $resultaat=mysql_query($sql);
 $count=mysql_num_rows($resultaat);
 
-  if($count==1){
+  if($count==0){
 
 	$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
 	$naam2 = mysql_fetch_array($naam1);
@@ -81,10 +81,10 @@ $count=mysql_num_rows($resultaat);
 		header("refresh: 0; url=login_success.php");
 		
        		} 
-       		
-       		else    {
+       		else    
+       		{
 		header("refresh: 0; url=logindenied.php");
-			}
+		}
   			
 
 /* maak de resultset leeg */
