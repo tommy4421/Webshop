@@ -63,7 +63,7 @@ $sql="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
 $resultaat=mysql_query($sql);
 $count=mysql_num_rows($resultaat);
 
-  if (mysql_num_rows($resultaat) > 0 ){
+  if($count==1){
         $admin=mysql_fetch_array($resultaat);
 
 	$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
