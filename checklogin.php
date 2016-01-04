@@ -27,6 +27,14 @@ if (mysqli_connect_errno()) {
 	exit();
 }
 
+$host = 'localhost';
+$username = 'bimivp2e4';
+$password = 'Welkom01';
+$db_name = 'avans_bimivp2e4';
+
+mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
+mysql_select_db("$db_name")or die("cannot select DB");
+
 $email=$_POST['email'];
 $wachtwoord=$_POST['wachtwoord'];
 
