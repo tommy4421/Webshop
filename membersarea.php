@@ -25,9 +25,6 @@ session_start();
     echo $key." ".$val."<br/>";
 	
 
-
-
-
 ob_end_flush();
 ?>
 
