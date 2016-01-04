@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 //
 // beheer.php
 //
@@ -63,5 +63,6 @@ mysqli_free_result($result);
 /* sluit de connection */
 mysqli_close($conn);
 
-include ('includes/footer.html');
 ?>
+
+
