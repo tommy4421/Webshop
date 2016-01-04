@@ -89,7 +89,7 @@ $count=mysql_num_rows($resultaat);
             $_SESSION['Admin'] = 0;
         } 
 		
-		else  {
+		}	else  {
 		header("refresh: 0; url=logindenied.php");
 		
         }
