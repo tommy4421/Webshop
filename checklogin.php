@@ -65,7 +65,22 @@ $resultaat=mysql_query($sql);
 $count=mysql_num_rows($resultaat);
 
 if($count==1){
-header("location:login_success.php");
+
+$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
+$naam2 = mysql_fetch_array($naam1);
+$naam = ($naam2['naam']);
+
+$klantnr1 = mysql_query("SELECT KlantID FROM Klant WHERE Email='$email'");
+$klantnr2 = mysql_fetch_array($klantnr1);
+$klantnr = ($klantnr2['KlantID']);
+
+		session_start();
+		$_SESSION['klantnr'] = $klantnr;
+		$_SESSION['Naam'] = $naam;
+		$_SESSION['Email'] = $email;
+		$_SESSION['loggedin'] = true;
+		header("location:login_success.php");
+	
 }
 else {
 header("location:logindenied.php");
