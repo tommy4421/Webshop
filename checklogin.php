@@ -49,11 +49,11 @@ $query="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
 $resultaat=mysql_query($query);
 
 if (mysql_num_rows($resultaat) <= 0 ){
-	header ("Location:beheer.php");
+	echo "Nope";
 }
 
 if (mysql_num_rows($resultaat) > 0 ){
-	echo "Test";
+	echo "Ja";
 }
 
 /* maak de resultset leeg */
