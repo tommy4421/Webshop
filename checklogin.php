@@ -75,9 +75,10 @@ $klantnr2 = mysql_fetch_array($klantnr1);
 $klantnr = ($klantnr2['KlantID']);
 
 		session_start();
-		$_SESSION['klantnr'] = $klantnr;
-		$_SESSION['Naam'] = $naam;
-		$_SESSION['Email'] = $email;
+session_register("klantnr");
+session_register("naam"); 
+session_register("email"); 
+
 		$_SESSION['loggedin'] = true;
 		header("location:login_success.php");
 	
