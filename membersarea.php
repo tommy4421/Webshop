@@ -17,8 +17,13 @@ session_start();
     header("location: login.php");
 }
 
-ob_end_flush();
+echo "$_SESSION['Naam']";
 
+
+
+
+
+ob_end_flush();
 ?>
 
 <?php	
