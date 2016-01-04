@@ -37,10 +37,10 @@ $count=mysql_num_rows($result);
 // Voer de query uit en sla het resultaat op 
 		// Voer de query uit en vang fouten op 
 if (mysql_num_rows($count) > 0 ){
-	echo "Test";
+	echo "Ja";
 				}
-else 
-				{ echo"$count";
+else { 
+	echo "Nee";
 				}
 
 /* maak de resultset leeg */
