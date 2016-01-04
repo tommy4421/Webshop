@@ -67,11 +67,9 @@ $klantnr1 = mysql_query("SELECT KlantID FROM Klant WHERE Email='$email'");
 $klantnr2 = mysql_fetch_array($id1);
 $klantnr = ($klantid2['KlantID']);
 
-$query="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
-$resultaat=mysql_query($query);
-
-$adminquery="SELECT * FROM $tabel WHERE Email='$email' and Wachtwoord='$wachtwoord'";
-$resultaat=mysql_query($adminquery);
+$sql="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
+$resultaat=mysql_query($sql);
+$count=mysql_num_rows($resultaat);
 
   if (mysql_num_rows($resultaat) > 0 ){
         $admin=mysql_fetch_array($resultaat);
