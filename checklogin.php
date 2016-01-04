@@ -59,7 +59,7 @@ mysql_select_db("$db_name")or die("Kan geen database selecteren!");
 // De fetch array zorgt ervoor dat er als uitkomst van de query niet uitkomt 'resource id blabla', maar juist 
 // de letterlijke uitkomst, dus het ledennnummer.
 
-$sql="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
+$sql="SELECT * FROM Klant WHERE Email='$email' AND Wachtwoord='$wachtwoord'";
 $resultaat=mysql_query($sql);
 $count=mysql_num_rows($resultaat);
 
@@ -80,11 +80,12 @@ $count=mysql_num_rows($resultaat);
 		$_SESSION['loggedin'] = true;
 		header("refresh: 0; url=login_success.php");
 		
-       } else  {
+       		} 
+       		
+       		else    {
 		header("refresh: 0; url=logindenied.php");
-		
-        }
-  				
+			}
+  			
 
 /* maak de resultset leeg */
 mysqli_free_result($result);
