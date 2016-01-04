@@ -68,7 +68,7 @@ if($count==1){
 header("location:login_success.php");
 }
 else {
-echo "Wrong Username or Password";
+header("location:logindenied.php");
 }
 ob_end_flush();
   			
