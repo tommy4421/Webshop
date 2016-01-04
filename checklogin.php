@@ -43,9 +43,12 @@ if( !($result = mysqli_query($conn, $sql)) ) {
 // Voer de query uit en sla het resultaat op 
 		// Voer de query uit en vang fouten op 
 }
-else { 
-	echo "Ja";
-				}
+else {
+$row = mysqli_fetch_array($result);
+	echo "<table>\n" ;
+	echo "<tr><td>Naam</td><td>".$row["naam"]."</td></tr>\n" ;
+	echo "</table>\n" ; }
+
 
 /* maak de resultset leeg */
 mysqli_free_result($result);
