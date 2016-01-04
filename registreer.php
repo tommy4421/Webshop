@@ -46,9 +46,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		$aErrors['email'] = 'Het e-mail addres is onjuist.';
 	}
 
-	//  Een adres heeft letters, cijfers, spaties (minimaal 5)
-	if ( !isset($_POST['adres']) or !preg_match( '~^[\w\d ]{5,}$~', $_POST['adres'] ) ) {
-		$aErrors['adres'] = 'Het adres is onjuist.';
+	//  De straat heeft letters, cijfers, spaties (minimaal 5)
+	if ( !isset($_POST['straat']) or !preg_match( '~^[\w\d ]{5,}$~', $_POST['straat'] ) ) {
+		$aErrors['straat'] = 'De straat is onjuist.';
 	}
 
 	//  Een plaatsnaam heeft letters, spaties en misschien een apostrof
@@ -63,7 +63,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	
 	// wachtwoord (minimaal 3)
 	// if ( !isset($_POST['password']) or !preg_match( '~^[\w ]{3,}$~', $_POST['password'] ) ) {
-	// 	$aErrors['password'] = 'Geen password ingevuld.';
+	// 	$aErrors['password'] = 'Geen wachtwoord ingevuld.';
 	// }
 
 	if ( count($aErrors) == 0 ) 
@@ -74,8 +74,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			printf("Connect failed: %s\n", mysqli_connect_error());
 		}
 
-		$sql = "INSERT INTO `klant` (`naam`, `adres`, `postcode`, `plaats`, `emailadres`) VALUES ".
-				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['towncity']."', '".$_POST['email']."');";
+		$sql = "INSERT INTO `Klant` (`naam`, `geboorte_datum`, `geslacht`, `straat`,`toevoeging`, `postcode`, `huisnummer`, `plaats`, `emailadres`, `wachtwoord`) VALUES ".
+				"('".$_POST['name']."','".$_POST['gebdat']."','".$_POST['geslacht']."', '".$_POST['straat']."','".$_POST['toevoeging']."', '".$_POST['postcode']."','".$_POST['huisnum']."', '".$_POST['towncity']."', '".$_POST['email']."','".$_POST['password']."');";
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
@@ -96,6 +96,13 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	}
 }
 ?>
+<script type="text/javascript">
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+</script>
+
 <form action="registreer.php" method="post" class="formulier">
   <?php
   if ( isset($aErrors) and count($aErrors) > 0 ) {
@@ -115,25 +122,42 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		<label for="name">Naam<em>*</em></label>
 		<input id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>" />
 	  </li>
-	  <?php echo isset($aErrors['email']) ? '<li class="error">' : '<li>' ?>
+
+		<label for="gebdat">Geboortedatum (<i>01-02-1990</i>) <em>*</em></label>
+		<input id="gebdat" name="gebdat" />
+      
+      <label for="geslacht">Geslacht <em>*</em></label><br />
+      <select name="geslacht" id="geslacht"><option>man</option><option>vrouw</option></select><br />
+      
+      <label for="straat">Straat<em>*</em></label>
+		<input id="straat" name="adres" value="<?php echo isset($_POST['adres']) ? htmlspecialchars($_POST['adres']) : '' ?>" />
+	  </li>
+      
+      <label for="Toevoeging">Toevoeging</label>
+		<input id="toevoeging" name="toevoeging" />
+        
+          <?php echo isset($aErrors['postcode']) ? '<li class="error">' : '<li>' ?>
+		<label for="postcode">Postcode<em>*</em></label>
+		<input id="postcode" name="postcode" value="<?php echo isset($_POST['postcode']) ? htmlspecialchars($_POST['postcode']) : '' ?>" />
+	  </li>
+      
+      <label for="huisnum">Huisnummer <em>*</em></label>
+		<input id="huisnum" name="huisnum" />
+        
+        <?php echo isset($aErrors['towncity']) ? '<li class="error">' : '<li>' ?>
+		<label for="towncity">Plaats</label>
+		<input id="towncity" name="towncity" value="<?php echo isset($_POST['towncity']) ? htmlspecialchars($_POST['towncity']) : '' ?>" />
+	  </li>
+      
+<?php echo isset($aErrors['email']) ? '<li class="error">' : '<li>' ?>
 		<label for="email">E-mail<em>*</em></label>
 		<input id="email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" />
 	  </li>
 	  <?php echo isset($aErrors['adres']) ? '<li class="error">' : '<li>' ?>
-		<label for="adres">Adres<em>*</em></label>
-		<input id="adres" name="adres" value="<?php echo isset($_POST['adres']) ? htmlspecialchars($_POST['adres']) : '' ?>" />
-	  </li>
-	  <?php echo isset($aErrors['postcode']) ? '<li class="error">' : '<li>' ?>
-		<label for="postcode">Postcode<em>*</em></label>
-		<input id="postcode" name="postcode" value="<?php echo isset($_POST['postcode']) ? htmlspecialchars($_POST['postcode']) : '' ?>" />
-	  </li>
-	  <?php echo isset($aErrors['towncity']) ? '<li class="error">' : '<li>' ?>
-		<label for="towncity">Plaats</label>
-		<input id="towncity" name="towncity" value="<?php echo isset($_POST['towncity']) ? htmlspecialchars($_POST['towncity']) : '' ?>" />
-	  </li>
+		
 	  <?php echo isset($aErrors['password']) ? '<li class="error">' : '<li>' ?>
-		<label for="name">Password<em>*</em></label>
-		<input id="name" name="password" type="password" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" />
+		<label for="name">Wachtwoord<em>*</em></label>
+		<input id="password" name="password" type="password" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" />
 	  </li>
 	</ol>
 	<input type="submit" value="Verstuur" class="button"/>
