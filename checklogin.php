@@ -89,7 +89,7 @@ $resultaat=mysql_query($query);
             $_SESSION['Admin'] = 0;
         } 
 		
-	} else  {
+	else  {
 	    header("refresh: 0; url=logindenied.php");
 		
         }
