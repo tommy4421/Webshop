@@ -1,5 +1,6 @@
 <?php
-//index.php
+
+ob_start();
 //startscherm van de webwinkel
 // Zet het niveau van foutmeldingen zo dat warnings niet getoond worden.
 error_reporting(E_ERROR | E_PARSE);
@@ -16,6 +17,8 @@ session_start();
 } else {
     header("location: index.php");
 }
+
+ob_end_flush();
 
 ?>
 
