@@ -49,7 +49,7 @@ $query="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
 $resultaat=mysql_query($query);
 
 if (mysql_num_rows($resultaat) <= 0 ){
-header("Location: http://www.example.com/"); /* Redirect browser */
+header("Location: http://www.tijdvooreenbox.nl/"); /* Redirect browser */
 
 /* Make sure that code below does not get executed when we redirect. */
 exit;
