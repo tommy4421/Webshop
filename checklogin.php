@@ -30,6 +30,11 @@ if ($conn->connect_error) {
 $email=$_POST['email'];
 $wachtwoord=$_POST['wachtwoord'];
 
+$email = stripslashes($email);
+$wachtwoord = stripslashes($wachtwoord);
+$email = mysql_real_escape_string($email);
+$wachtwoord = mysql_real_escape_string($wachtwoord);
+
 // Maak de SQL query die onze bestellingen gaat opleveren.
 $sql = "SELECT * FROM `Klant` WHERE `Email`='$email' and `Wachtwoord`='$wachtwoord';"; 
 $result = $conn->query($sql);
