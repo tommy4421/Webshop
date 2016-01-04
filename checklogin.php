@@ -22,6 +22,11 @@ error_reporting(E_ERROR | E_PARSE);
 $email=$_POST['email'];
 $wachtwoord=$_POST['wachtwoord'];
 
+$email = stripslashes($email);
+$wachtwoord = stripslashes($wachtwoord);
+$email = mysql_real_escape_string($email);
+$wachtwoord = mysql_real_escape_string($wachtwoord);
+
 if(!isset($email) || trim($email) == '')
 {
    echo "U bent vergeten uw email in te vullen.";
@@ -48,26 +53,17 @@ $db_name = 'avans_bimivp2e4';
 mysql_connect("$host", "$username", "$password")or die("Kan niet verbinden met de database!"); 
 mysql_select_db("$db_name")or die("Kan geen database selecteren!");
 
-$email = stripslashes($email);
-$wachtwoord = stripslashes($wachtwoord);
-$email = mysql_real_escape_string($email);
-$wachtwoord = mysql_real_escape_string($wachtwoord);
-
 // Maak de SQL query die onze bestellingen gaat opleveren.
 
 $query="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
 $resultaat=mysql_query($query);
 
 if (mysql_num_rows($resultaat) <= 0 ){
-
 header("Location: logindenied.php");
-
 }
+
 elseif (mysql_num_rows($resultaat) > 0 ){
-
-	
 header("Location: login_success.php");
-
 }
 
 /* maak de resultset leeg */
