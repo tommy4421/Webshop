@@ -54,6 +54,7 @@ header("Location: logindenied.php");
 
 }
 elseif (mysql_num_rows($resultaat) > 0 ){
+
 	
 header("Location: login_success.php");
 
