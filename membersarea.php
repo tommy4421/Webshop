@@ -10,9 +10,14 @@ include ('includes/header.html');
 //include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
 include ('includes/mysqli_connect_localhost.php');
 
-?>
+session_start();
+	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    header("location: login.php");
+} else {
+    header("location: index.php");
+}
 
-Test
+?>
 
 <?php	
 	include ('includes/footer.html');
