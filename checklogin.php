@@ -55,16 +55,44 @@ mysql_select_db("$db_name")or die("Kan geen database selecteren!");
 
 // Maak de SQL query die onze bestellingen gaat opleveren.
 
+// Deze code selecteert het ledennummer dat bij de ingevulde gebruikersnaam hoort.
+// De fetch array zorgt ervoor dat er als uitkomst van de query niet uitkomt 'resource id blabla', maar juist 
+// de letterlijke uitkomst, dus het ledennnummer.
+
+$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
+$naam2 = mysql_fetch_array($naam1);
+$naam = ($naam2['Naam']);
+
+$klantnr1 = mysql_query("SELECT KlantID FROM Klant WHERE Email='$email'");
+$klantnr2 = mysql_fetch_array($id1);
+$klantnr = ($klantid2['KlantID']);
+
 $query="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
 $resultaat=mysql_query($query);
 
-if (mysql_num_rows($resultaat) <= 0 ){
-header("Location: logindenied.php");
-}
+  if (mysql_num_rows($resultaat) > 0 ){
+        $admin=mysql_fetch_array($resultaat);
 
-elseif (mysql_num_rows($resultaat) > 0 ){
-header("Location: login_success.php");
-}
+		session_start();
+		$_SESSION['klantnr'] = $klantnr;
+		$_SESSION['klantnaam'] = $naam;
+		$_SESSION['Email'] = $email;
+		$_SESSION['loggedin'] = true;
+		
+        if ($admin['Admin'] == 1) {
+            $_SESSION['Admin'] = 1;
+	header ("Location:beheer.php");
+        
+        	
+        } else  {
+            header ("Location:login_success.php");
+            $_SESSION['Admin'] = 0;
+        } 
+		
+	} else  {
+	    header("refresh: 0; url=logindenied.php");
+		
+        }
 
 /* maak de resultset leeg */
 mysqli_free_result($result);
