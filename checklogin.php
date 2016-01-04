@@ -42,6 +42,7 @@ if( !($result = mysqli_query($conn, $sql)) ) {
 	echo "<p>Geen resultaten gevonden.</p>\n";
 // Voer de query uit en sla het resultaat op 
 		// Voer de query uit en vang fouten op 
+}
 else { 
 	echo "Ja";
 				}
