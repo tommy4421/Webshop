@@ -30,7 +30,7 @@ if (mysqli_connect_errno()) {
 // in het formulier niet juist is ingevuld. De volgende code
 // toont deze meldingen.
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
-	isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['adres'], $_POST['towncity'], $_POST['postcode']) )
+	isset($_POST['name'], $_POST['password'], $_POST['adres'], $_POST['towncity'], $_POST['postcode']) )
 {
 	// We gaan de errors in een array bijhouden
 	// We kunnen dan alle foutmeldingen in een keer afdrukken.
@@ -144,10 +144,10 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 		<input id="towncity" name="towncity" value="<?php echo isset($_POST['towncity']) ? htmlspecialchars($_POST['towncity']) : '' ?>" />
 	  </li>
       
-<?php echo isset($aErrors['email']) ? '<li class="error">' : '<li>' ?>
+<br />
 		<label for="email">E-mail<em>*</em></label>
-		<input id="email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" />
-	  </li>
+		<input id="email" name="email" />
+	  <br />
 	  <?php echo isset($aErrors['adres']) ? '<li class="error">' : '<li>' ?>
 		
 	  <?php echo isset($aErrors['password']) ? '<li class="error">' : '<li>' ?>
