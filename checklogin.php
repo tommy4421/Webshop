@@ -30,16 +30,12 @@ if (mysqli_connect_errno()) {
 $email=$_POST['email'];
 $wachtwoord=$_POST['wachtwoord'];
 
-$conn ;
 // Maak de SQL query die onze bestellingen gaat opleveren.
-$sql = "SELECT * FROM `Klant` WHERE `Email`='$email';"; 
-
-$query="SELECT * FROM `Klant` WHERE Email='$email' and Wachtwoord='$wachtwoord'";
-$resultaat=mysql_query($query);
+$sql = "SELECT * FROM `Klant` WHERE `Email`='$email' and `Wachtwoord`='$wachtwoord';"; 
 
 // Voer de query uit en sla het resultaat op 
 		// Voer de query uit en vang fouten op 
-if( !($result = mysqli_query($resultaat)) ) {
+if( !($result = mysqli_query($conn, $sql)) ) {
 	echo "<p>Geen resultaten gevonden.</p>\n";
 } else {
 		echo "Test";
