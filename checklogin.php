@@ -32,7 +32,7 @@ $wachtwoord=$_POST['wachtwoord'];
 
 // Maak de SQL query die onze bestellingen gaat opleveren.
 $sql = "SELECT * FROM `Klant` WHERE `Email`='$email' and `Wachtwoord`='$wachtwoord';"; 
-$result=mysql_query($sql);
+$result = $conn->query($sql);
 $count=mysql_num_rows($result);
 // Voer de query uit en sla het resultaat op 
 		// Voer de query uit en vang fouten op 
