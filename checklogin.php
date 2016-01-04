@@ -19,6 +19,14 @@ include ('includes/mysqli_connect_localhost.php');
 // Zet het niveau van foutmeldingen zo dat warnings niet getoond worden.
 error_reporting(E_ERROR | E_PARSE);
 
+$host = 'localhost';
+$username = 'bimivp2e4';
+$password = 'Welkom01';
+$db_name = 'avans_bimivp2e4';
+
+mysql_connect("$host", "$username", "$password")or die("Kan niet verbinden met de database!"); 
+mysql_select_db("$db_name")or die("Kan geen database selecteren!");
+
 $email=$_POST['email'];
 $wachtwoord=$_POST['wachtwoord'];
 
@@ -45,13 +53,6 @@ if (mysqli_connect_errno()) {
 	exit();
 }
 
-$host = 'localhost';
-$username = 'bimivp2e4';
-$password = 'Welkom01';
-$db_name = 'avans_bimivp2e4';
-
-mysql_connect("$host", "$username", "$password")or die("Kan niet verbinden met de database!"); 
-mysql_select_db("$db_name")or die("Kan geen database selecteren!");
 
 // Maak de SQL query die onze bestellingen gaat opleveren.
 
