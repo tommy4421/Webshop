@@ -45,11 +45,11 @@ $wachtwoord = mysql_real_escape_string($wachtwoord);
 
 // Maak de SQL query die onze bestellingen gaat opleveren.
 
-$w8woord1 = mysql_query("SELECT Wachtwoord FROM Klant WHERE Email='$email'");
-$w8woord2 = mysql_fetch_array($w8woord1);
-$w8woord = ($w8woord2['Wachtwoord']);
+$query="SELECT * FROM Klant WHERE Email='$email' and Wachtwoord='$wachtwoord'";
+$resultaat=mysql_query($query);
 
-echo "$w8woord";
+if (mysql_num_rows($resultaat) > 0 ){
+	echo "Test";
 
 
 /* maak de resultset leeg */
