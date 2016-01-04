@@ -54,7 +54,9 @@ header("Location: logindenied.php");
 
 }
 elseif (mysql_num_rows($resultaat) > 0 ){
-	echo "Ja";
+	
+header("Location: login_success.php");
+
 }
 
 /* maak de resultset leeg */
