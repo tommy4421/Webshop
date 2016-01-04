@@ -36,7 +36,7 @@ $sql = "SELECT * FROM `Klant` WHERE `Email`='$email' and `Wachtwoord`='$wachtwoo
 // Voer de query uit en sla het resultaat op 
 		// Voer de query uit en vang fouten op 
 if( !($result = mysqli_query($conn, $sql)) ) {
-	echo "<p>Geen resultaten gevonden.</p>\n";
+	header ("Location:Logindenied.php");
 } else {
 		echo "Test";
 	
