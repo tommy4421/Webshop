@@ -17,7 +17,6 @@ session_start();
     header("location: login.php");
 }
 
-echo "$_SESSION['Naam']";
 
 
 
