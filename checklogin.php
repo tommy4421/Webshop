@@ -40,7 +40,7 @@ if (mysql_num_rows($count) > 0 ){
 	echo "Test";
 				}
 else 
-				{ echo"Nope";
+				{ echo"$count";
 				}
 
 /* maak de resultset leeg */
