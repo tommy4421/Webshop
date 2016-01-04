@@ -78,7 +78,7 @@ $resultaat=mysql_query($query);
 		$_SESSION['klantnaam'] = $naam;
 		$_SESSION['Email'] = $email;
 		$_SESSION['loggedin'] = true;
-		
+  }	
         if ($admin['Admin'] == 1) {
             $_SESSION['Admin'] = 1;
 	header ("Location:beheer.php");
@@ -93,6 +93,7 @@ $resultaat=mysql_query($query);
 	    header("refresh: 0; url=logindenied.php");
 		
         }
+  				
 
 /* maak de resultset leeg */
 mysqli_free_result($result);
