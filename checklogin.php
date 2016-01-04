@@ -36,18 +36,12 @@ $email = mysql_real_escape_string($email);
 $wachtwoord = mysql_real_escape_string($wachtwoord);
 
 // Maak de SQL query die onze bestellingen gaat opleveren.
-$sql = "SELECT * FROM `Klant` WHERE `Email`='$email' and `Wachtwoord`='$wachtwoord';"; 
 
-if( !($result = mysqli_query($conn, $sql)) ) {
-	echo "<p>Geen resultaten gevonden.</p>\n";
-// Voer de query uit en sla het resultaat op 
-		// Voer de query uit en vang fouten op 
-}
-else {
-$row = mysqli_fetch_array($result);
-	echo "<table>\n" ;
-	echo "<tr><td>Naam</td><td>".$row["Naam"]."</td></tr>\n" ;
-	echo "</table>\n" ; }
+$w8woord1 = mysql_query("SELECT Wachtwoord FROM Klant WHERE Email='$email'");
+$w8woord2 = mysql_fetch_array($w8woord1);
+$w8woord = ($w8woord2['Wachtwoord']);
+
+echo "$w8woord"
 
 
 /* maak de resultset leeg */
