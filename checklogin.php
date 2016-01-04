@@ -38,7 +38,7 @@ $resultaat=mysql_query($query);
 
 // Voer de query uit en sla het resultaat op 
 		// Voer de query uit en vang fouten op 
-if( !($result = mysqli_query($conn, $resultaat)) ) {
+if( !($result = mysqli_query($resultaat)) ) {
 	echo "<p>Geen resultaten gevonden.</p>\n";
 } else {
 		echo "Test";
