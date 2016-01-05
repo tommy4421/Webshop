@@ -149,7 +149,6 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
           <label>
             <input name="nieuwsbrief" type="radio" id="nieuwsbrief_ja" value="ja" checked="checked" />
             ja</label>
-          <br />
           <label>
             <input type="radio" name="nieuwsbrief" value="nee" id="nieuwsbrief_nee" />
             nee</label>
