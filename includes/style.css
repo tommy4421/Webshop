@@ -24,7 +24,7 @@ a:hover {
 body {
 	background: #ffffff;
 	color: black;
-	font-family: 'Pacifico', cursive;
+	font-family: 'Pacifico';
         padding: 50px;
         padding-top: 0px
 }
@@ -548,10 +548,16 @@ form.formulier label {
 .footer {
     color: white;
     font-size: large;
+    font-family: 'Pacifico';
     background-color: #ff2c32;
     height: 160px;
     width: 100%;
     padding: 30px;   
+}
+
+.footer p {
+    font-family: 'Pacifico';
+    font-size: large;
 }
 
 .adres {
