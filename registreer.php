@@ -124,30 +124,30 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 	<ol>
 	  <?php echo isset($aErrors['name']) ? '<li class="error">' : '<li>' ?>
 		<label for="name">Volledige naam<em>*</em></label>
-		<input id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>" />
+		<input id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>" REQUIRED/>
 	  </li>
 	  <?php echo isset($aErrors['email']) ? '<li class="error">' : '<li>' ?>
 		<label for="email">E-mail<em>*</em></label>
-		<input id="email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" />
+		<input id="email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" REQUIRED/>
 	  </li>
 	  <?php echo isset($aErrors['adres']) ? '<li class="error">' : '<li>' ?>
 		<label for="adres">Adres<em>*</em></label>
-		<input id="adres" name="adres" value="<?php echo isset($_POST['adres']) ? htmlspecialchars($_POST['adres']) : '' ?>" />
+		<input id="adres" name="adres" value="<?php echo isset($_POST['adres']) ? htmlspecialchars($_POST['adres']) : '' ?>" REQUIRED/>
 	  </li>
 	  <?php echo isset($aErrors['postcode']) ? '<li class="error">' : '<li>' ?>
-		<label for="postcode">Postcode (<i>1234AB</i>)<em>*</em></label>
-		<input id="postcode" name="postcode" value="<?php echo isset($_POST['postcode']) ? htmlspecialchars($_POST['postcode']) : '' ?>" />
+		<label for="postcode">Postcode<em>*</em></label>
+		<input id="postcode" name="postcode" placeholder="1234AB" value="<?php echo isset($_POST['postcode']) ? htmlspecialchars($_POST['postcode']) : '' ?>" REQUIRED/>
 	  </li>
 	  <?php echo isset($aErrors['plaats']) ? '<li class="error">' : '<li>' ?>
 		<label for="plaats">Plaats<em>*</em></label>
-		<input id="plaats" name="plaats" value="<?php echo isset($_POST['plaats']) ? htmlspecialchars($_POST['plaats']) : '' ?>" />
+		<input id="plaats" name="plaats" value="<?php echo isset($_POST['plaats']) ? htmlspecialchars($_POST['plaats']) : '' ?>" REQUIRED/>
 	  </li>
 	  <?php echo isset($aErrors['password']) ? '<li class="error">' : '<li>' ?>
 		<label for="name">Wachtwoord<em>*</em></label>
-		<input id="name" name="password" type="password" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" />
+		<input id="name" name="password" type="password" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" REQUIRED/>
         <label for="nieuwsbrief">Nieuwsbrief<em>*</em></label><br />
           <label>
-            <input name="nieuwsbrief" type="radio" id="nieuwsbrief_ja" value="ja" checked="checked" />
+            <input name="nieuwsbrief" type="radio" id="nieuwsbrief_ja" value="ja" checked="checked" REQUIRED/>
             ja</label>
           <label>
             <input type="radio" name="nieuwsbrief" value="nee" id="nieuwsbrief_nee" />
