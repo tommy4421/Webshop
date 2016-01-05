@@ -1,7 +1,7 @@
 ﻿<?php
 //index.php
 //startscherm van de webwinkel
-
+ob_start();
 $page_title = 'Welkom in de WebWinkel';
 include ('includes/header.html');
 
@@ -30,8 +30,9 @@ if (mysqli_connect_errno()) {
 // in het formulier niet juist is ingevuld. De volgende code
 // toont deze meldingen.
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
-	isset($_POST['name'], $_POST['password'], $_POST['adres'], $_POST['towncity'], $_POST['postcode']) )
+	isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['adres'], $_POST['towncity'], $_POST['postcode']) )
 {
+	
 	// We gaan de errors in een array bijhouden
 	// We kunnen dan alle foutmeldingen in een keer afdrukken.
 	$aErrors = array();
@@ -46,6 +47,11 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		$aErrors['email'] = 'Het e-mail addres is onjuist.';
 	}
 
+	//  Een adres heeft letters, cijfers, spaties (minimaal 5)
+	if ( !isset($_POST['adres']) or !preg_match( '~^[\w\d ]{5,}$~', $_POST['adres'] ) ) {
+		$aErrors['adres'] = 'Het adres is onjuist.';
+	}
+
 	//  Een plaatsnaam heeft letters, spaties en misschien een apostrof
 	if ( !isset($_POST['towncity']) or !preg_match( '~^[\w\d\' ]*$~', $_POST['towncity'] ) ) {
 		$aErrors['towncity'] = 'De stad is onjuist';
@@ -56,6 +62,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		$aErrors['postcode'] = 'De postcode is onjuist';
 	}
 	
+
 	// wachtwoord (minimaal 3)
 	// if ( !isset($_POST['password']) or !preg_match( '~^[\w ]{3,}$~', $_POST['password'] ) ) {
 	// 	$aErrors['password'] = 'Geen wachtwoord ingevuld.';
@@ -69,12 +76,12 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			printf("Connect failed: %s\n", mysqli_connect_error());
 		}
 
-		$sql = "INSERT INTO `Klant` (`naam`, `geboorte_datum`, `geslacht`, `straat`,`toevoeging`, `postcode`, `huisnummer`, `plaats`, `emailadres`, `wachtwoord`) VALUES ".
-				"('".$_POST['name']."','".$_POST['gebdat']."','".$_POST['geslacht']."', '".$_POST['straat']."','".$_POST['toevoeging']."', '".$_POST['postcode']."','".$_POST['huisnum']."', '".$_POST['towncity']."', '".$_POST['email']."','".$_POST['password']."');";
+		$sql = "INSERT INTO `Klant` (`naam`, `adres`, `postcode`, `plaats`, `email`, `wachtwoord`) VALUES ".
+				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['plaats']."', '".$_POST['email']."','".$_POST['password']."');";
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
-			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
+			$aErrors['Email'] = 'Registratie mislukt, email adres bestaat al.';
 		} else {
 			// Met myslqi_insert_id krijg je de id van het autoincrement veld terug - het klantnr.
 			$klantnr = mysqli_insert_id($conn); 
@@ -90,6 +97,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		}
 	}
 }
+
+
 ?>
 <script type="text/javascript">
 function MM_jumpMenu(targ,selObj,restore){ //v3.0
@@ -114,46 +123,38 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 	<legend>Uw gegevens</legend>
 	<ol>
 	  <?php echo isset($aErrors['name']) ? '<li class="error">' : '<li>' ?>
-		<label for="name">Naam<em>*</em></label>
+		<label for="name">Volledige naam<em>*</em></label>
 		<input id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>" />
 	  </li>
-
-		<label for="gebdat">Geboortedatum (<i>01-02-1990</i>) <em>*</em></label>
-		<input id="gebdat" name="gebdat" />
-      
-      <label for="geslacht">Geslacht <em>*</em></label><br />
-      <select name="geslacht" id="geslacht"><option>man</option><option>vrouw</option></select><br />
-      
-      <label for="straat">Straat<em>*</em></label>
-		<input id="straat" name="adres" />
+	  <?php echo isset($aErrors['email']) ? '<li class="error">' : '<li>' ?>
+		<label for="email">E-mail<em>*</em></label>
+		<input id="email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" />
 	  </li>
-      
-      <label for="Toevoeging">Toevoeging</label>
-		<input id="toevoeging" name="toevoeging" />
-        
-          <?php echo isset($aErrors['postcode']) ? '<li class="error">' : '<li>' ?>
-		<label for="postcode">Postcode<em>*</em></label>
+	  <?php echo isset($aErrors['adres']) ? '<li class="error">' : '<li>' ?>
+		<label for="adres">Adres<em>*</em></label>
+		<input id="adres" name="adres" value="<?php echo isset($_POST['adres']) ? htmlspecialchars($_POST['adres']) : '' ?>" />
+	  </li>
+	  <?php echo isset($aErrors['postcode']) ? '<li class="error">' : '<li>' ?>
+		<label for="postcode">Postcode (<i>1234AB</i>)<em>*</em></label>
 		<input id="postcode" name="postcode" value="<?php echo isset($_POST['postcode']) ? htmlspecialchars($_POST['postcode']) : '' ?>" />
 	  </li>
-      
-      <label for="huisnum">Huisnummer <em>*</em></label>
-		<input id="huisnum" name="huisnum" />
-        
-        <?php echo isset($aErrors['towncity']) ? '<li class="error">' : '<li>' ?>
-		<label for="towncity">Plaats</label>
-		<input id="towncity" name="towncity" value="<?php echo isset($_POST['towncity']) ? htmlspecialchars($_POST['towncity']) : '' ?>" />
+	  <?php echo isset($aErrors['plaats']) ? '<li class="error">' : '<li>' ?>
+		<label for="plaats">Plaats<em>*</em></label>
+		<input id="plaats" name="plaats" value="<?php echo isset($_POST['plaats']) ? htmlspecialchars($_POST['plaats']) : '' ?>" />
 	  </li>
-      
-<br />
-		<label for="email">E-mail<em>*</em></label>
-		<input id="email" name="email" />
-	  <br />
-	  <?php echo isset($aErrors['adres']) ? '<li class="error">' : '<li>' ?>
-		
 	  <?php echo isset($aErrors['password']) ? '<li class="error">' : '<li>' ?>
 		<label for="name">Wachtwoord<em>*</em></label>
-		<input id="password" name="password" type="password" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" />
-	  </li>
+		<input id="name" name="password" type="password" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" />
+        <label for="nieuwsbrief">Nieuwsbrief<em>*</em></label>
+          <label>
+            <input name="nieuwsbrief" type="radio" id="nieuwsbrief_ja" value="ja" checked="checked" />
+            ja</label>
+          <br />
+          <label>
+            <input type="radio" name="nieuwsbrief" value="nee" id="nieuwsbrief_nee" />
+            nee</label>
+          <br />
+</li>
 	</ol>
 	<input type="submit" value="Verstuur" class="button"/>
   </fieldset>
