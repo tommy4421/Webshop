@@ -145,7 +145,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 	  <?php echo isset($aErrors['password']) ? '<li class="error">' : '<li>' ?>
 		<label for="name">Wachtwoord<em>*</em></label>
 		<input id="name" name="password" type="password" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" />
-        <label for="nieuwsbrief">Nieuwsbrief<em>*</em></label>
+        <label for="nieuwsbrief">Nieuwsbrief<em>*</em></label><br />
           <label>
             <input name="nieuwsbrief" type="radio" id="nieuwsbrief_ja" value="ja" checked="checked" />
             ja</label>
