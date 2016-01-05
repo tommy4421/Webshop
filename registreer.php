@@ -32,14 +32,6 @@ if (mysqli_connect_errno()) {
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['adres'], $_POST['towncity'], $_POST['postcode']) )
 {
-	function email_check($email){
-                $email_query = "SELECT `email` FROM `Klant` WHERE email='".$email."';";
-                $email_sql   = mysql_query($email_query)or die(mysql_error());
-                if(mysql_num_rows($email_sql) == 0)
-                    {$bezet =  'nee';}
-                else{$bezet =  'ja' ;}
-                return $bezet;
-        }
 		
 	// We gaan de errors in een array bijhouden
 	// We kunnen dan alle foutmeldingen in een keer afdrukken.
@@ -86,12 +78,12 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			printf("Connect failed: %s\n", mysqli_connect_error());
 		}
 
-		$sql = "INSERT INTO `Klant` (`naam`, `adres`, `postcode`, `plaats`, `email`, `wachtwoord`) VALUES ".
-				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['plaats']."', '".$_POST['email']."','".$_POST['password']."');";
+		$sql = "INSERT INTO `Klant` (`naam`, `adres`, `postcode`, `plaats`, `email`, `wachtwoord`, `nieuwsbrief`) VALUES ".
+				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['plaats']."', '".$_POST['email']."','".$_POST['password']."','".$_POST['nieuwsbrief']."');";
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
-			$aErrors['Email'] = 'Registratie mislukt, email adres bestaat al.';
+			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
 		} else {
 			// Met myslqi_insert_id krijg je de id van het autoincrement veld terug - het klantnr.
 			$klantnr = mysqli_insert_id($conn); 
