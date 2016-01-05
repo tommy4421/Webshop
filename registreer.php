@@ -32,7 +32,15 @@ if (mysqli_connect_errno()) {
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['adres'], $_POST['towncity'], $_POST['postcode']) )
 {
-	
+	function email_check($email){
+                $email_query = "SELECT `email` FROM `Klant` WHERE email='".$email."';";
+                $email_sql   = mysql_query($email_query)or die(mysql_error());
+                if(mysql_num_rows($email_sql) == 0)
+                    {$bezet =  'nee';}
+                else{$bezet =  'ja' ;}
+                return $bezet;
+        }
+		
 	// We gaan de errors in een array bijhouden
 	// We kunnen dan alle foutmeldingen in een keer afdrukken.
 	$aErrors = array();
@@ -61,7 +69,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	if ( !isset($_POST['postcode']) or !preg_match( '~^\d{4} ?[a-zA-Z]{2}$~', $_POST['postcode'] ) ) {
 		$aErrors['postcode'] = 'De postcode is onjuist';
 	}
-	
+	if(email_check($_POST['emailadres']) ==  'ja'){
+                   echo 'Er is al iemand geregistreerd met dit emailadres.';
+               }
 
 	// wachtwoord (minimaal 3)
 	// if ( !isset($_POST['password']) or !preg_match( '~^[\w ]{3,}$~', $_POST['password'] ) ) {
@@ -124,15 +134,15 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 	<ol>
 	  <?php echo isset($aErrors['name']) ? '<li class="error">' : '<li>' ?>
 		<label for="name">Volledige naam<em>*</em></label>
-		<input id="name" name="name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>" REQUIRED/>
+		<input id="name" name="name" placeholder="Jan Klaassen" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>" REQUIRED/>
 	  </li>
 	  <?php echo isset($aErrors['email']) ? '<li class="error">' : '<li>' ?>
 		<label for="email">E-mail<em>*</em></label>
-		<input id="email" name="email" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" REQUIRED/>
+		<input id="email" name="email" placeholder="mijnemail@site.nl" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" REQUIRED/>
 	  </li>
 	  <?php echo isset($aErrors['adres']) ? '<li class="error">' : '<li>' ?>
 		<label for="adres">Adres<em>*</em></label>
-		<input id="adres" name="adres" value="<?php echo isset($_POST['adres']) ? htmlspecialchars($_POST['adres']) : '' ?>" REQUIRED/>
+		<input id="adres" name="adres" placeholder="Mijn staat 101" value="<?php echo isset($_POST['adres']) ? htmlspecialchars($_POST['adres']) : '' ?>" REQUIRED/>
 	  </li>
 	  <?php echo isset($aErrors['postcode']) ? '<li class="error">' : '<li>' ?>
 		<label for="postcode">Postcode<em>*</em></label>
@@ -140,11 +150,11 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 	  </li>
 	  <?php echo isset($aErrors['plaats']) ? '<li class="error">' : '<li>' ?>
 		<label for="plaats">Plaats<em>*</em></label>
-		<input id="plaats" name="plaats" value="<?php echo isset($_POST['plaats']) ? htmlspecialchars($_POST['plaats']) : '' ?>" REQUIRED/>
+		<input id="plaats" name="plaats" placeholder="Mijnplaats" value="<?php echo isset($_POST['plaats']) ? htmlspecialchars($_POST['plaats']) : '' ?>" REQUIRED/>
 	  </li>
 	  <?php echo isset($aErrors['password']) ? '<li class="error">' : '<li>' ?>
 		<label for="name">Wachtwoord<em>*</em></label>
-		<input id="name" name="password" type="password" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" REQUIRED/>
+		<input id="name" name="password" type="password" placeholder="wachtwoord" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" REQUIRED/>
         <label for="nieuwsbrief">Nieuwsbrief<em>*</em></label><br />
           <label>
             <input name="nieuwsbrief" type="radio" id="nieuwsbrief_ja" value="ja" checked="checked" REQUIRED/>
