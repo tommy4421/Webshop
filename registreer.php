@@ -80,7 +80,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
-			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
+			$aErrors['email'] = 'Hier gaat er iets mis.';
 		} else {
 			// Met myslqi_insert_id krijg je de id van het autoincrement veld terug - het klantnr.
 			$klantnr = mysqli_insert_id($conn); 
