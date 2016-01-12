@@ -85,13 +85,13 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			$klant = $_POST['name'];
 			$to = $_POST['email'];
 			$pass = $_POST['password'];
-			$subject = "Registratie Tjdvooreenbox.nl";
+			$subject = "Registratie Tijdvooreenbox.nl";
 			$message = "Beste $klant,
 			
 Bedankt voor het registreren bij Tijdvooreenbox.nl! U kunt inloggen met onderstaande gegevens:
  
 ------------------------
-E-mailadres: $klant
+E-mailadres: $to
 Wachtwoord: $pass
 ------------------------
  
