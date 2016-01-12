@@ -66,7 +66,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	if ( !isset($_POST['password']) or !preg_match( '~^[\w ]{3,}$~', $_POST['password'] ) ) {
 	$aErrors['password'] = 'Geen wachtwoord ingevuld.';
 	}
-	
+
 	if ( count($aErrors) == 0 ) 
 	{
 		// Gebruiker in database registreren.
@@ -79,12 +79,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['towncity']."', '".$_POST['email']."', '".$_POST['password']."', '".$_POST['nieuwsbrief']."');";
 
 		// Voer de query uit en vang fouten op 
-		// Controleren of e-mailadres al is geregistreerd
-$select = mysql_query("SELECT `email` FROM Klant WHERE `email` = '".$_POST['email']."'") or exit(mysql_error());
-if(mysql_num_rows($select)){
-			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
-}
-
 		if( !mysqli_query($conn, $sql) ) {
 			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
 		} else {
