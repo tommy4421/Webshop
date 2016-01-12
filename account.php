@@ -11,7 +11,14 @@ include ('includes/header.html');
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
 //include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
+include ('includes/mysqli_connect_webpages.avans.nl');
 include ('includes/mysqli_connect_localhost.php');
+
+$host = 'localhost';
+$username = 'bimivp2e4';
+$dbpassword = 'Welkom01';
+$db_name = 'avans_bimivp2e4';
+
 // Page header:
 echo '<h1>Uw gegevens</h1>';
 
@@ -29,7 +36,7 @@ if (empty($_SESSION['klantnr'])) {
 } else {
 	$klantnr = $_SESSION['klantnr'];
 
-	$sql = "SELECT `naam`, `adres`, `postcode`, `plaats`, `email` FROM `klant` WHERE `klantnr`='".$klantnr."'";
+	$sql = "SELECT `naam`, `adres`, `postcode`, `plaats`, `email` FROM Klant WHERE `klantnr`='".$klantnr."'";
 	// Voer de query uit en sla het resultaat op 
 
 	$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>Error in file ".__FILE__." on line ".__LINE__);
