@@ -35,7 +35,6 @@ if (empty($_SESSION['klantnr'])) {
 	$sql = "SELECT `naam`, `adres`, `postcode`, `plaats`, `email` FROM Klant WHERE `klantID`='".$klantnr."'";
 	// Voer de query uit en sla het resultaat op 
 	
-	echo "U bent succesvol geregistreerd met onderstaande gegevens!";
 	echo "<table>\n";
 	echo "<tr><td id='links'>Naam</td> <td id='rechts'>".$row["naam"]."</td></tr>\n";
 	echo "<tr><td id='links'>Adres</td><td id='rechts'>".$row["adres"]."</td></tr>\n";
@@ -43,8 +42,6 @@ if (empty($_SESSION['klantnr'])) {
 	echo "<tr><td id='links'>Plaats</td><td id='rechts'>".$row["plaats"]."</td></tr>\n";
 	echo "<tr><td id='links'>Email</td><td id='rechts'>".$row["email"]."</td></tr>\n";
 	echo "<tr><td id='links'>Klantnr</td><td id='rechts'>".$klantnr."</td></tr>\n";
-	echo "</table>\n";
-	echo "Log nu in om uw account te bekijken.";
 
 }
 // Sluit de connection
