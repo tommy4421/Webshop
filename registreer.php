@@ -66,6 +66,14 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	if ( !isset($_POST['password']) or !preg_match( '~^[\w ]{3,}$~', $_POST['password'] ) ) {
 	$aErrors['password'] = 'Geen wachtwoord ingevuld.';
 	}
+	
+	// e-mail al geregistreerd of niet
+	$email = $_POST['email'];
+	$search = mysql_query("SELECT email FROM Klant WHERE email=’$email’")or die(mysql_error());
+	$verify = mysql_num_rows($search);
+	if ($verify >0 ) {
+	$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
+	}
 
 	if ( count($aErrors) == 0 ) 
 	{
