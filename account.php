@@ -1,6 +1,7 @@
 ﻿<?php
 //index.php
 //startscherm van de webwinkel
+ob_start();
 
 $page_title = 'Welkom in de WebWinkel';
 include ('includes/header.html');
