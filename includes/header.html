@@ -129,10 +129,12 @@
             <li<?php if ($active =="2") {?> class="active"<?php } ?>><a href="categorieA.php">Streekpakketten</a></li>
             <li<?php if ($active =="3") {?> class="active"<?php } ?>><a href="categorieB.php">Themapakketten</a></li>
             <li<?php if ($active =="4") {?> class="active"<?php } ?>><a href="beheer.php">Beheer</a></li>
+            <li<?php if ($active =="5") {?> class="active"<?php } ?>><a href="faq.php">FAQ</a></li>
+            <li<?php if ($active =="6") {?> class="active"<?php } ?>><a href="contact.php">Contact</a></li>
 			<?php
 			if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 			?>
-			<li<?php if ($active =="5") {?> class="active"<?php } ?>><a href="membersarea.php">Account overzicht</a></li>
+			<li<?php if ($active =="7") {?> class="active"<?php } ?>><a href="membersarea.php">Account overzicht</a></li>
 			<?php	   } ?>
 
 		  </ul>

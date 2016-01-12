@@ -8,7 +8,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 // Zet de titel en laad de HTML header uit het externe bestand.
 $page_title = 'Welkom in de WebWinkel';
-$active = 5;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
+$active = 7;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
 include ('includes/header.html');
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
