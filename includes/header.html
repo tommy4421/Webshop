@@ -1,3 +1,11 @@
+﻿
+Home>
+File Manager
+Favorites
+Visited Pages
+Up Level
+Show file tijdvooreenbox.nl / httpdocs / includes / header.html
+View the original file in the following encoding:		Reload
 ﻿<?php session_start(); ?>
 <html>
     <head>
@@ -67,7 +75,7 @@
      
      <header>
         <div id="header">
-            <img class="logo" src="images/logobox-klein.png" alt="Logo">    
+            <a href="index.php"><img class="logo" src="images/logobox-klein.png" alt="Logo"></a>  
         </div>
      
     <?php
@@ -82,12 +90,22 @@
             // "Welkom, [klantnaam] | logout". Voor het uitloggen kun je gebruik maken van logout.php.
             // Kijk eventueel in de HTML broncode van het werkende voorbeeld hoe dit moet.
 
-            echo "<li>U bent niet ingelogd | <a href=\"login.php\">login</a></li>\n";
+            session_start();
+			if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+			?> <i class="fa fa-user"></i> <?php
+			echo "",$_SESSION['Naam'],"";
+			echo " | <a href='logout.php'>Log uit</a>";
+			} 
+			else 
+			{
+			echo "<li>U bent niet ingelogd | <a href=\"login.php\">login</a> | <a href=\"registreer.php\">registreer</a></li>\n";
+			}
 
             // Hier tonen we het aantal producten in de winkelwagen, en een link om direkt af te rekenen.
             // Kijk of er iets in de winkelwagen zit
             if (empty($_SESSION['cart'])) {
-                    echo "<li>Winkelwagen is leeg</li>\n";
+
+					?><li><i class="fa fa-shopping-cart"></i><?php echo " Winkelwagen is leeg</li>\n";
             } else {
                     // 'explode' zorgt dat de session - een string - gescheiden wordt op het gegeven teken.
                     // De session bevat de productinformatie, gescheiden per '|'.
@@ -96,9 +114,11 @@
                     // Tellen inhoud winkelwagen
                     $count = count($cart2);
                     if ($count == 1) {
-                            echo "<li>1 product ";
+						?><li><i class="fa fa-shopping-cart"></i> <?php
+                            echo "1 product ";
                     } else {
-                            echo "<li>".$count." producten ";
+                        ?><li><i class="fa fa-shopping-cart"></i> <?php
+							echo "".$count." producten ";
                     }
                     echo "in <a href=\"cart.php\">winkelwagen</a> | <a href=\"checkout.php\">afrekenen</a></li>\n";
             }
@@ -114,10 +134,16 @@
         <div>
           <ul class="nav navbar-nav">
             <li<?php if ($active =="1") {?> class="active"<?php } ?>><a href="index.php">Homepage</a></li>
-            <li<?php if ($active =="2") {?> class="active"<?php } ?>><a href="categorieA.php">Categorie A</a></li>
-            <li<?php if ($active =="3") {?> class="active"<?php } ?>><a href="categorieB.php">Categorie B</a></li>
+            <li<?php if ($active =="2") {?> class="active"<?php } ?>><a href="categorieA.php">Streekpakketten</a></li>
+            <li<?php if ($active =="3") {?> class="active"<?php } ?>><a href="categorieB.php">Themapakketten</a></li>
             <li<?php if ($active =="4") {?> class="active"<?php } ?>><a href="beheer.php">Beheer</a></li>
-          </ul>
+			<?php
+			if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+			?>
+			<li<?php if ($active =="5") {?> class="active"<?php } ?>><a href="membersarea.php">Account overzicht</a></li>
+			<?php	   } ?>
+
+		  </ul>
         </div>
       </div>
     </nav>
@@ -140,3 +166,5 @@
    
    
     <!-- Begin van de pagina-specifieke content. -->
+Cancel
+bar_close.gif
