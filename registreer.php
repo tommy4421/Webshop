@@ -17,6 +17,7 @@ echo '<h1>Registreren</h1>';
 // Stap 1: maak verbinding met MySQL.
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
+
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  
 // check connection
@@ -73,7 +74,7 @@ if(mysql_num_rows($select)) {
 	if ( count($aErrors) == 0 ) 
 	{
 		// Gebruiker in database registreren.
-		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+		$conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 		if (mysqli_connect_errno()) {
 			printf("Connect failed: %s\n", mysqli_connect_error());
 		}
