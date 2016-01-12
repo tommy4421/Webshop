@@ -82,6 +82,14 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		if( !mysqli_query($conn, $sql) ) {
 			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
 		} else {
+			
+			$to = $_POST['email'];
+			$subject = "Registratie Tjdvooreenbox.nl";
+			$message = "Hello! This is a simple email message.";
+			$from = "noreply@tijdvooreenbox.nl";
+			$headers = "From: $from";
+			mail($to,$subject,$message,$headers);
+			
 			// Met myslqi_insert_id krijg je de id van het autoincrement veld terug - het klantnr.
 			$klantnr = mysqli_insert_id($conn); 
 			

@@ -34,49 +34,16 @@ if (empty($_SESSION['klantnr'])) {
 
 	$sql = "SELECT `naam`, `adres`, `postcode`, `plaats`, `email` FROM Klant WHERE `klantID`='".$klantnr."'";
 	// Voer de query uit en sla het resultaat op 
-
-	$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>Error in file ".__FILE__." on line ".__LINE__);
-	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-	
-	$email=$_POST['email'];
-$wachtwoord=$_POST['password'];
-
-$email = stripslashes($email);
-$wachtwoord = stripslashes($wachtwoord);
-$email = mysql_real_escape_string($email);
-$wachtwoord = mysql_real_escape_string($wachtwoord);
-
-$sql="SELECT * FROM Klant WHERE Email='$email' AND Wachtwoord='$wachtwoord'";
-$resultaat=mysql_query($sql);
-$count=mysql_num_rows($resultaat);
-
-if($count==1){
-
-$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
-$naam2 = mysql_fetch_array($naam1);
-$naam = ($naam2['Naam']);
-
-$klantnr1 = mysql_query("SELECT KlantID FROM Klant WHERE Email='$email'");
-$klantnr2 = mysql_fetch_array($klantnr1);
-$klantnr = ($klantnr2['KlantID']);
-
-		session_start();
-		$_SESSION['klantnr'] = $klantnr;
- 		$_SESSION['Naam'] = $naam;
- 		$_SESSION['Email'] = $email;
-		$_SESSION['loggedin'] = true;
-		header("location:login_success.php");
-	
-}
-	
+	echo "U bent succelvol geregistreerd met de volgende gegevens:";
 	echo "<table>\n";
-	echo "<tr><td id='links'>Naam</td> <td id='rechts'>".$row["naam"]."</td></tr>\n";
-	echo "<tr><td id='links'>Adres</td><td id='rechts'>".$row["adres"]."</td></tr>\n";
-	echo "<tr><td id='links'>Postcode</td><td id='rechts'>".$row["postcode"]."</td></tr>\n";
-	echo "<tr><td id='links'>Plaats</td><td id='rechts'>".$row["plaats"]."</td></tr>\n";
-	echo "<tr><td id='links'>Email</td><td id='rechts'>".$row["email"]."</td></tr>\n";
-	echo "<tr><td id='links'>Klantnr</td><td id='rechts'>".$klantnr."</td></tr>\n";
+	echo "<tr><td id='links'><b>Naam</b></td> <td id='rechts'>".$row["naam"]."</td></tr>\n";
+	echo "<tr><td id='links'><b>Adres</b></td><td id='rechts'>".$row["adres"]."</td></tr>\n";
+	echo "<tr><td id='links'><b>Postcode</b></td><td id='rechts'>".$row["postcode"]."</td></tr>\n";
+	echo "<tr><td id='links'><b>Plaats</b></td><td id='rechts'>".$row["plaats"]."</td></tr>\n";
+	echo "<tr><td id='links'><b>Email</b></td><td id='rechts'>".$row["email"]."</td></tr>\n";
+	echo "<tr><td id='links'<b>>Klantnr</b></td><td id='rechts'>".$klantnr."</td></tr>\n";
 	echo "</table>\n";
+	echo "<a href=\"login.php\">Log nu in</a> om uw account te bekijken.";
 
 }
 // Sluit de connection
