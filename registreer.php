@@ -2,7 +2,7 @@
 //index.php
 //startscherm van de webwinkel
 ob_start();
-$page_title = 'Welkom in de WebWinkel';
+$page_title = 'Tijdvooreenbox.nl Registratie';
 include ('includes/header.html');
 
 // mysqli_connect.php bevat de inloggegevens voor de database.
@@ -43,7 +43,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 
 	//  Een email-adres is wat ingewikkelder
 	if ( !isset($_POST['email']) or !preg_match( '~^[a-z0-9][a-z0-9_.\-]*@([a-z0-9]+\.)*[a-z0-9][a-z0-9\-]+\.([a-z]{2,6})$~i', $_POST['email'] ) ) {
-		$aErrors['email'] = 'Het e-mail addres is onjuist.';
+		$aErrors['email'] = 'Het e-mail adres is onjuist.';
 	}
 
 	//  Een adres heeft letters, cijfers, spaties (minimaal 5)
@@ -62,9 +62,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	}
 
 	// wachtwoord (minimaal 3)
-	// if ( !isset($_POST['password']) or !preg_match( '~^[\w ]{3,}$~', $_POST['password'] ) ) {
-	// 	$aErrors['password'] = 'Geen wachtwoord ingevuld.';
-	// }
+	if ( !isset($_POST['password']) or !preg_match( '~^[\w ]{3,}$~', $_POST['password'] ) ) {
+	$aErrors['password'] = 'Geen wachtwoord ingevuld.';
+	}
 
 	if ( count($aErrors) == 0 ) 
 	{
@@ -75,7 +75,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		}
 
 		$sql = "INSERT INTO `Klant` (`naam`, `adres`, `postcode`, `plaats`, `email`, `wachtwoord`, `nieuwsbrief`) VALUES ".
-				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['towncity']."', '".$_POST['email']."','".$_POST['password']."','".$_POST['nieuwsbrief']."');";
+				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['towncity']."', '".$_POST['email']."', '".$_POST['password']."', '".$_POST['nieuwsbrief']."');";
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
@@ -127,19 +127,19 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		<label for="postcode">Postcode<em>*</em></label>
 		<input id="postcode" name="postcode" placeholder="1234AB" value="<?php echo isset($_POST['postcode']) ? htmlspecialchars($_POST['postcode']) : '' ?>" REQUIRED/>
 	  </li>
-	  <?php echo isset($aErrors['plaats']) ? '<li class="error">' : '<li>' ?>
-		<label for="plaats">Plaats<em>*</em></label>
-		<input id="plaats" name="plaats" placeholder="Mijnplaats" value="<?php echo isset($_POST['plaats']) ? htmlspecialchars($_POST['plaats']) : '' ?>" REQUIRED/>
+	  <?php echo isset($aErrors['towncity']) ? '<li class="error">' : '<li>' ?>
+		<label for="towncity">Plaats<em>*</em></label>
+		<input id="towncity" name="towncity" placeholder="Mijnplaats" value="<?php echo isset($_POST['towncity']) ? htmlspecialchars($_POST['towncity']) : '' ?>" REQUIRED/>
 	  </li>
 	  <?php echo isset($aErrors['password']) ? '<li class="error">' : '<li>' ?>
-		<label for="name">Wachtwoord<em>*</em></label>
-		<input id="name" name="password" type="password" placeholder="wachtwoord" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" REQUIRED/>
+		<label for="password">Wachtwoord<em>*</em></label>
+		<input id="password" name="password" type="password" placeholder="wachtwoord" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" REQUIRED/>
         <label for="nieuwsbrief">Nieuwsbrief<em>*</em></label><br />
           <label>
-            <input name="nieuwsbrief" type="radio" id="nieuwsbrief_ja" value="ja" checked="checked" REQUIRED/>
+            <input type="radio" name="nieuwsbrief" value="ja" checked="checked" REQUIRED/>
             ja</label>
           <label>
-            <input type="radio" name="nieuwsbrief" value="nee" id="nieuwsbrief_nee" />
+            <input type="radio" name="nieuwsbrief" value="nee"/>
             nee</label>
           <br />
 </li>
