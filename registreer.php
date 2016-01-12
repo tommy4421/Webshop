@@ -70,17 +70,17 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	if ( count($aErrors) == 0 ) 
 	{
 		// Gebruiker in database registreren.
-		$conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 		if (mysqli_connect_errno()) {
 			printf("Connect failed: %s\n", mysqli_connect_error());
 		}
 
-		$sql = "INSERT INTO `Klant` (`naam`, `adres`, `postcode`, `plaats`, `email`, `wachtwoord`, `nieuwsbrief`) VALUES ".
+		$sql = "INSERT INTO Klant (`naam`, `adres`, `postcode`, `plaats`, `email`, `wachtwoord`, `nieuwsbrief`) VALUES ".
 				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['towncity']."', '".$_POST['email']."', '".$_POST['password']."', '".$_POST['nieuwsbrief']."');";
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
-			$aErrors['Email'] = 'Hier gaat er iets mis.';
+			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
 		} else {
 			// Met myslqi_insert_id krijg je de id van het autoincrement veld terug - het klantnr.
 			$klantnr = mysqli_insert_id($conn); 
