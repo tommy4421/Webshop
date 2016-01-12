@@ -35,6 +35,10 @@ if (empty($_SESSION['klantnr'])) {
 	$sql = "SELECT `naam`, `adres`, `postcode`, `plaats`, `email` FROM Klant WHERE `klantID`='".$klantnr."'";
 	// Voer de query uit en sla het resultaat op 
 	
+	$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>Error in file ".__FILE__." on line ".__LINE__);
+	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	
+	echo "U bent succelvol geregistreerd met de volgende gegevens:";
 	echo "<table>\n";
 	echo "<tr><td id='links'>Naam</td> <td id='rechts'>".$row["naam"]."</td></tr>\n";
 	echo "<tr><td id='links'>Adres</td><td id='rechts'>".$row["adres"]."</td></tr>\n";
@@ -42,6 +46,8 @@ if (empty($_SESSION['klantnr'])) {
 	echo "<tr><td id='links'>Plaats</td><td id='rechts'>".$row["plaats"]."</td></tr>\n";
 	echo "<tr><td id='links'>Email</td><td id='rechts'>".$row["email"]."</td></tr>\n";
 	echo "<tr><td id='links'>Klantnr</td><td id='rechts'>".$klantnr."</td></tr>\n";
+	echo "</table>\n";
+	echo "Log nu in om uw account te bekijken.";
 
 }
 // Sluit de connection
