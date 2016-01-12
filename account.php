@@ -30,7 +30,7 @@ if (empty($_SESSION['klantnr'])) {
 } else {
 	$klantnr = $_SESSION['klantnr'];
 
-	$sql = "SELECT `naam`, `adres`, `postcode`, `plaats`, `emailadres` FROM `klant` WHERE `klantnr`='".$klantnr."'";
+	$sql = "SELECT `naam`, `adres`, `postcode`, `plaats`, `email` FROM `klant` WHERE `klantnr`='".$klantnr."'";
 	// Voer de query uit en sla het resultaat op 
 
 	$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>Error in file ".__FILE__." on line ".__LINE__);
@@ -41,7 +41,7 @@ if (empty($_SESSION['klantnr'])) {
 	echo "<tr><td id='links'>Adres</td><td id='rechts'>".$row["adres"]."</td></tr>\n";
 	echo "<tr><td id='links'>Postcode</td><td id='rechts'>".$row["postcode"]."</td></tr>\n";
 	echo "<tr><td id='links'>Plaats</td><td id='rechts'>".$row["plaats"]."</td></tr>\n";
-	echo "<tr><td id='links'>Email</td><td id='rechts'>".$row["emailadres"]."</td></tr>\n";
+	echo "<tr><td id='links'>Email</td><td id='rechts'>".$row["email"]."</td></tr>\n";
 	echo "<tr><td id='links'>Klantnr</td><td id='rechts'>".$klantnr."</td></tr>\n";
 	echo "</table>\n";
 
