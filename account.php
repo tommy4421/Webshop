@@ -38,6 +38,37 @@ if (empty($_SESSION['klantnr'])) {
 	$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>Error in file ".__FILE__." on line ".__LINE__);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	
+	$email=$_POST['email'];
+$wachtwoord=$_POST['password'];
+
+$email = stripslashes($email);
+$wachtwoord = stripslashes($wachtwoord);
+$email = mysql_real_escape_string($email);
+$wachtwoord = mysql_real_escape_string($wachtwoord);
+
+$sql="SELECT * FROM Klant WHERE Email='$email' AND Wachtwoord='$wachtwoord'";
+$resultaat=mysql_query($sql);
+$count=mysql_num_rows($resultaat);
+
+if($count==1){
+
+$naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
+$naam2 = mysql_fetch_array($naam1);
+$naam = ($naam2['Naam']);
+
+$klantnr1 = mysql_query("SELECT KlantID FROM Klant WHERE Email='$email'");
+$klantnr2 = mysql_fetch_array($klantnr1);
+$klantnr = ($klantnr2['KlantID']);
+
+		session_start();
+		$_SESSION['klantnr'] = $klantnr;
+ 		$_SESSION['Naam'] = $naam;
+ 		$_SESSION['Email'] = $email;
+		$_SESSION['loggedin'] = true;
+		header("location:login_success.php");
+	
+}
+	
 	echo "<table>\n";
 	echo "<tr><td id='links'>Naam</td> <td id='rechts'>".$row["naam"]."</td></tr>\n";
 	echo "<tr><td id='links'>Adres</td><td id='rechts'>".$row["adres"]."</td></tr>\n";
