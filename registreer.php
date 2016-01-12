@@ -169,6 +169,8 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
             <input type="radio" name="nieuwsbrief" value="nee"/>
             nee</label>
           <br />
+          <i>Let op: De postcode mag geen spatie bevatten, dus 1234AB.</i>
+          <br />
 </li>
 	</ol>
 	<input type="submit" value="Verstuur" class="button"/>
