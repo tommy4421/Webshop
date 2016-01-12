@@ -32,7 +32,7 @@ if (empty($_SESSION['klantnr'])) {
 } else {
 	$klantnr = $_SESSION['klantnr'];
 
-	$sql = "SELECT `naam`, `adres`, `postcode`, `plaats`, `email` FROM `klant` WHERE `klantnr`='".$klantnr."'";
+	$sql = "SELECT `naam`, `adres`, `postcode`, `plaats`, `email` FROM Klant WHERE `klantID`='".$klantnr."'";
 	// Voer de query uit en sla het resultaat op 
 
 	$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>Error in file ".__FILE__." on line ".__LINE__);
