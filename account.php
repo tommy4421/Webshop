@@ -34,14 +34,15 @@ if (empty($_SESSION['klantnr'])) {
 
 	$sql = "SELECT `naam`, `adres`, `postcode`, `plaats`, `email` FROM Klant WHERE `klantID`='".$klantnr."'";
 	// Voer de query uit en sla het resultaat op 
-	echo "U bent succelvol geregistreerd met de volgende gegevens:";
+	
+	echo "U bent succesvol geregistreerd met onderstaande gegevens!";
 	echo "<table>\n";
-	echo "<tr><td id='links'><b>Naam</b></td> <td id='rechts'>".$row["naam"]."</td></tr>\n";
-	echo "<tr><td id='links'><b>Adres</b></td><td id='rechts'>".$row["adres"]."</td></tr>\n";
-	echo "<tr><td id='links'><b>Postcode</b></td><td id='rechts'>".$row["postcode"]."</td></tr>\n";
-	echo "<tr><td id='links'><b>Plaats</b></td><td id='rechts'>".$row["plaats"]."</td></tr>\n";
-	echo "<tr><td id='links'><b>Email</b></td><td id='rechts'>".$row["email"]."</td></tr>\n";
-	echo "<tr><td id='links'><b>Klantnr</b></td><td id='rechts'>".$klantnr."</td></tr>\n";
+	echo "<tr><td id='links'>Naam</td> <td id='rechts'>".$row["naam"]."</td></tr>\n";
+	echo "<tr><td id='links'>Adres</td><td id='rechts'>".$row["adres"]."</td></tr>\n";
+	echo "<tr><td id='links'>Postcode</td><td id='rechts'>".$row["postcode"]."</td></tr>\n";
+	echo "<tr><td id='links'>Plaats</td><td id='rechts'>".$row["plaats"]."</td></tr>\n";
+	echo "<tr><td id='links'>Email</td><td id='rechts'>".$row["email"]."</td></tr>\n";
+	echo "<tr><td id='links'>Klantnr</td><td id='rechts'>".$klantnr."</td></tr>\n";
 	echo "</table>\n";
 	echo "Log nu in om uw account te bekijken.";
 

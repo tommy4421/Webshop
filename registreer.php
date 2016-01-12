@@ -82,10 +82,22 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		if( !mysqli_query($conn, $sql) ) {
 			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
 		} else {
-			
+			$klant = $_POST['name'];
+			$pass = $_POST['password'];
 			$to = $_POST['email'];
 			$subject = "Registratie Tjdvooreenbox.nl";
-			$message = "Hello! This is a simple email message.";
+			$message = "Beste '.$klant.',
+			
+			Bedankt voor het registreren bij Tijdvooreenbox.nl! U kunt inloggen met onderstaande gegevens:
+ 
+------------------------
+E-mailadres: '.$klant.'
+Wachtwoord: '.$pass.'
+------------------------
+ 
+Veel plezier in onze Webshop!
+
+Names het team van Tijdvooreenbox.nl";
 			$from = "noreply@tijdvooreenbox.nl";
 			$headers = "From: $from";
 			mail($to,$subject,$message,$headers);
