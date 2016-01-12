@@ -8,8 +8,7 @@ include ('includes/header.html');
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
 //include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
-require ('includes/mysqli_connect_webpages.avans.nl');
-require ('includes/mysqli_connect_localhost.php');
+include ('includes/mysqli_connect_localhost.php');
 
 // Page header:
 echo '<h1>Registreren</h1>';
@@ -19,10 +18,7 @@ echo '<h1>Registreren</h1>';
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
 
-$host = 'localhost';
-$username = 'bimivp2e4';
-$password = 'Welkom01';
-$db_name = 'avans_bimivp2e4';
+$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  
 // check connection
 if (mysqli_connect_errno()) {
@@ -78,7 +74,7 @@ if(mysql_num_rows($select)) {
 	if ( count($aErrors) == 0 ) 
 	{
 		// Gebruiker in database registreren.
-		$conn = mysql_connect("$host", "$username", "$password", "db_name");
+		$conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 		if (mysqli_connect_errno()) {
 			printf("Connect failed: %s\n", mysqli_connect_error());
 		}
