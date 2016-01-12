@@ -68,7 +68,7 @@ if($count==1){
 
 $naam1 = mysql_query("SELECT Naam FROM Klant where Email='$email'");
 $naam2 = mysql_fetch_array($naam1);
-$naam = ($naam2['naam']);
+$naam = ($naam2['Naam']);
 
 $klantnr1 = mysql_query("SELECT KlantID FROM Klant WHERE Email='$email'");
 $klantnr2 = mysql_fetch_array($klantnr1);

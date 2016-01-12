@@ -59,7 +59,6 @@ else {
     <table>
 	<thead>
     <tr>
-        <th>Productnr</th>
         <th>Productnaam</th>
         <th>Hoeveelheid</th>
         <th>Prijs p/s</th>
@@ -93,21 +92,20 @@ else {
 
       if (strlen(trim($product[1])) <> 0) {
 		  // Get product info
-		  $sql = "SELECT productnummer, productnaam, prijs 
-				  FROM product
-				  WHERE productnummer = ".$product[0];  // Weet je nog, uit die sessie
+		  $sql = "SELECT *
+				  FROM Product
+				  WHERE ProductID = ".$product[0];  // Weet je nog, uit die sessie
 				  
 		  $result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
 		  $pro_cart = mysqli_fetch_object($result);
 		  $i++;
  
 		  echo "<tbody>\n<tr>\n";
-		  echo "  <td>".$pro_cart->productnummer."</td>\n";   // nummer
-		  echo "  <td>".$pro_cart->productnaam."</td>\n";     // naam
+		  echo "  <td>".$pro_cart->Naam."</td>\n";     // naam
 		  echo "  <td><input type=\"hidden\" name=\"productnummer_".$i."\" value=\"".$product[0]."\" />\n"; // wat onzichtbare vars voor het updaten
 		  echo "      <input type=\"text\" name=\"hoeveelheid_".$i."\" value=\"".$product[1]."\" size=\"2\" maxlength=\"2\" /></td>\n";
-		  echo "  <td>€ ".number_format($pro_cart->prijs, 2, ',', '.')."</td>\n";
-		  $lineprice = $product[1] * $pro_cart->prijs;      // regelprijs uitrekenen > hoeveelheid * prijs
+		  echo "  <td>€ ".number_format($pro_cart->Prijs_Perstuk, 2, ',', '.')."</td>\n";
+		  $lineprice = $product[1] * $pro_cart->Prijs_Perstuk;      // regelprijs uitrekenen > hoeveelheid * prijs
 		  echo "  <td>€ ".number_format($lineprice, 2, ',', '')."</td>\n";
 		  echo "  <td><a href=\"javascript:removeItem(".$i.")\"><img src=\"images\delete.png\"/></a></td>\n"; // Verwijder, mooi plaatje van prullebak ofzo
 		  echo "</tr>\n</tbody>";

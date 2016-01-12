@@ -1,15 +1,21 @@
 <?php
+//
+// Membersarea.php
+//
 
-ob_start();
-//startscherm van de webwinkel
 // Zet het niveau van foutmeldingen zo dat warnings niet getoond worden.
 error_reporting(E_ERROR | E_PARSE);
-$page_title = 'Tijdvooreenbox.nl ~ Membersarea';
+
+// Zet de titel en laad de HTML header uit het externe bestand.
+$page_title = 'Welkom in de WebWinkel';
+$active = 5;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
 include ('includes/header.html');
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
 //include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
 include ('includes/mysqli_connect_localhost.php');
+ob_start();
+
 
 session_start();
 	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {;

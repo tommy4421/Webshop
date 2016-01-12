@@ -5,11 +5,11 @@
 session_start();
 
 // Het product wat we toevoegen moeten we eerst controleren
-if(is_numeric($_POST['productnummer'])) {
-    $productnummer = $_POST['productnummer'];
+if(is_numeric($_POST['productid'])) {
+    $productnummer = $_POST['productid'];
 }
 else {
-    echo("Productnummer is niet numeriek");
+    echo("Productid is niet numeriek");
     echo "<p><a href=\"javascript:history.back()\">Pagina terug!!</a></p>\n";
     exit();
 }
