@@ -32,7 +32,6 @@ if (mysqli_connect_errno()) {
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['adres'], $_POST['towncity'], $_POST['postcode']) )
 {
-		
 	// We gaan de errors in een array bijhouden
 	// We kunnen dan alle foutmeldingen in een keer afdrukken.
 	$aErrors = array();
@@ -61,9 +60,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	if ( !isset($_POST['postcode']) or !preg_match( '~^\d{4} ?[a-zA-Z]{2}$~', $_POST['postcode'] ) ) {
 		$aErrors['postcode'] = 'De postcode is onjuist';
 	}
-	if(email_check($_POST['emailadres']) ==  'ja'){
-                   echo 'Er is al iemand geregistreerd met dit emailadres.';
-               }
 
 	// wachtwoord (minimaal 3)
 	// if ( !isset($_POST['password']) or !preg_match( '~^[\w ]{3,}$~', $_POST['password'] ) ) {
@@ -79,7 +75,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		}
 
 		$sql = "INSERT INTO `Klant` (`naam`, `adres`, `postcode`, `plaats`, `email`, `wachtwoord`, `nieuwsbrief`) VALUES ".
-				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['plaats']."', '".$_POST['email']."','".$_POST['password']."','".$_POST['nieuwsbrief']."');";
+				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['towncity']."', '".$_POST['email']."','".$_POST['password']."','".$_POST['nieuwsbrief']."');";
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
@@ -99,16 +95,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		}
 	}
 }
-
-
 ?>
-<script type="text/javascript">
-function MM_jumpMenu(targ,selObj,restore){ //v3.0
-  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
-  if (restore) selObj.selectedIndex=0;
-}
-</script>
-
 <form action="registreer.php" method="post" class="formulier">
   <?php
   if ( isset($aErrors) and count($aErrors) > 0 ) {
