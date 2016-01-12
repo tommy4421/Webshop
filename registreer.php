@@ -86,18 +86,19 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			$pass = $_POST['password'];
 			$to = $_POST['email'];
 			$subject = "Registratie Tjdvooreenbox.nl";
-			$message = "Beste '.$klant.',
+			$message = "<img class=\"logo\" src=\"images/logobox-klein.png\" alt=\"Logo\">
+Beste $klant,
 			
-			Bedankt voor het registreren bij Tijdvooreenbox.nl! U kunt inloggen met onderstaande gegevens:
+Bedankt voor het registreren bij Tijdvooreenbox.nl! U kunt inloggen met onderstaande gegevens:
  
 ------------------------
-E-mailadres: '.$klant.'
-Wachtwoord: '.$pass.'
+E-mailadres: $klant
+Wachtwoord: $pass
 ------------------------
  
 Veel plezier in onze Webshop!
 
-Names het team van Tijdvooreenbox.nl";
+Namens het team van Tijdvooreenbox.nl";
 			$from = "noreply@tijdvooreenbox.nl";
 			$headers = "From: $from";
 			mail($to,$subject,$message,$headers);
