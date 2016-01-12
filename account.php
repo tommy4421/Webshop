@@ -14,10 +14,6 @@ include ('includes/header.html');
 include ('includes/mysqli_connect_webpages.avans.nl');
 include ('includes/mysqli_connect_localhost.php');
 
-$host = 'localhost';
-$username = 'bimivp2e4';
-$dbpassword = 'Welkom01';
-$db_name = 'avans_bimivp2e4';
 
 // Page header:
 echo '<h1>Uw gegevens</h1>';
