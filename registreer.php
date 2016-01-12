@@ -55,6 +55,10 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	if ( !isset($_POST['towncity']) or !preg_match( '~^[\w\d\' ]*$~', $_POST['towncity'] ) ) {
 		$aErrors['towncity'] = 'De stad is onjuist';
 	}
+	$select = mysql_query("SELECT `email` FROM Klant WHERE `email` = '".$_POST['email']."'") or exit(mysql_error());
+if(mysql_num_rows($select)) {
+		$aErrors['email2'] = 'Dit e-mailadres is al geregistreerd';
+	}
 
 	//  Een postcode heeft vier cijfers, eventueel een spatie, en twee cijfers
 	if ( !isset($_POST['postcode']) or !preg_match( '~^\d{4} ?[a-zA-Z]{2}$~', $_POST['postcode'] ) ) {
