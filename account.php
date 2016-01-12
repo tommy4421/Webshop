@@ -41,9 +41,9 @@ if (empty($_SESSION['klantnr'])) {
 	echo "<tr><td id='links'><b>Postcode</b></td><td id='rechts'>".$row["postcode"]."</td></tr>\n";
 	echo "<tr><td id='links'><b>Plaats</b></td><td id='rechts'>".$row["plaats"]."</td></tr>\n";
 	echo "<tr><td id='links'><b>Email</b></td><td id='rechts'>".$row["email"]."</td></tr>\n";
-	echo "<tr><td id='links'<b>>Klantnr</b></td><td id='rechts'>".$klantnr."</td></tr>\n";
+	echo "<tr><td id='links'><b>Klantnr</b></td><td id='rechts'>".$klantnr."</td></tr>\n";
 	echo "</table>\n";
-	echo "<a href=\"login.php\">Log nu in</a> om uw account te bekijken.";
+	echo "Log nu in om uw account te bekijken.";
 
 }
 // Sluit de connection
