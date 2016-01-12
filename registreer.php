@@ -86,7 +86,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			$pass = $_POST['password'];
 			$to = $_POST['email'];
 			$subject = "Registratie Tjdvooreenbox.nl";
-			$message = "Beste $klant,
+			$message = "<img class=\"logo\" src=\"images/logobox-klein.png\" alt=\"Logo\">
+Beste $klant,
 			
 Bedankt voor het registreren bij Tijdvooreenbox.nl! U kunt inloggen met onderstaande gegevens:
  
