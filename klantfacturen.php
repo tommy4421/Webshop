@@ -36,7 +36,7 @@ if (mysqli_connect_errno()) {
 
 $klantid = $_POST['klantnr'];
 $sql = "SELECT * FROM Factuur WHERE For_Klant ='$klantid'";
-$sql = "SELECT * FROM Factuur_Product";
+$sql2 = "SELECT * FROM Factuur_Product";
 
 // Voer de query uit en sla het resultaat op 
 $result = mysqli_query($conn, $sql);
@@ -65,6 +65,17 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	echo "</form>\n</div>\n";
 }
 
+while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) 
+{
+	echo "<!-- ---------------------------------- -->\n";
+	echo "<div id=\"klantgebeuren\">\n<form action=\"factuurbekijken.php\" method=\"post\">\n";
+	echo "<center>Factuur overzicht</center><br />";
+	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
+	echo "FactuurID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["Pro_ProductID"]."\" />\n";
+	echo "Totaal bedrag: <div id=\"Prijs\">&euro;".$row["Totaalbedrag"]."</div>\n<br />";
+	echo "<div id=\"postcode\">Datum: ".$row["Datum"]."</div>\n";
+	echo "</form>\n</div>\n";
+}
 
 /* maak de resultset leeg */
 mysqli_free_result($result);
