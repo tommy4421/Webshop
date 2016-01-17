@@ -47,38 +47,54 @@ elm.style.display = (elm.style.display=='none'?'block':'none');
 
 <table width="100%" border="1">
   <tr>
-    <th scope="col"><b>Bestellen</b></th>
-    <th scope="col"><b>Account</b></th>
+    <th scope="col" width="50%"><h2><u>Bestellen</u></h2></th>
+    <th scope="col" width="50%"><h2><u>Account</u></h2></th>
   </tr>
   <tr>
-    <td><a href="#" onclick="showHide('A1'); return false;"><b>Heb ik een account nodig om te kunnen bestellen?</b></a>
+    <td valign="top">
+    <a href="#" onclick="showHide('A1'); return false;"><b>Heb ik een account nodig om te kunnen bestellen?</b></a>
 <div id="A1" style="padding-left:20px; display:none;">Nee. U kan ook zonder account een product bestellen.</div><br /><br />
 
-<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
-<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+<a href="#" onclick="showHide('A2'); return false;"><b>Kan ik meerdere producten per keer bestellen?</b></a>
+<div id="A2" style="padding-left:20px; display:none;">Ja, dit kan.</div><br /><br />
 
-<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
-<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+<a href="#" onclick="showHide('A3'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A3" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+</td>
 
-<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
-<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+    <td valign="top">
+    <a href="#" onclick="showHide('A4'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A4" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
 
-<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
-<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br /></td>
-    <td><a href="#" onclick="showHide('A1'); return false;"><b>Heb ik een account nodig om te kunnen bestellen?</b></a>
-<div id="A1" style="padding-left:20px; display:none;">Nee. U kan ook zonder account een product bestellen.</div><br /><br />
+<a href="#" onclick="showHide('A5'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A5" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+    </td>
+  </tr>
+</table><br />
+<table width="100%" border="1">
+  <tr>
+    <th scope="col" width="50%"><h2><u>Bestellen</u></h2></th>
+    <th scope="col" width="50%"><h2><u>Account</u></h2></th>
+  </tr>
+  <tr>
+    <td valign="top">
+    <a href="#" onclick="showHide('A6'); return false;"><b>Heb ik een account nodig om te kunnen bestellen?</b></a>
+<div id="A6" style="padding-left:20px; display:none;">Nee. U kan ook zonder account een product bestellen.</div><br /><br />
 
-<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
-<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+<a href="#" onclick="showHide('A7'); return false;"><b>Kan ik meerdere producten per keer bestellen?</b></a>
+<div id="A7" style="padding-left:20px; display:none;">Ja, dit kan.</div><br /><br />
 
-<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
-<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+<a href="#" onclick="showHide('A8'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A8" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+</td>
 
-<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
-<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+    <td valign="top">
+    <a href="#" onclick="showHide('A9'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A9" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
 
-<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
-<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br /></td>
+<a href="#" onclick="showHide('A10'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A10" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+    </td>
   </tr>
 </table>
 
