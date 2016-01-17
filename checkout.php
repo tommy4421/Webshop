@@ -62,7 +62,7 @@ if (empty($_SESSION['klantnr'])) {
         // We tellen hier ook het bedrag per product op (prijs x aantal) en tellen dit op bij de totaalprijs.
         // Je kunt in cart.php kijken hoe je dat kunt doen.
         //$totaalprijs = $prijs * $product[1];
-            // Toon de producten in de winkelwagen4
+        // Toon de producten in de winkelwagen4
         
     $i = 0;
     foreach($cart as $products) {
@@ -81,7 +81,7 @@ if (empty($_SESSION['klantnr'])) {
  
 		  
 		
-                  $prijs{$i} = number_format($pro_cart->Prijs_Perstuk, 2, ',', '.') . "<br>";
+                  $prijs = number_format($pro_cart->Prijs_Perstuk, 2, ',', '.') . "<br>";
 		  $lineprice = $product[1] * $pro_cart->Prijs_Perstuk . "<br>";    // regelprijs uitrekenen > hoeveelheid * prijs
                   $totaalprijs = $lineprice;
 		  // Total
@@ -89,7 +89,7 @@ if (empty($_SESSION['klantnr'])) {
                   $datum = date("Y-m-d H:i:s");
                 
 		$sql = "INSERT INTO `Order_Product` (`Ord_orderID`, `Pro_ProductID`, `Aantal`, `Product_prijs`, `Totaalprijs`, `Datum`) VALUES"
-                        . "('$bestelnr', '$product[0]', '$product[1]', '0', '$totaalprijs', '$datum');";
+                        . "('$bestelnr', '$product[0]', '$product[1]', '$prijs', '$totaalprijs', '$datum');";
                 
                 //$prijs{$i}
                               
