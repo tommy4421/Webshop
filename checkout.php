@@ -147,14 +147,19 @@ echo "</table><br />
 		//Tot hier
 		
 		//Vanaf hier mail naar klant met bestelling
-		$result3 = mysql_query("SELECT email FROM Klant WHERE KlantID = '".$_SESSION['klantnr']."'");
-		$result4 = mysql_query("SELECT naam FROM Klant WHERE KlantID = '".$_SESSION['klantnr']."'");
+		$sql3 = "SELECT email FROM Klant WHERE KlantID = '".$_SESSION['klantnr']."'";
+		$sql4 = "SELECT naam FROM Klant WHERE KlantID = '".$_SESSION['klantnr']."'";
 		
-			$row = mysql_fetch_array($result);
-		$klant = mysql_fetch_assoc($result4);
-			$to = mysql_fetch_assoc($result3);
-			echo $klant;
+			if ($result3 = mysql_query($sql3)) {
+    $row3 = mysql_fetch_assoc($result3);
+    $to = $row3['email'];
+}
+			if ($result4 = mysql_query($sql4)) {
+    $row4 = mysql_fetch_assoc($result4);
+    $klant = $row4['naam'];
+}
 			echo $to;
+			echo $klant;
 			$subject = "Uw bestelling bij Tijdvooreenbox.nl";
 			$message = "Beste $klant,
 			
