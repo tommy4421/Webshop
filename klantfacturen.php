@@ -62,6 +62,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	echo "FactuurID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["FactuurID"]."\" />\n";
 	echo "Totaal bedrag: <div id=\"Prijs\">&euro;".$row["Totaalbedrag"]."</div>\n<br />";
 	echo "<div id=\"postcode\">Datum: ".$row["Datum"]."</div>\n";
+	$product = "SELECT Naam FROM Product WHERE ProductID = ( SELECT Pro_ProductID FROM Factuur_Product WHERE Fac_FactuurID = ".$row["FactuurID"]."";
 	echo "</form>\n</div>\n";
 }
 
@@ -71,7 +72,7 @@ while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC))
 	echo "<div id=\"klantgebeuren\">\n<form action=\"factuurbekijken.php\" method=\"post\">\n";
 	echo "<center>Factuur overzicht</center><br />";
 	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
-	echo "FactuurID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["Pro_ProductID"]."\" />\n";
+	echo "ProductID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["Pro_ProductID"]."\" />\n";
 	echo "Totaal bedrag: <div id=\"Prijs\">&euro;".$row["Totaalbedrag"]."</div>\n<br />";
 	echo "<div id=\"postcode\">Datum: ".$row["Datum"]."</div>\n";
 	echo "</form>\n</div>\n";
