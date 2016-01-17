@@ -125,9 +125,9 @@ echo "<p> Uw bestelling is geplaatst met bestelnummer $bestelnr</p>
 <th>Aantal</th>
 </tr>";
 
-$result2 = mysql_query("SELECT SUM(Totaalprijs) AS value_sum FROM Order_Product WHERE Order_Product.Pro_ProductID = Product.ProductID AND Order_Product.Ord_OrderID = Order.OrderID AND Order.Kla_Klant = Klant.KlantID AND KlantID = '".$_SESSION['klantnr']."' AND OrderID = $bestelnr;");
+$result2 = mysql_query("SELECT SUM(Totaalprijs) FROM Klant,`Order`,`Order_Product`,`Product` WHERE Order_Product.Pro_ProductID = Product.ProductID AND Order_Product.Ord_OrderID = Order.OrderID AND Order.Kla_Klant = Klant.KlantID AND KlantID = '".$_SESSION['klantnr']."' AND OrderID = $bestelnr;");
 $row2 = mysql_fetch_assoc($result2);
-$sum = $row2['value_sum'];
+$sum = $row2;
 
 while($row = mysql_fetch_array($result))
   {
@@ -172,8 +172,8 @@ echo \"</table><br />
     <td>Totaalprijs:</td>
     <td>€ ".number_format($sum, 2, ',', '.')."</td>
   </tr>
-</table>\"";
-echo "------------------------
+</table>\";
+echo ------------------------
  
 Veel plezier in onze Webshop!
 
