@@ -35,7 +35,6 @@ else echo "</h1>\n";
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
 ?>
-<link rel="stylesheet" href="includes/stylefaq.css" type="text/css" media="screen" />
 
 <h1>CSS + HTML only Accordion Element</h1>
 <ul>
