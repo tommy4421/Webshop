@@ -387,20 +387,26 @@ a:hover.slidesjs-stop {
     background-color: #ff2c32;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 50%;
+    height: 600px;
     width: 100%;
     padding-top: 10px;
     padding-left: 50px;
     padding-right: 50px;
 }
 
+/*.molen{
+    float: right;
+    
+    
+}*/
+
 
 .tekens{
     background-repeat: no-repeat;
     background-size: cover;
-    height: 50%;
+    height: 600px;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 150px;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -409,7 +415,7 @@ a:hover.slidesjs-stop {
     background-color: #ff2c32;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 50%;
+    height: 600px;
     width: 100%;
     padding-top: 10px;
     padding-left: 50px;
@@ -419,7 +425,7 @@ a:hover.slidesjs-stop {
 .provincie{
     background-repeat: no-repeat;
     background-size: cover;
-    height: 50%;
+    height: 600px;
     width: 100%;
     padding-top: 10px;
     padding-left: 50px;
