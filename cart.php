@@ -136,7 +136,7 @@ else {
   <ul>
 		<li><a href="javascript:removeCart()">Winkelwagen leegmaken</a><br /></li>
 		<li><a href="checkout.php">Afrekenen</a><br /></li>
-		<li><a href="index.php">Verder winkelen</a></li>
+		<li><a href=\"javascript:history.go(-1)\">Verder winkelen</a></li>
 	</ul>	
   </p>
   <?php
