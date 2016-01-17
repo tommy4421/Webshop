@@ -118,7 +118,7 @@ mysql_select_db(DB_NAME, $con);
 $result = mysql_query("SELECT * FROM Klant,`Order`,`Order_Product`,`Product` WHERE Order_Product.Pro_ProductID = Product.ProductID AND Order_Product.Ord_OrderID = Order.OrderID AND Order.Kla_Klant = Klant.KlantID AND KlantID = '".$_SESSION['klantnr']."' AND OrderID = $bestelnr;");
 
 echo "<h1> Uw bestelling is geplaatst met bestelnummer $bestelnr</h1>
-<table border='1'>
+<table width=\"50%\" border='1'>
 <tr>
 <th>Product</th>
 <th>Prijs per stuk</th>
@@ -128,9 +128,9 @@ echo "<h1> Uw bestelling is geplaatst met bestelnummer $bestelnr</h1>
 while($row = mysql_fetch_array($result))
   {
   echo "<tr>";
-  echo "<td>" . $row['Product.Naam'] . "</td>";
-  echo "<td>" . $row['Product.Prijs_Perstuk'] . "</td>";
-  echo "<td>" . $row['Order_Product.Aantal'] . " stuks</td>";
+  echo "<td>" . $row['Naam'] . "</td>";
+  echo "<td>" . $row['Prijs_Perstuk'] . "</td>";
+  echo "<td>" . $row['Aantal'] . " stuks</td>";
   echo "</tr>";
   }
 echo "</table>";
