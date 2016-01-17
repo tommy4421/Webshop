@@ -133,7 +133,13 @@ while($row = mysql_fetch_array($result))
   echo "<td>" . $row['Aantal'] . " stuks</td>";
   echo "</tr>";
   }
-echo "</table>";
+echo "</table><br />
+<table width=\"50%\" border=\"1\">
+  <tr>
+    <td>Totaalprijs:</td>
+    <td>€ ".number_format($total, 2, ',', '.')."</td>
+  </tr>
+</table>";
 		//Tot hier
         
 	
