@@ -60,8 +60,6 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	echo "FactuurID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["FactuurID"]."\" />\n";
 	echo "Totaal bedrag: <div id=\"Prijs\">&euro;".$row["Totaalbedrag"]."</div>\n<br />";
 	echo "<div id=\"postcode\">Datum: ".$row["Datum"]."</div>\n";
-	echo "<br /><div id=\"selecteer\">";
-	echo "<center><input type=\"submit\" value=\"Bekijk factuur\" class=\"button\"/></div>\n</center>";
 	echo "</form>\n</div>\n";
 }
 
