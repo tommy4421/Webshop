@@ -153,6 +153,8 @@ echo "</table><br />
 			$row = mysql_fetch_array($result);
 		$klant = mysql_fetch_assoc($result4);
 			$to = mysql_fetch_assoc($result3);
+			echo $klant;
+			echo $to;
 			$subject = "Uw bestelling bij Tijdvooreenbox.nl";
 			$message = "Beste $klant,
 			
