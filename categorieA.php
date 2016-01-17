@@ -93,7 +93,7 @@ $total=ceil($rows/$limit);
 
 if($id>1)
 {
-echo "<a href='?id=".($id-1)."' class='button'>Vorige pagina</a>&nbsp;&nbsp;";
+echo "<br /><br /><br /><br /><br /><br /><br /><a href='?id=".($id-1)."' class='button'>Vorige pagina</a>&nbsp;&nbsp;";
 }
 if($id!=$total)
 {
