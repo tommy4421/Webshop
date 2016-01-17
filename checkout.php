@@ -103,7 +103,6 @@ if (empty($_SESSION['klantnr'])) {
         
         
               }
-    }
         
 	// 
 	// Op dit moment hebben we de totaalprijs berekend. Deze moeten we nu nog in een aparte
