@@ -35,20 +35,6 @@ else echo "</h1>\n";
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
 
-include ('includes/home.html');
-
-include ('includes/footer.html');
-
-
-
-$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
- 
-// check connection
-if (mysqli_connect_errno()) {
-	printf("<p><b>Fout: verbinding met de database mislukt.</b><br/>\n%s</p>\n", mysqli_connect_error());
-	exit();
-}
-
 session_start(); 
 $mail_ontv = 'contact@tijdvooreenbox.nl';
 
@@ -86,16 +72,16 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && (!empty($antiflood) || empty($_POST
   <p>
   
       <label for="naam">Naam:</label><br />
-      <input type="text" id="naam" name="naam" value="' . (isset($_POST['naam']) ? htmlspecialchars($_POST['naam']) : '') . '" /><br /><br />
+      <input type="text" id="naam" placeholder="Vul hier uw naam in" name="naam" value="' . (isset($_POST['naam']) ? htmlspecialchars($_POST['naam']) : '') . '" /><br /><br />
       
       <label for="mail">E-mailadres:</label><br />
-      <input type="text" id="mail" name="mail" value="' . (isset($_POST['mail']) ? htmlspecialchars($_POST['mail']) : '') . '" /><br /><br />
+      <input type="text" id="mail" placeholder="Vul hier uw e-mailadres in" name="mail" value="' . (isset($_POST['mail']) ? htmlspecialchars($_POST['mail']) : '') . '" /><br /><br />
       
       <label for="onderwerp">Onderwerp:</label><br />
-      <input type="text" id="onderwerp" name="onderwerp" value="' . (isset($_POST['onderwerp']) ? htmlspecialchars($_POST['onderwerp']) : '') . '" /><br /><br />
+      <input type="text" id="onderwerp" placeholder="Vul hier het onderwerp in" name="onderwerp" value="' . (isset($_POST['onderwerp']) ? htmlspecialchars($_POST['onderwerp']) : '') . '" /><br /><br />
       
       <label for="bericht">Bericht:</label><br />
-      <textarea id="bericht" name="bericht" rows="8" style="width: 400px;">' . (isset($_POST['bericht']) ? htmlspecialchars($_POST['bericht']) : '') . '</textarea><br /><br />
+      <textarea id="bericht" name="bericht" placeholder="Vul hier uw bericht in" rows="8" style="width: 400px;">' . (isset($_POST['bericht']) ? htmlspecialchars($_POST['bericht']) : '') . '</textarea><br /><br />
       
       <input type="submit" name="submit" value=" Versturen " />
   </p>
@@ -144,6 +130,18 @@ else
       
       <p><b>Onze excuses.</b> Het contactformulier kon niet verzonden worden.</p>';
   }
+}
+
+include ('includes/footer.html');
+
+
+
+$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+ 
+// check connection
+if (mysqli_connect_errno()) {
+	printf("<p><b>Fout: verbinding met de database mislukt.</b><br/>\n%s</p>\n", mysqli_connect_error());
+	exit();
 }
 
 
