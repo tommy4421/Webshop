@@ -83,7 +83,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			$subject = "Nieuwsbriefaanmelding Tijdvooreenbox.nl";
 			$message = "Beste $klant,
 			
-Bedankt voor het het inschrijven van de nieuwsbrief van Tijdvooreenbox.nl!
+Bedankt voor het het inschrijven voor de nieuwsbrief van Tijdvooreenbox.nl!
 
 Is deze inschrijving niet door u zelf gedaan of heeft u toch besloten dat u de nieuwsbrief niet wilt ontvangen? Klik dan <a href=\"http://www.tijdvooreenbox.nl/nonieuwsbrief.php\">hierhttp://www.tijdvooreenbox.nl/nonieuwsbrief.php</a>.
  
@@ -98,7 +98,8 @@ Namens het team van Tijdvooreenbox.nl";
 			// Sluit de connection
 			mysqli_close($conn);
 
-			echo 'Bedant voor uw inschrijving!';
+			echo 'Bedankt voor uw inschrijving!';
+			include ('includes/footer.html');
 			exit();
 		}
 	}
