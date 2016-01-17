@@ -89,8 +89,8 @@ if (empty($_SESSION['klantnr'])) {
 		  //$total = $total + $lineprice;         // Totaal updaten
 
                 
-		$sql = "INSERT INTO Order_Product (`Ord_orderID`, `Pro_ProductID`, `Product_prijs`, `Aantal`, `Totaalprijs`, `Datum`) VALUES"
-                        . "('$bestelnr', '$product[0]', '$product[1]', '0', '$totaalprijs' '$datum');";
+		$sql = "INSERT INTO Order_Product (`Ord_orderID`, `Pro_ProductID`, `Aantal`, `Product_prijs`, `Totaalprijs`, `Datum`) VALUES"
+                        . "('$bestelnr', '$product[0]', '$product[1]', '0', '$totaalprijs', '$datum');";
                 
                 //$prijs{$i}
                                           
