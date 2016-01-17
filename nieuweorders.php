@@ -69,7 +69,7 @@ while($query2=mysql_fetch_array($query))
 	echo "OrderID: <input type=\"text\" name=\"KlantID\" value=\"".$query2["OrderID"]."\" />\n";
 	echo "<div id=\"naam\">Status: ".$query2["Orderstatus"]."</div>\n";
 	echo "<div id=\"adres\">KlantNr: ".$query2["Kla_Klant"]."</div>\n";
-	echo "<div id=\"datum\">Datum: ".$query2["Datum"]."</div>\n";
+	echo "<div id=\"datum\">Datum: ".$query2["ODatum"]."</div>\n";
 	echo "<br /><div id=\"selecteer\">";
 	echo "<center><input type=\"submit\" value=\"Bekijk\" class=\"button\"/></div>\n</center>";
 	echo "</form>\n</div>\n";
