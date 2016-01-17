@@ -89,12 +89,14 @@ if (empty($_SESSION['klantnr'])) {
 		  //$total = $total + $lineprice;         // Totaal updaten
                   $datum = date("Y-m-d H:i:s");
                 
-		$sql2 = "INSERT INTO `Order_Product` (`Ord_orderID`, `Pro_ProductID`, `Aantal`, `Product_prijs`, `Totaalprijs`, `Datum`) VALUES"
+		$sql = "INSERT INTO `Order_Product` (`Ord_orderID`, `Pro_ProductID`, `Aantal`, `Product_prijs`, `Totaalprijs`, `Datum`) VALUES"
                         . "('$bestelnr', '$product[0]', '$product[1]', '0', '$totaalprijs', '$datum');";
                 
                 //$prijs{$i}
+                
+                echo $sql;
                                           
-		$result = mysqli_query($conn, $sql2) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
+		$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
                 echo $result;
                 
                   }
