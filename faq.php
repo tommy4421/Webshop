@@ -9,7 +9,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 // Zet de titel en laad de HTML header uit het externe bestand.
 $page_title = 'Welkom op Tijd voor een box! - Contact';
-$active = 6;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
+$active = 5;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
 include ('includes/header.html');
 
  // Google analytics
@@ -35,8 +35,29 @@ else echo "</h1>\n";
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
 ?>
-Klik hier voor het antwoord <a href="#" onclick="toggle('textveld')">+</a><br />
-<div id="textveld">Hier zet je dan de tekst die verschijnt</div>
+<script type="text/javascript">
+function showOrHide(value) 
+{ 
+  if (document.getElementById(value).style.display == 'none') 
+  { 
+    document.getElementById(value).style.display = 'block'; 
+  } 
+  else 
+  { 
+    document.getElementById(value).style.display = 'none'; 
+  } 
+} 
+
+function beginfase()
+{
+  document.getElementById('layer1').style.display = 'none'; 
+}
+</script>
+
+<a href="javascript:showOrHide('layer1')">Toon/verberg</a>
+<div id="layer1">Dit is layer 1. </div>
+<a href="javascript:showOrHide('layer2')">Toon/verberg</a>
+<div id="layer2">Dit is layer 2. </div>
 <?php
 include ('includes/footer.html');
 
