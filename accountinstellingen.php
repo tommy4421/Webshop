@@ -54,7 +54,7 @@ $wachtwoordinstelling2 = mysql_fetch_array($wachtwoordinstelling1);
 $wachtwoordinstelling = ($wachtwoordinstelling2['wachtwoord']);
 
 $emailinstelling1 = mysql_query("SELECT Email FROM $tabel WHERE KlantID='$idi'");
-$emailinstelling2 = mysql_fetch_array($wachtwoordinstelling1);
+$emailinstelling2 = mysql_fetch_array($emailinstelling1);
 $emailinstelling = ($emailinstelling2['email']);
 
 ?>
@@ -86,7 +86,7 @@ $emailinstelling = ($emailinstelling2['email']);
           </li>
 		  <li>
             <label for="wachtwoord">Wachtwoord</label>
-            <input id="wachtwoord" name="wachtwoord" type="password" value="<?php echo "$wachtwoordinstelling"; ?>" REQUIRED/>
+            <input id="wachtwoord" name="wachtwoord" value="<?php echo "$wachtwoordinstelling"; ?>" REQUIRED/>
           </li>
            <li>
             <label for="email">E-mailadres</label>
