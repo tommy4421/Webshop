@@ -27,8 +27,6 @@ $gebruikersnaam = "bimivp2e4";
 $wachtwoord = "Welkom01";
 $host = "localhost";
 $database = "avans_bimivp2e4";
-$tabel = 'Klant';
-$idi = "$_SESSION[klantnr]";
 
 mysql_connect("$host", "$gebruikersnaam", "$wachtwoord")or die("Het is niet gelukt om te verbinden met MYSQL!");
 mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
@@ -84,13 +82,13 @@ mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){ 
 	
 		$naam = $_POST['naam'];
-		$wachtwoord = $_POST['wachtwoord'];
-		$plaats = $_POST['plaats'];
-		$postcode = $_POST['postcode'];
-		$adres = $_POST['adres'];
-		$email = $_POST['email'];
+		$beschrijving = $_POST['beschrijving'];
+		$provincie = $_POST['provincie'];
+		$voorraad = $_POST['voorraad'];
+		$prijs = $_POST['prijs'];
+		$leverbaar = $_POST['leverbaar'];
 	
-			if(!isset($naam) || trim($naam) == '' ||!isset($adres) || trim($adres) == '' ||!isset($postcode) || trim($postcode) == '' ||!isset($plaats) || trim($plaats) == '' ||!isset($wachtwoord) || trim($wachtwoord) == '' ||!isset($email) || trim($email) == '') {
+			if(!isset($naam) || trim($naam) == '' ||!isset($beschrijving) || trim($beschrijving) == '' ||!isset($provincie) || trim($provincie) == '' ||!isset($voorraad) || trim($voorraad) == '' ||!isset($prijs) || trim($prijs) == '' ||!isset($leverbaar) || trim($leverbaar) == '') {
 				echo "U heeft niet alles ingevuld. De wijzigingen zijn NIET opgeslagen.";
 			}
 			else
@@ -100,8 +98,7 @@ mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
 				$wachtwoord = "Welkom01";
 				$host = "localhost";
 				$database = "avans_bimivp2e4";
-				$tabel = 'Klant';
-				$idi = "$_SESSION[klantnr]";
+				$tabel = 'Product';
 				
 				$conn = new mysqli($host, $gebruikersnaam, $wachtwoord, $database);
 
@@ -109,40 +106,10 @@ mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
 				die("Kan geen verbinding maken: " . $conn->connect_error);
 			} 
 				
-				$sql = "UPDATE $tabel SET Naam='$naam', Wachtwoord='$wachtwoord', Plaats='$plaats', Postcode='$postcode', Adres='$adres' Nieuwsbrief='$nieuwsbrief' WHERE KlantID='$idi'";
+				$sql = "INSERT INTO $tabel (Naam, Beschrijving, Provincie, Voorraad_aantal, Prijs_Perstuk, Leverbaar)
+				VALUES ('$naam', '$beschrijving', '$provincie', '$voorraad', '$prijs', '$leverbaar')";
 
-				if ($conn->query($sql) === TRUE) {
-					$pass = $_POST['wachtwoord'];
-					$nieuwbrief = $_POST['nieuwsbrief'];
-			$subject = "Uw nieuwe gegevens bij Tijdvooreenbox.nl";
-			$message = "Beste $naam,
-			
-U heeft uw gegevens met succes gewijzigd. Uw gegevens zijn nu:
- 
-------------------------
-Naam: $naam
-Adres: $adres
-Postcode: $postcode
-Plaats: $plaats
-Wachtwoord: $pass
-E-mailadres: $email
-Nieuwsbrief ontvangen: $nieuwsbrief
-------------------------
- 
-Veel plezier in onze Webshop!
-
-Namens het team van Tijdvooreenbox.nl";
-			$from = "noreply@tijdvooreenbox.nl";
-			$headers = "From: $from";
-			mail($email,$subject,$message,$headers);
-				echo "De gegevens zijn succesvol opgeslagen!";			
 				
-				} else {
-				echo "Er is iets fout gegaan: " . $conn->error;
-				}
-
-
-			}
 	
 	
 	
