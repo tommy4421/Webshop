@@ -61,7 +61,7 @@ $query1=mysql_connect("localhost","bimivp2e4","Welkom01");
 mysql_select_db("avans_bimivp2e4",$query1);
 
 $start=0;
-$limit=8;
+$limit=5;
 
 if(isset($_GET['id']))
 {
