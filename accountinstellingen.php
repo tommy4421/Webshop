@@ -53,9 +53,9 @@ $wachtwoordinstelling1 = mysql_query("SELECT wachtwoord FROM $tabel WHERE KlantI
 $wachtwoordinstelling2 = mysql_fetch_array($wachtwoordinstelling1);
 $wachtwoordinstelling = ($wachtwoordinstelling2['wachtwoord']);
 
-$emailinstelling1 = mysql_query("SELECT email FROM $tabel WHERE KlantID='$idi'");
+$emailinstelling1 = mysql_query("SELECT Email FROM $tabel WHERE KlantID='$idi'");
 $emailinstelling2 = mysql_fetch_array($wachtwoordinstelling1);
-$emailinstelling = ($wachtwoordinstelling2['email']);
+$emailinstelling = ($emailinstelling2['email']);
 
 ?>
  
@@ -66,7 +66,7 @@ $emailinstelling = ($wachtwoordinstelling2['email']);
       <fieldset>
         
         <legend><h1>Account instellingen</h1></legend>
-        Let op! Uw postcode mag geen spatie bevatten, dus 1234AB.
+        <i><b>Let op!</b> Uw postcode mag geen spatie bevatten, dus 1234AB.</i><br />
         <ol>
           <li>
             <label for="naam">Naam</label>
@@ -136,7 +136,7 @@ $emailinstelling = ($wachtwoordinstelling2['email']);
 				
 			$pass = $_POST['wachtwoord'];
 			$subject = "Uw nieuwe gegevens bij Tijdvooreenbox.nl";
-			$message = "Beste $nieuwenaam,
+			$message = "Beste $naam,
 			
 U heeft uw gegevens met succes gewijzigd. Uw gegevens zijn nu:
  
