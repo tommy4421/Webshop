@@ -125,6 +125,10 @@ echo "<h1> Uw bestelling is geplaatst met bestelnummer $bestelnr</h1>
 <th>Aantal</th>
 </tr>";
 
+$result2 = mysql_query('SELECT SUM(Totaalprijs) AS value_sum FROM Order_Product');
+$row2 = mysql_fetch_assoc($result2);
+$sum = $row2['value_sum'];
+
 while($row = mysql_fetch_array($result))
   {
   echo "<tr>";
@@ -137,7 +141,7 @@ echo "</table><br />
 <table width=\"50%\" border=\"1\">
   <tr>
     <td>Totaalprijs:</td>
-    <td>€ ".number_format($total, 2, ',', '.')."</td>
+    <td>€ ".$sum."</td>
   </tr>
 </table>";
 		//Tot hier
