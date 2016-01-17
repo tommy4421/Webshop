@@ -42,7 +42,9 @@ if (empty($_SESSION['klantnr'])) {
 	// Stap 1, zet de order in de bestelling tabel
 	// Een bestelling heeft ook een bestelnummer (autoincrement), besteldatum (huidige datum/tijd), 
 	// en status (default: open).
-	$sql = "INSERT INTO bestelling (`klantnummer`) VALUES ('".$_SESSION['klantnr']."');"; 
+        $datum = date("Y-m-d H:i:s");
+
+	$sql = "INSERT INTO `order` (`Kla_klant`, `Datum`) VALUES ('".$_SESSION['klantnr']."', '$datum');"; 
 	$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
 
 	$bestelnr = mysqli_insert_id($conn); // insert_id geeft de id terug van het autoincrement veld - het bestelnr dus.
@@ -53,21 +55,51 @@ if (empty($_SESSION['klantnr'])) {
 	foreach($cart as $products) {
 		// Splits het product in stukjes: $product[x] --> x == 0 -> product id, x == 1 -> hoeveelheid
 		$product = explode(",",$products);
+                
+                
 
 		// Hier willen we productprijs toevoegen aan de productregel. De productprijs is de prijs van het 
 		// product. Deze zit nog niet in de sessie, en moet daar dus bij het bestellen (bijvoorbeeld 
 		// in index.php) in worden gezet.
 		// We tellen hier ook het bedrag per product op (prijs x aantal) en tellen dit op bij de totaalprijs.
 		// Je kunt in cart.php kijken hoe je dat kunt doen.
-		$sql = "INSERT INTO bestelregel (bestelnummer, productnummer, productprijs, aantal_besteld) VALUES
-		(".$bestelnr.", ".$product[0].", ".$product[1].", 0.0)";
+                //$totaalprijs = $prijs * $product[1];
+                    // Toon de producten in de winkelwagen
+    $i = 0;
+    foreach($cart as $products) {
+      // Splits het product in stukjes: $product[x] --> x == 0 -> product id, x == 1 -> hoeveelheid
+      $product = explode(",", $products);
+
+      if (strlen(trim($product[1])) <> 0) {
+		  // Get product info
+		  $sql = "SELECT *
+				  FROM Product
+				  WHERE ProductID = ".$product[0];  // Weet je nog, uit die sessie
+				  
+		  $result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
+		  $pro_cart = mysqli_fetch_object($result);
+		  $i++;
+ 
+		  echo $i . $product[0] . "<br>";
+		
+		  $prijs[$i] = number_format($pro_cart->Prijs_Perstuk, 2, ',', '.') . "<br>";
+		  $lineprice = $product[1] * $pro_cart->Prijs_Perstuk . "<br>";    // regelprijs uitrekenen > hoeveelheid * prijs
+                  $totaalprijs = number_format($lineprice, 2, ',', '');
+		  // Total
+		  //$total = $total + $lineprice;         // Totaal updaten
+      }
+    }
+                
+		$sql = "INSERT INTO order_product (`Ord_orderID`, `Pro_ProductID`, `Productprijs`, `Aantal`, `Totaalprijs`) VALUES
+		(".$bestelnr.", ".$product[0].", ".$product[1].", $prijs[0], $totaalprijs)";
 		$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
 	}
-
+        
 	// 
 	// Op dit moment hebben we de totaalprijs berekend. Deze moeten we nu nog in een aparte
 	// query in de bestelling zetten. Je hebt $bestelnr, dus voeg daar de totaalprijs aan toe.
 	// 
+        
 	
 	// Bericht naar de gebruiker.
 	echo "<p>Bedankt voor uw bestelling bij tijdvooreenbox.nl! Uw bestelling is succesvol afgerond.</p>";
