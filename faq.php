@@ -42,9 +42,45 @@ var elm = document.getElementById(id);
 elm.style.display = (elm.style.display=='none'?'block':'none');
 }
 </SCRIPT>
+<h1> FAQ (Veel Gestelde Vragen)<h1>
+<small><i>Klik op de vraag om het antwoord te zien</i></small><br /><br />
 
-<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a><br>
-<div id="A1" style="padding-left:20px; display:none;"><br>Antwoord bladiebla</div> 
+<table width="100%" border="1">
+  <tr>
+    <th scope="col"><b>Bestellen</b></th>
+    <th scope="col"><b>Account</b></th>
+  </tr>
+  <tr>
+    <td><a href="#" onclick="showHide('A1'); return false;"><b>Heb ik een account nodig om te kunnen bestellen?</b></a>
+<div id="A1" style="padding-left:20px; display:none;">Nee. U kan ook zonder account een product bestellen.</div><br /><br />
+
+<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+
+<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+
+<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+
+<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br /></td>
+    <td><a href="#" onclick="showHide('A1'); return false;"><b>Heb ik een account nodig om te kunnen bestellen?</b></a>
+<div id="A1" style="padding-left:20px; display:none;">Nee. U kan ook zonder account een product bestellen.</div><br /><br />
+
+<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+
+<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+
+<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br />
+
+<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a>
+<div id="A1" style="padding-left:20px; display:none;">Antwoord bladiebla</div><br /><br /></td>
+  </tr>
+</table>
 
 <?php
 include ('includes/footer.html');
