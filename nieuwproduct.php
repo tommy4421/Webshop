@@ -104,7 +104,6 @@ mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
 				if ($conn->connect_error) {
 				die("Kan geen verbinding maken: " . $conn->connect_error);
 			} 
-				
 				$sql = "INSERT INTO $tabel (Naam, Beschrijving, Provincie, Voorraad_aantal, Prijs_Perstuk, Leverbaar)
 				VALUES ('$naam', '$beschrijving', '$provincie', '$voorraad', '$prijs', '$leverbaar')";
 
