@@ -58,11 +58,11 @@ mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
           </li>
 		  <li>
             <label for="naam">Voorraad aantal</label>
-            <input id="voorraad" name="voorraad" REQUIRED/>
+            <input id="naam" name="voorraad" REQUIRED/>
           </li>
            <li>
-            <label for="prijs">Prijs per stuk</label>
-            <input id="prijs" name="prijs" REQUIRED/>
+            <label for="naam">Prijs per stuk</label>
+            <input id="naam" name="prijs" REQUIRED/>
             </li>
             <li>
             <label for="leverbaar">Leverbaar<em>*</em></label><br />
