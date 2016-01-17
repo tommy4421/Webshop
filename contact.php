@@ -35,18 +35,12 @@ else echo "</h1>\n";
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
 
-echo '
-<table border="1">
-  <tr>
-    <td>
-	<h1> Contactinformatie</h1>
+echo '<h1> Contactinformatie</h1>
   Hogeschoollaan 1<br />
 4818 CR Breda<br />
 Postbus 90.116<br />
 4800 RA Breda<br />
-contact@tijdvooreenbox.nl
-	</td>
-    <td>';
+contact@tijdvooreenbox.nl';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
@@ -142,9 +136,6 @@ else
       <p><b>Onze excuses.</b> Het contactformulier kon niet verzonden worden.</p>';
   }
 }
-echo '</td>
-  </tr>
-</table>';
 include ('includes/footer.html');
 
 
