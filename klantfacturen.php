@@ -62,7 +62,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	echo "FactuurID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["FactuurID"]."\" />\n";
 	echo "Totaal bedrag: <div id=\"Prijs\">&euro;".$row["Totaalbedrag"]."</div>\n<br />";
 	echo "<div id=\"postcode\">Datum: ".$row["Datum"]."</div>\n";
-	$product = "SELECT Naam FROM Product WHERE ProductID = ( SELECT Pro_ProductID FROM Factuur_Product WHERE Fac_FactuurID = ".$row["FactuurID"].")";
+	$product = mysqli_query("SELECT Naam FROM Product WHERE ProductID = ( SELECT Pro_ProductID FROM Factuur_Product WHERE Fac_FactuurID = ".$row["FactuurID"].")");
 	echo "$product";
 	echo "</form>\n</div>\n";
 }
