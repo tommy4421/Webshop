@@ -53,6 +53,10 @@ $wachtwoordinstelling1 = mysql_query("SELECT wachtwoord FROM $tabel WHERE KlantI
 $wachtwoordinstelling2 = mysql_fetch_array($wachtwoordinstelling1);
 $wachtwoordinstelling = ($wachtwoordinstelling2['wachtwoord']);
 
+$emailinstelling1 = mysql_query("SELECT email FROM $tabel WHERE KlantID='$idi'");
+$emailinstelling2 = mysql_fetch_array($wachtwoordinstelling1);
+$emailinstelling = ($wachtwoordinstelling2['email']);
+
 ?>
  
  
@@ -62,6 +66,7 @@ $wachtwoordinstelling = ($wachtwoordinstelling2['wachtwoord']);
       <fieldset>
         
         <legend><h1>Account instellingen</h1></legend>
+        Let op! Uw postcode mag geen spatie bevatten, dus 1234AB.
         <ol>
           <li>
             <label for="naam">Naam</label>
@@ -83,6 +88,10 @@ $wachtwoordinstelling = ($wachtwoordinstelling2['wachtwoord']);
             <label for="wachtwoord">Wachtwoord</label>
             <input id="wachtwoord" name="wachtwoord" type="password" value="<?php echo "$wachtwoordinstelling"; ?>" REQUIRED/>
           </li>
+           <li>
+            <label for="email">E-mailadres</label>
+            <input id="email" name="email" value="<?php echo "$emailinstelling"; ?>" REQUIRED/>
+          </li>
         </ol>
         <input type="submit" value="Sla wijzigingen op" class="button"/>
       </fieldset>
@@ -98,8 +107,9 @@ $wachtwoordinstelling = ($wachtwoordinstelling2['wachtwoord']);
 		$plaats = $_POST['plaats'];
 		$postcode = $_POST['postcode'];
 		$adres = $_POST['adres'];
+		$email = $_POST['email'];
 	
-			if(!isset($naam) || trim($naam) == '' ||!isset($adres) || trim($adres) == '' ||!isset($postcode) || trim($postcode) == '' ||!isset($plaats) || trim($plaats) == '' ||!isset($wachtwoord) || trim($wachtwoord) == '') {
+			if(!isset($naam) || trim($naam) == '' ||!isset($adres) || trim($adres) == '' ||!isset($postcode) || trim($postcode) == '' ||!isset($plaats) || trim($plaats) == '' ||!isset($wachtwoord) || trim($wachtwoord) == '' ||!isset($email) || trim($email) == '') {
 				echo "U heeft niet alles ingevuld. De wijzigingen zijn NIET opgeslagen.";
 			}
 			else
@@ -123,6 +133,28 @@ $wachtwoordinstelling = ($wachtwoordinstelling2['wachtwoord']);
 				if ($conn->query($sql) === TRUE) {
 				echo "De gegevens zijn succesvol opgeslagen!";
 				header("refresh: 1; url=accountinstellingen.php");			
+				
+			$pass = $_POST['wachtwoord'];
+			$subject = "Uw nieuwe gegevens bij Tijdvooreenbox.nl";
+			$message = "Beste $nieuwenaam,
+			
+U heeft uw gegevens met succes gewijzigd. Uw gegevens zijn nu:
+ 
+------------------------
+Naam: $naam
+Adres: $adres
+Postcode: $postcode
+Plaats: $plaats
+Wachtwoord: $pass
+E-mailadres: $email
+------------------------
+ 
+Veel plezier in onze Webshop!
+
+Namens het team van Tijdvooreenbox.nl";
+			$from = "noreply@tijdvooreenbox.nl";
+			$headers = "From: $from";
+			mail($email,$subject,$message,$headers);
 				
 				} else {
 				echo "Er is iets fout gegaan: " . $conn->error;
