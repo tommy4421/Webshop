@@ -11,6 +11,9 @@ error_reporting(E_ERROR | E_PARSE);
 $page_title = 'Welkom op Tijd voor een box! - Nieuwsbrief uitschrijving';
 $active = 1;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
 include ('includes/header.html');
+ob_start();
+
+session_start();
 
  // Google analytics
  include_once("includes/analyticstracking.php");
