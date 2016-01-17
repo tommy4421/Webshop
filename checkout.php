@@ -105,6 +105,36 @@ if (empty($_SESSION['klantnr'])) {
 	// Op dit moment hebben we de totaalprijs berekend. Deze moeten we nu nog in een aparte
 	// query in de bestelling zetten. Je hebt $bestelnr, dus voeg daar de totaalprijs aan toe.
 	// 
+	
+	//Vanaf hier mail naar klant met bestelling
+	$con = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+if (!$con)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+
+mysql_select_db(DB_NAME, $con);
+
+$result = mysql_query("SELECT * FROM Klant,`Order`,`Order_Product`,`Product` WHERE Order_Product.Pro_ProductID = Product.ProductID AND Order_Product.Ord_OrderID = Order.OrderID AND Order.Kla_Klant = Klant.KlantID AND KlantID = '".$_SESSION['klantnr']."' AND OrderID = $bestelnr;");
+
+echo "<h1> Uw bestelling is geplaatst met bestelnummer $bestelnr</h1>
+<table border='1'>
+<tr>
+<th>Product</th>
+<th>Prijs per stuk</th>
+<th>Aantal</th>
+</tr>";
+
+while($row = mysql_fetch_array($result))
+  {
+  echo "<tr>";
+  echo "<td>" . $row['Product.Naam'] . "</td>";
+  echo "<td>" . $row['Product.Prijs_Perstuk'] . "</td>";
+  echo "<td>" . $row['Order_Product.Aantal'] . " stuks</td>";
+  echo "</tr>";
+  }
+echo "</table>";
+		//Tot hier
         
 	
 	// Bericht naar de gebruiker.
