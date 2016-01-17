@@ -125,9 +125,9 @@ echo "<p> Uw bestelling is geplaatst met bestelnummer $bestelnr</p>
 <th>Aantal</th>
 </tr>";
 
-$result2 = mysql_query("SELECT SUM(Totaalprijs) FROM Klant,`Order`,`Order_Product`,`Product` WHERE Order_Product.Pro_ProductID = Product.ProductID AND Order_Product.Ord_OrderID = Order.OrderID AND Order.Kla_Klant = Klant.KlantID AND KlantID = '".$_SESSION['klantnr']."' AND OrderID = $bestelnr;");
+$result2 = mysql_query("SELECT SUM(Totaalprijs) AS value_sum FROM Klant,`Order`,`Order_Product`,`Product` WHERE Order_Product.Pro_ProductID = Product.ProductID AND Order_Product.Ord_OrderID = Order.OrderID AND Order.Kla_Klant = Klant.KlantID AND KlantID = '".$_SESSION['klantnr']."' AND OrderID = $bestelnr;");
 $row2 = mysql_fetch_assoc($result2);
-$sum = $row2;
+$sum = $row2['value_sum'];
 
 while($row = mysql_fetch_array($result))
   {
@@ -150,6 +150,7 @@ echo "</table><br />
 		$result3 = mysql_query("SELECT email FROM Klant WHERE KlantID = '".$_SESSION['klantnr']."'");
 		$result4 = mysql_query("SELECT naam FROM Klant WHERE KlantID = '".$_SESSION['klantnr']."'");
 		
+			$row = mysql_fetch_array($result);
 		$klant = mysql_fetch_assoc($result4);
 			$to = mysql_fetch_assoc($result3);
 			$subject = "Uw bestelling bij Tijdvooreenbox.nl";
@@ -158,22 +159,11 @@ echo "</table><br />
 Bedankt voor uw bestelling bij Tijdvooreenbox.nl! Hieronder vindt u een overzicht van uw bestelling:
  
 ------------------------
-while($row = mysql_fetch_array($result))
-  {
-  echo \"<tr>\";
-  echo \"<td>\"".$row['Naam']."\"</td>\";
-  echo \"<td>\"".$row['Prijs_Perstuk']."\"</td>\";
-  echo \"<td>\"".$row['Aantal']."\" stuks</td>\";
-  echo \"</tr>\";
-  }
-echo \"</table><br />
-<table width=\"50%\" border=\"1\">
-  <tr>
-    <td>Totaalprijs:</td>
-    <td>€ ".number_format($sum, 2, ',', '.')."</td>
-  </tr>
-</table>\";
-echo ------------------------
+".$row['Naam']."
+".$row['Prijs_Perstuk']."
+".$row['Aantal']."
+Totaalprijs: € ".number_format($sum, 2, ',', '.')."
+------------------------
  
 Veel plezier in onze Webshop!
 
