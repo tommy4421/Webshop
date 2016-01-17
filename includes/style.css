@@ -392,6 +392,12 @@ a:hover.slidesjs-stop {
     padding-top: 10px;
     padding-left: 50px;
     padding-right: 50px;
+    
+}
+
+.text{
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 
