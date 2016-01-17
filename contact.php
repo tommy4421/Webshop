@@ -36,7 +36,7 @@ else echo "</h1>\n";
 //
 
 session_start(); 
-$mail_ontv = 'contact@tijdvooreenbox.nl';
+$mail_ontv = $_POST['sendto'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
@@ -70,6 +70,15 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && (!empty($antiflood) || empty($_POST
   echo '<h1> Contactformulier</h1>
   <form method="post" action="' . $_SERVER['REQUEST_URI'] . '" />
   <p>
+  
+  <label for="sendto">Verzend naar:</label><br />
+  <select name="sendto">
+  <option value="contact@tijdvooreenbox.nl" selected="selected">Algemeen</option>
+  <option value="kevin@tijdvooreenbox.nl">Kevin</option>
+  <option value="tom@tijdvooreenbox.nlt">Tom</option>
+  <option value="niels@tijdvooreenbox.nl">Niels</option>
+  <option value="mirjam@tijdvooreenbox.nl">Mirjam</option>
+</select>
   
       <label for="naam">Naam:</label><br />
       <input type="text" id="naam" placeholder="Vul hier uw naam in" name="naam" value="' . (isset($_POST['naam']) ? htmlspecialchars($_POST['naam']) : '') . '" /><br /><br />
