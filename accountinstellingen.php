@@ -131,10 +131,7 @@ $emailinstelling = ($emailinstelling2['email']);
 				$sql = "UPDATE $tabel SET Naam='$naam', Wachtwoord='$wachtwoord', Plaats='$plaats', Postcode='$postcode', Adres='$adres' WHERE KlantID='$idi'";
 
 				if ($conn->query($sql) === TRUE) {
-				echo "De gegevens zijn succesvol opgeslagen!";
-				header("refresh: 1; url=accountinstellingen.php");			
-				
-			$pass = $_POST['wachtwoord'];
+					$pass = $_POST['wachtwoord'];
 			$subject = "Uw nieuwe gegevens bij Tijdvooreenbox.nl";
 			$message = "Beste $naam,
 			
@@ -155,6 +152,8 @@ Namens het team van Tijdvooreenbox.nl";
 			$from = "noreply@tijdvooreenbox.nl";
 			$headers = "From: $from";
 			mail($email,$subject,$message,$headers);
+				echo "De gegevens zijn succesvol opgeslagen!";
+				header("refresh: 1; url=accountinstellingen.php");			
 				
 				} else {
 				echo "Er is iets fout gegaan: " . $conn->error;
