@@ -31,6 +31,7 @@ include ('includes/header.html');
 </p>
 
 <p><b>Beheer van producten</b><br />
+<a href="nieuwproduct.php">Product toevoegen</a><br />
 <a href="productbeheer.php">Producten beheren</a><br />
 <a href="afbeeldingupload.php">Afbeeldingen upload</a><br />
 <a href="view.php">Afbeeldingen bekijken</a></p>
