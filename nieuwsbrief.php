@@ -47,7 +47,7 @@ if (mysqli_connect_errno()) {
 // in het formulier niet juist is ingevuld. De volgende code
 // toont deze meldingen.
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
-	isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['adres'], $_POST['towncity'], $_POST['postcode']) )
+	isset($_POST['name'], $_POST['email']) )
 {
 	// We gaan de errors in een array bijhouden
 	// We kunnen dan alle foutmeldingen in een keer afdrukken.
@@ -63,26 +63,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		$aErrors['email'] = 'Het e-mail adres is onjuist.';
 	}
 
-	//  Een adres heeft letters, cijfers, spaties (minimaal 5)
-	if ( !isset($_POST['adres']) or !preg_match( '~^[\w\d ]{5,}$~', $_POST['adres'] ) ) {
-		$aErrors['adres'] = 'Het adres is onjuist.';
-	}
-
-	//  Een plaatsnaam heeft letters, spaties en misschien een apostrof
-	if ( !isset($_POST['towncity']) or !preg_match( '~^[\w\d\' ]*$~', $_POST['towncity'] ) ) {
-		$aErrors['towncity'] = 'De stad is onjuist';
-	}
-
-	//  Een postcode heeft vier cijfers, eventueel een spatie, en twee cijfers
-	if ( !isset($_POST['postcode']) or !preg_match( '~^\d{4} ?[a-zA-Z]{2}$~', $_POST['postcode'] ) ) {
-		$aErrors['postcode'] = 'De postcode is onjuist';
-	}
-
-	// wachtwoord (minimaal 3)
-	if ( !isset($_POST['password']) or !preg_match( '~^[\w ]{3,}$~', $_POST['password'] ) ) {
-	$aErrors['password'] = 'Geen wachtwoord ingevuld.';
-	}
-
 	if ( count($aErrors) == 0 ) 
 	{
 		// Gebruiker in database registreren.
@@ -91,8 +71,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			printf("Connect failed: %s\n", mysqli_connect_error());
 		}
 
-		$sql = "INSERT INTO Klant (`naam`, `adres`, `postcode`, `plaats`, `email`, `wachtwoord`, `nieuwsbrief`) VALUES ".
-				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['towncity']."', '".$_POST['email']."', '".$_POST['password']."', '".$_POST['nieuwsbrief']."');";
+		$sql = "INSERT INTO Nieuwsbrief (`naam`, `email`) VALUES ".
+				"('".$_POST['name']."', '".$_POST['email']."');";
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
@@ -100,16 +80,12 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		} else {
 			$klant = $_POST['name'];
 			$to = $_POST['email'];
-			$pass = $_POST['password'];
-			$subject = "Registratie Tijdvooreenbox.nl";
+			$subject = "Nieuwsbriefaanmelding Tijdvooreenbox.nl";
 			$message = "Beste $klant,
 			
-Bedankt voor het registreren bij Tijdvooreenbox.nl! U kunt inloggen met onderstaande gegevens:
- 
-------------------------
-E-mailadres: $to
-Wachtwoord: $pass
-------------------------
+Bedankt voor het het inschrijven van de nieuwsbrief van Tijdvooreenbox.nl!
+
+Is deze inschrijving niet door u zelf gedaan of heeft u toch besloten dat u de nieuwsbrief niet wilt ontvangen? Klik dan <a href=\"http://www.tijdvooreenbox.nl/nonieuwsbrief.php\">hierhttp://www.tijdvooreenbox.nl/nonieuwsbrief.php</a>.
  
 Veel plezier in onze Webshop!
 
@@ -118,22 +94,17 @@ Namens het team van Tijdvooreenbox.nl";
 			$headers = "From: $from";
 			mail($to,$subject,$message,$headers);
 			
-			// Met myslqi_insert_id krijg je de id van het autoincrement veld terug - het klantnr.
-			$klantnr = mysqli_insert_id($conn); 
-			
-			$_SESSION['klantnr'] = $klantnr;
-			$_SESSION['klantnaam'] = $_POST["name"];
 		
 			// Sluit de connection
 			mysqli_close($conn);
 
-			header('Location: account.php');
+			echo 'Bedant voor uw inschrijving!';
 			exit();
 		}
 	}
 }
 ?>
-<form action="registreer.php" method="post" class="formulier">
+<form action="nieuwsbrief.php" method="post" class="formulier">
   <?php
   if ( isset($aErrors) and count($aErrors) > 0 ) {
 		print '<ul class="errorlist">';
@@ -143,7 +114,8 @@ Namens het team van Tijdvooreenbox.nl";
 		print '</ul>';
   }
   ?>
-  <p>Meld u hier aan voor de nieuwsbrief. Indien u een account heeft, graag inloggen en bij instellingen uw voorkeur aangeven.</p>
+  <p>Meld u hier aan voor de nieuwsbrief.</p><br />
+  <i>Indien u een account heeft, graag inloggen en bij accountoverzicht -> instellingen uw voorkeur aangeven.</i><br /><br />
 
   <fieldset>
 	<legend>Uw gegevens</legend>
@@ -156,32 +128,6 @@ Namens het team van Tijdvooreenbox.nl";
 		<label for="email">E-mail<em>*</em></label>
 		<input id="email" name="email" placeholder="mijnemail@site.nl" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" REQUIRED/>
 	  </li>
-	  <?php echo isset($aErrors['adres']) ? '<li class="error">' : '<li>' ?>
-		<label for="adres">Adres<em>*</em></label>
-		<input id="adres" name="adres" placeholder="Mijn staat 101" value="<?php echo isset($_POST['adres']) ? htmlspecialchars($_POST['adres']) : '' ?>" REQUIRED/>
-	  </li>
-	  <?php echo isset($aErrors['postcode']) ? '<li class="error">' : '<li>' ?>
-		<label for="postcode">Postcode<em>*</em></label>
-		<input id="postcode" name="postcode" placeholder="1234AB" value="<?php echo isset($_POST['postcode']) ? htmlspecialchars($_POST['postcode']) : '' ?>" REQUIRED/>
-	  </li>
-	  <?php echo isset($aErrors['towncity']) ? '<li class="error">' : '<li>' ?>
-		<label for="towncity">Plaats<em>*</em></label>
-		<input id="towncity" name="towncity" placeholder="Mijnplaats" value="<?php echo isset($_POST['towncity']) ? htmlspecialchars($_POST['towncity']) : '' ?>" REQUIRED/>
-	  </li>
-	  <?php echo isset($aErrors['password']) ? '<li class="error">' : '<li>' ?>
-		<label for="password">Wachtwoord<em>*</em></label>
-		<input id="password" name="password" type="password" placeholder="wachtwoord" value="<?php echo isset($_POST['password']) ? htmlspecialchars($_POST['password']) : '' ?>" REQUIRED/>
-        <label for="nieuwsbrief">Nieuwsbrief<em>*</em></label><br />
-          <label>
-            <input type="radio" name="nieuwsbrief" value="ja" checked="checked" REQUIRED/>
-            ja</label>
-          <label>
-            <input type="radio" name="nieuwsbrief" value="nee"/>
-            nee</label>
-          <br />
-          <i>Let op: De postcode mag geen spatie bevatten, dus 1234AB.</i>
-          <br />
-</li>
 	</ol>
 	<input type="submit" value="Verstuur" class="button"/>
   </fieldset>
