@@ -52,19 +52,19 @@ if (empty($_SESSION['klantnr'])) {
 	// Stap 2, winkelwagen splitsen en de producten in bestelregels in de database zetten
 	$cart = explode("|",$_SESSION['cart']);
 
-	foreach($cart as $products) {
-		// Splits het product in stukjes: $product[x] --> x == 0 -> product id, x == 1 -> hoeveelheid
-		$product = explode(",",$products);
-                
-                
-
-		// Hier willen we productprijs toevoegen aan de productregel. De productprijs is de prijs van het 
-		// product. Deze zit nog niet in de sessie, en moet daar dus bij het bestellen (bijvoorbeeld 
-		// in index.php) in worden gezet.
-		// We tellen hier ook het bedrag per product op (prijs x aantal) en tellen dit op bij de totaalprijs.
-		// Je kunt in cart.php kijken hoe je dat kunt doen.
-                //$totaalprijs = $prijs * $product[1];
-                    // Toon de producten in de winkelwagen
+//	foreach($cart as $products) {
+//		// Splits het product in stukjes: $product[x] --> x == 0 -> product id, x == 1 -> hoeveelheid
+//		$product = explode(",",$products);
+//                
+//                
+//
+//		// Hier willen we productprijs toevoegen aan de productregel. De productprijs is de prijs van het 
+//		// product. Deze zit nog niet in de sessie, en moet daar dus bij het bestellen (bijvoorbeeld 
+//		// in index.php) in worden gezet.
+//		// We tellen hier ook het bedrag per product op (prijs x aantal) en tellen dit op bij de totaalprijs.
+//		// Je kunt in cart.php kijken hoe je dat kunt doen.
+//                //$totaalprijs = $prijs * $product[1];
+//                    // Toon de producten in de winkelwagen
     $i = 0;
     foreach($cart as $products) {
       // Splits het product in stukjes: $product[x] --> x == 0 -> product id, x == 1 -> hoeveelheid
