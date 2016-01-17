@@ -35,9 +35,19 @@ else echo "</h1>\n";
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
 
-echo '<table id="contactform" style="
-float:left" border="1">
-  <tr>';
+echo '<table id="contactform" border="1">
+  <tr>
+  <h1> Contactinformatie</h1>
+  Hogeschoollaan 1<br />
+4818 CR Breda<br />
+Postbus 90.116<br />
+4800 RA Breda<br />
+contact@tijdvooreenbox.nl
+  </tr>
+</table>
+<table id="contactinfo" style="float:left" border="1">
+  <tr>
+ ';
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     if (empty($_POST['naam']))
@@ -133,11 +143,6 @@ else
   }
 }
 echo '</tr>
-</table>
-<table id="contactinfo" style="float:right" border="1">
-  <tr>
-  <h1> Contactinformatie</h1>
-  </tr>
 </table>';
 include ('includes/footer.html');
 
