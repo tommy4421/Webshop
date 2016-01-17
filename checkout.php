@@ -141,7 +141,7 @@ echo "</table><br />
 <table width=\"50%\" border=\"1\">
   <tr>
     <td>Totaalprijs:</td>
-    <td>€ ".number_format($total, 2, ',', '.')."</td>
+    <td>€ ".number_format($sum, 2, ',', '.')."</td>
   </tr>
 </table>";
 		//Tot hier
@@ -158,22 +158,21 @@ echo "</table><br />
 Bedankt voor uw bestelling bij Tijdvooreenbox.nl! Hieronder vindt u een overzicht van uw bestelling:
  
 ------------------------
-";
 while($row = mysql_fetch_array($result))
   {
-  echo "<tr>";
-  echo "<td>" . $row['Naam'] . "</td>";
-  echo "<td>" . $row['Prijs_Perstuk'] . "</td>";
-  echo "<td>" . $row['Aantal'] . " stuks</td>";
-  echo "</tr>";
+  echo \"<tr>\";
+  echo \"<td>\"".$row['Naam']."\"</td>\";
+  echo \"<td>\"".$row['Prijs_Perstuk']."\"</td>\";
+  echo \"<td>\"".$row['Aantal']."\" stuks</td>\";
+  echo \"</tr>\";
   }
-echo "</table><br />
+echo \"</table><br />
 <table width=\"50%\" border=\"1\">
   <tr>
     <td>Totaalprijs:</td>
-    <td>€ ".number_format($total, 2, ',', '.')."</td>
+    <td>€ ".number_format($sum, 2, ',', '.')."</td>
   </tr>
-</table>";
+</table>\"";
 echo "------------------------
  
 Veel plezier in onze Webshop!
