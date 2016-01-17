@@ -23,7 +23,7 @@ session_start();
  
 <?php 
 
-$KlantID = $_POST['KlantID'];
+//$KlantID = $_POST['KlantID'];
 
 echo "<h1><center>Facturen</center></h1>";
 
@@ -41,10 +41,10 @@ $wachtwoord2 = "Welkom01";
 $host = "localhost";
 $database = "avans_bimivp2e4";
 $tabel = 'Klant';
-$KlantID = $_POST['klantnr'];
+$KlantID = $_SESSION['klantnr'];
 
-mysql_connect("$host", "$gebruikersnaam", "$wachtwoord2")or die("Het is niet gelukt om te verbinden met MYSQL!");
-mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
+mysql_connect("$host", "$gebruikersnaam", "$wachtwoord2")or die("Het is niet gelukt om te verbinden met MYSQL.");
+mysql_select_db("$database")or die("De database kan niet worden geselecteerd.");
 
 $naaminstelling1 = mysql_query("SELECT Naam FROM $tabel WHERE KlantID='$KlantID'");
 $naaminstelling2 = mysql_fetch_array($naaminstelling1);
