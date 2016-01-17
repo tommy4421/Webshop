@@ -36,28 +36,30 @@ else echo "</h1>\n";
 //
 ?>
 <script type="text/javascript">
-function showOrHide(value) 
-{ 
-  if (document.getElementById(value).style.display == 'none') 
-  { 
-    document.getElementById(value).style.display = 'block'; 
-  } 
-  else 
-  { 
-    document.getElementById(value).style.display = 'none'; 
-  } 
-} 
-
-function beginfase()
+function klap(id)
 {
-  document.getElementById('layer1').style.display = 'none'; 
+   var o = document.getElementById(id).style;
+ 
+   o.display = (o.display == 'block') ? 'none' : 'block';
 }
 </script>
-
-<a href="javascript:showOrHide('layer1')">Toon/verberg</a>
-<div id="layer1">Dit is layer 1. </div>
-<a href="javascript:showOrHide('layer2')">Toon/verberg</a>
-<div id="layer2">Dit is layer 2. </div>
+<p>
+   <a href="#" onclick="klap('antwoord1');">
+      Vraag 1: .....
+   </a>
+</p>
+<p id="antwoord1" class='antwoord'>
+   Antwoord1: blablabla....
+</p>
+ 
+<p>
+   <a href="#" onclick="klap('antwoord2');">
+      Vraag 2: .....
+   </a>
+</p>
+<p id="antwoord2" class='antwoord'>
+   Antwoord2: blablabla....
+</p>
 <?php
 include ('includes/footer.html');
 
