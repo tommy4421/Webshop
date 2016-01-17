@@ -36,30 +36,14 @@ else echo "</h1>\n";
 //
 ?>
 <script type="text/javascript">
-$(document).ready(function() {
-        $(".text").hide();
-        $(".accordeon div:first-child").addClass("expand_first");
-        $(".expand").click(function() {
-                $(".text").slideUp(500);
-                if ($(this).next(".text").is(":visible")) {
-                        $(this).next(".text").slideUp(500);
-                } else {
-                        $(this).next(".text").slideToggle(500);
-                }
-        });
-});
+function showHide(id) {
+var elm = document.getElementById(id);
+elm.style.display = (elm.style.display=='none'?'block':'none');
+} 
 </script>
 
-<div class="accordeon">
-        <div class="expand">1. Klik hier om de content open te klappen.</div>
-        <div class="text">Lorem ipsum dolor sit amet.</div>
-
-        <div class="expand">2. Klik hier om de content open te klappen.</div>
-        <div class="text">Lorem ipsum dolor sit amet.</div>
-
-        <div class="expand">3. Klik hier om de content open te klappen.</div>
-        <div class="text">Lorem ipsum dolor sit amet.</div>
-</div>
+<a href="#" onclick="showHide('A1'); return false;"><b>Zin waarop je kunt klikken</b></a><br>
+<div id="A1" style="padding-left:20px; display:none;"><br>Antwoord bladiebla</div> 
 
 <?php
 include ('includes/footer.html');
