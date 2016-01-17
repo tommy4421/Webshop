@@ -87,7 +87,7 @@ while($query2=mysql_fetch_array($query))
 	echo "<center><input type=\"submit\" value=\"Bestel\" class=\"button\"/></div>\n</center>";
 	echo "</form>\n</div>\n";
 }
-echo "</ul><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><center>";
+echo "</ul><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><center>";
 $rows=mysql_num_rows(mysql_query("select * from Product"));
 $total=ceil($rows/$limit);
 
