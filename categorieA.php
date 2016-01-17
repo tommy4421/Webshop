@@ -87,13 +87,13 @@ while($query2=mysql_fetch_array($query))
 	echo "<center><input type=\"submit\" value=\"Bestel\" class=\"button\"/></div>\n</center>";
 	echo "</form>\n</div>\n";
 }
-echo "</ul><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><center>";
+echo "</ul><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><center>";
 $rows=mysql_num_rows(mysql_query("select * from Product"));
 $total=ceil($rows/$limit);
 
 if($id>1)
 {
-echo "<br /><br /><br /><br /><br /><br /><br /><a href='?id=".($id-1)."' class='button'>Vorige pagina</a>&nbsp;&nbsp;";
+echo "<a href='?id=".($id-1)."' class='button'>Vorige pagina</a>&nbsp;&nbsp;";
 }
 if($id!=$total)
 {
