@@ -158,13 +158,30 @@ echo "</table><br />
     $row4 = mysql_fetch_assoc($result4);
     $klant = $row4['naam'];
 }
+
+
 while($row = mysql_fetch_array($result))
   {
-  $prodnaam =  "<td>" . $row['Naam'] . "</td>";
-  $prodprijs = "<td>" . $row['Prijs_Perstuk'] . "</td>";
-  $prodaant = "<td>" . $row['Aantal'] . " stuks</td>";
+  $message2 = "Test<br>
+  			<table width=\"50%\" border='1'>
+<tr>
+<th>Product</th>
+<th>Prijs per stuk</th>
+<th>Aantal</th>
+</tr>
+<tr><td>" . $row['Naam'] . "</td>
+  			<td>" . $row['Prijs_Perstuk'] . "</td>
+			<td>" . $row['Aantal'] . " stuks</td>
+			</tr>
+			</table><br />
+<table width=\"50%\" border=\"1\">
+  <tr>
+    <td>Totaalprijs:</td>
+    <td>€ ".number_format($sum, 2, ',', '.')."</td>
+  </tr>
+</table>";
   }
-  ;
+  
 			$subject = "Uw bestelling bij Tijdvooreenbox.nl";
 			$message = "Beste $klant,
 			
@@ -181,7 +198,7 @@ Veel plezier in onze Webshop!
 Namens het team van Tijdvooreenbox.nl";
 			$from = "noreply@tijdvooreenbox.nl";
 			$headers = "From: $from";
-			mail($to,$subject,$message,$headers);
+			mail($to,$subject,$message2,$headers);
 		//Tot hier
         
 	
