@@ -108,7 +108,13 @@ mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
 				$sql = "INSERT INTO $tabel (Naam, Beschrijving, Provincie, Voorraad_aantal, Prijs_Perstuk, Leverbaar)
 				VALUES ('$naam', '$beschrijving', '$provincie', '$voorraad', '$prijs', '$leverbaar')";
 
-				
+					if ($conn->query($sql) === TRUE) {
+					echo "Product succesvol toegevoegd!";
+					}
+					else 
+					{
+						echo "Product NIET toegevoegd! (Foutmelding?)";
+					}
 	
 	
 	
