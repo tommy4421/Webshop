@@ -159,10 +159,6 @@ echo "</table><br />
 Bedankt voor uw bestelling bij Tijdvooreenbox.nl! Hieronder vindt u een overzicht van uw bestelling:
  
 ------------------------
-".$row['Naam']."
-".$row['Prijs_Perstuk']."
-".$row['Aantal']."
-Totaalprijs: € ".number_format($sum, 2, ',', '.')."
 ------------------------
  
 Veel plezier in onze Webshop!

@@ -93,7 +93,7 @@ Kunt u de pagina niet vinden? Klik dan <a href="http://tijdvooreenbox.nl/facture
     <a href="#" onclick="showHide('A8'); return false;"><b>Wie zijn wij?</b></a>
 <div id="A8" style="padding-left:20px; display:none;">Wij zijn 4 studenten; Kevin, Niels, Tom en Mirjam. We studeren Informatica en Businees IT & Management aan de Avans te Breda.</div><br /><br />
 
-    <a href="#" onclick="showHide('A9'); return false;"><b>Waarom hebben jullie Tijdvooreenbox opgezet?</b></a>
+    <a href="#" onclick="showHide('A9'); return false;"><b>Waarom hebben wij Tijdvooreenbox opgezet?</b></a>
 <div id="A9" style="padding-left:20px; display:none;">Voor een opdracht in ons eerste jaar, kwartaal twee, hebben wij een webshop mogen opzetten. Na vele dagen brainstormen en ideeën bedenken hebben we gekozen voor ons zelfbedachte concept Tijdvooreenbox.</div><br /><br />
 
 <a href="#" onclick="showHide('A10'); return false;"><b>Kan ik echt niet ECHT iets bestellen?</b></a>
