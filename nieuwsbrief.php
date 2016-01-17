@@ -85,7 +85,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			
 Bedankt voor het het inschrijven voor de nieuwsbrief van Tijdvooreenbox.nl!
 
-Is deze inschrijving niet door u zelf gedaan of heeft u toch besloten dat u de nieuwsbrief niet wilt ontvangen? Klik dan <a href=\"http://www.tijdvooreenbox.nl/nonieuwsbrief.php\">hierhttp://www.tijdvooreenbox.nl/nonieuwsbrief.php</a>.
+Is deze inschrijving niet door u zelf gedaan of heeft u toch besloten dat u de nieuwsbrief niet wilt ontvangen? Klik dan op onderstaande link:http://www.tijdvooreenbox.nl/nonieuwsbrief.php.
  
 Veel plezier in onze Webshop!
 
@@ -98,14 +98,14 @@ Namens het team van Tijdvooreenbox.nl";
 			// Sluit de connection
 			mysqli_close($conn);
 
-			echo 'Bedankt voor uw inschrijving!';
+			echo 'Bedankt voor uw inschrijving!<br />';
 			include ('includes/footer.html');
 			exit();
 		}
 	}
 }
 ?>
-<form action="nieuwsbrief.php" method="post" class="formulier">
+<form action="nonieuwsbrief.php" method="post" class="formulier">
   <?php
   if ( isset($aErrors) and count($aErrors) > 0 ) {
 		print '<ul class="errorlist">';

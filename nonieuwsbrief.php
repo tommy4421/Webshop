@@ -75,7 +75,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			// Sluit de connection
 			mysqli_close($conn);
 
-			echo 'U bent uitgeschreven voor de nieuwsbrief. U kunt ten alle tijde weer opnieuw inschrijven.';
+			echo 'U bent uitgeschreven voor de nieuwsbrief. U kunt ten alle tijde weer opnieuw inschrijven.<br />';
 			include ('includes/footer.html');
 			exit();
 		}
