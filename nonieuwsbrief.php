@@ -64,9 +64,9 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		if (mysqli_connect_errno()) {
 			printf("Connect failed: %s\n", mysqli_connect_error());
 		}
+		$email = $_POST['email'];
 
-		$sql = "DELETE * FFOM Nieuwsbrief WHERE Email = ".
-				"('".$_POST['email']."');";
+		$sql = "DELETE * FFOM Nieuwsbrief WHERE Email = '$email';";
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
