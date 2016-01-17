@@ -1,0 +1,200 @@
+﻿<?php 
+session_start(); 
+ob_start();
+?>
+<html>
+    <head>
+    <!-- Favicons voor alle soorten browsers -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/favicons/manifest.json">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    
+    
+    <title><?php echo $page_title; ?></title>	
+    
+   
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- JS Bootsrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!--Font awesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- Google Font -->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+     <!-- CSS -->
+    <link rel="stylesheet" href="includes/style.css" type="text/css" media="screen" />
+    
+    <!-- slider -->
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <!-- SlidesJS Required (if responsive): Sets the page width to the device width. -->
+    <meta name="viewport" content="width=device-width">
+    
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+    <!--
+    function logOut() {
+            var answer = confirm ('Weet je zeker dat je wilt uitloggen?')
+            if (answer)
+                    window.location="logout.php";
+    }
+    //-->
+    </script>
+    
+    </head>
+    
+    
+    <body>
+        
+        
+      <!-- Google analytics-->
+     <?php include_once("analyticstracking.php") ?>
+     
+     <header>
+        <div id="header">
+            <a href="index.php"><img class="logo" src="images/logobox-klein.png" alt="Logo"></a>  
+        </div>
+     
+    <?php
+            // Toon de inhoud van je winkelwagen en de naam van de gebruiker linksboven in header.
+            echo "<ul class='account'>\n";
+
+            // Een gebruiker is ingelogd wanneer $_SESSION['klantnr'] een waarde heeft (niet leeg is).
+            // Opdracht: vul onderstaande code aan zodat de volgende functionaliteit werkt:
+            // Als een klant niet is ingelogd toon je: "U bent niet ingelogd | login".
+            // Wanneer een gebruiker is ingelogd toon je hier zijn klantnaam uit de sessie. Door op zijn
+            // gebruikersnaam te klikken gaat de klant naar account.php. Je toont dan dus:
+            // "Welkom, [klantnaam] | logout". Voor het uitloggen kun je gebruik maken van logout.php.
+            // Kijk eventueel in de HTML broncode van het werkende voorbeeld hoe dit moet.
+
+            session_start();
+			 
+			 if($_SESSION["Admin"] == 1) { 
+			 include ('includes/mysqli_connect_localhost.php');
+			 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+ 
+			// check connection
+			if (mysqli_connect_errno()) {
+			printf("<p><b>Fout: verbinding met de database mislukt.</b><br/>\n%s</p>\n", mysqli_connect_error());
+			exit();
+			} 
+
+			$sql = "SELECT * FROM `Order` WHERE Orderstatus = 'Ontvangen'"; 
+
+			// Voer de query uit en sla het resultaat op 
+			$result = mysqli_query($conn, $sql);
+	
+				if($result === false) {
+				echo "Nieuwe orders: (0)";
+				} else {
+				$num = 0;
+				$num = mysqli_num_rows($result);
+				echo "<a href='nieuweorders.php'>Nieuwe orders:</a> (".$num.")";
+				}
+			
+			 echo " | <a href='logout.php'>Log uit</a>";
+			 }
+			
+			
+			
+			
+			elseif (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+			?> <i class="fa fa-user"></i> <?php
+			echo "",$_SESSION['Naam'],"";
+			echo " | <a href='logout.php'>Log uit</a>";
+			} 
+			else 
+			{
+			echo "<li>U bent niet ingelogd | <a href=\"login.php\">login</a> | <a href=\"registreer.php\">registreer</a></li>\n";
+			}
+
+
+            // Hier tonen we het aantal producten in de winkelwagen, en een link om direkt af te rekenen.
+            // Kijk of er iets in de winkelwagen zit
+            if (empty($_SESSION['cart'])) {
+
+					?><li><i class="fa fa-shopping-cart"></i><?php echo " Winkelwagen is leeg</li>\n";
+            } else {
+                    // 'explode' zorgt dat de session - een string - gescheiden wordt op het gegeven teken.
+                    // De session bevat de productinformatie, gescheiden per '|'.
+                    $cart2 = explode("|",$_SESSION['cart']);
+
+                    // Tellen inhoud winkelwagen
+                    $count = count($cart2);
+                    if ($count == 1) {
+						?><li><i class="fa fa-shopping-cart"></i> <?php
+                            echo "1 product ";
+                    } else {
+                        ?><li><i class="fa fa-shopping-cart"></i> <?php
+							echo "".$count." producten ";
+                    }
+                    echo "in <a href=\"cart.php\">winkelwagen</a> | <a href=\"checkout.php\">afrekenen</a></li>\n";
+            }
+            echo("</ul>");
+			
+            // Hier kijken we of er een actief menu-item is. Zo niet, dan 0.
+            if (!isset($active)) $active = 0;
+    ?>
+    </header>
+    
+    <nav class="navbar custom-bootstrap-menu navbar-custom">
+      <div class="container-fluid">
+        <div>
+          <ul class="nav navbar-nav">
+            <li<?php if ($active =="1") {?> class="active"<?php } ?>><a href="index.php">Homepage</a></li>
+            <li<?php if ($active =="2") {?> class="active"<?php } ?>><a href="categorieA.php">Streekpakketten</a></li>
+            <li<?php if ($active =="3") {?> class="active"<?php } ?>><a href="categorieB.php">Themapakketten</a></li>
+            <li<?php if ($active =="5") {?> class="active"<?php } ?>><a href="faq.php">FAQ</a></li>
+            <li<?php if ($active =="6") {?> class="active"<?php } ?>><a href="contact.php">Contact</a></li>
+			<?php
+			if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+			?>
+			<li<?php if ($active =="7") {?> class="active"<?php } ?>><a href="membersarea.php">Account overzicht</a></li>
+			<?php	   } ?>
+			
+			<?php  if($_SESSION["Admin"] == 1) {
+			?>
+			<li<?php if ($active =="4") {?> class="active"<?php } ?>><a href="beheer.php">Beheer</a></li>
+			<?php	   } ?>
+			
+		  </ul>
+        </div>
+      </div>
+    </nav>
+    
+   
+    
+    
+    
+   <!--  Oude Menu
+    </div><div id="navigation">
+    <ul>
+    <li<?php if ($active =="1") {?> class="active"<?php } ?>><a href="index.php">Homepage</a></li>
+    <li<?php if ($active =="2") {?> class="active"<?php } ?>><a href="categorieA.php">Categorie A</a></li>
+    <li<?php if ($active =="3") {?> class="active"<?php } ?>><a href="categorieB.php">Categorie B</a></li>
+    <li<?php if ($active =="4") {?> class="active"<?php } ?>><a href="beheer.php">Beheer</a></li>
+    </ul>
+    </div>
+    <div id="content">-->
+   
+   
+   
+    <!-- Begin van de pagina-specifieke content. -->
