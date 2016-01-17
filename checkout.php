@@ -158,7 +158,6 @@ echo "</table><br />
     $row4 = mysql_fetch_assoc($result4);
     $klant = $row4['naam'];
 }
-			$row5 = mysql_fetch_assoc($result);
 
 			$subject = "Uw bestelling bij Tijdvooreenbox.nl";
 			$message = "Beste $klant,
@@ -166,7 +165,12 @@ echo "</table><br />
 Bedankt voor uw bestelling bij Tijdvooreenbox.nl! Hieronder vindt u een overzicht van uw bestelling:
  
 ------------------------
-" . $row5['Naam'] . "
+$bestelnr
+ $product[0]
+ $product[1]
+ $prijs
+ $totaalprijs
+ $datum
 ------------------------
  
 Veel plezier in onze Webshop!
