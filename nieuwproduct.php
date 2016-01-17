@@ -53,15 +53,11 @@ mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
             <input id="beschrijving" name="beschrijving" REQUIRED/>
           </li>
 		  <li>
-            <label for="houdbaarheidsdatum">Houdbaarheidsdatum</label>
-            <input id="houdbaarheidsdatum" format="yyyy/MM/dd" type="date" name="houdbaarheidsdatum" REQUIRED/>
-          </li>
-		  <li>
-            <label for="provincie">Provincie</label>
+            <label for="naam">Provincie</label>
             <input id="provincie" name="provincie" REQUIRED/>
           </li>
 		  <li>
-            <label for="voorraad">Voorraad aantal</label>
+            <label for="naam">Voorraad aantal</label>
             <input id="voorraad" name="voorraad" REQUIRED/>
           </li>
            <li>
