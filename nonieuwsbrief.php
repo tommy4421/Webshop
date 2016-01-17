@@ -66,7 +66,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		}
 		$email = $_POST['email'];
 
-		$sql = "DELETE * FROM Nieuwsbrief WHERE Email = ".$email;
+		$sql = "DELETE FROM Nieuwsbrief WHERE Email = ".$email;
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
