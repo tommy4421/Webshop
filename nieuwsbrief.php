@@ -85,7 +85,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			
 Bedankt voor het het inschrijven voor de nieuwsbrief van Tijdvooreenbox.nl!
 
-Is deze inschrijving niet door u zelf gedaan of heeft u toch besloten dat u de nieuwsbrief niet wilt ontvangen? Klik dan op onderstaande link:http://www.tijdvooreenbox.nl/nonieuwsbrief.php.
+Is deze inschrijving niet door u zelf gedaan of heeft u toch besloten dat u de nieuwsbrief niet wilt ontvangen? Klik dan op onderstaande link:
+http://www.tijdvooreenbox.nl/nonieuwsbrief.php.
  
 Veel plezier in onze Webshop!
 
