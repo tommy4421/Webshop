@@ -78,7 +78,7 @@ if (($_SERVER['REQUEST_METHOD'] == 'POST' && (!empty($antiflood) || empty($_POST
   <option value="tom@tijdvooreenbox.nlt">Tom</option>
   <option value="niels@tijdvooreenbox.nl">Niels</option>
   <option value="mirjam@tijdvooreenbox.nl">Mirjam</option>
-</select>
+</select><br /><br />
   
       <label for="naam">Naam:</label><br />
       <input type="text" id="naam" placeholder="Vul hier uw naam in" name="naam" value="' . (isset($_POST['naam']) ? htmlspecialchars($_POST['naam']) : '') . '" /><br /><br />
