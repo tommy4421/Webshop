@@ -1,14 +1,14 @@
-﻿﻿<?php
+﻿<?php
 //
-// nieuwsbrief.php
-// Dit is de pagina waar ingeschreven kan worden voor de nieuwsbrief.
+// nonieuwsbrief.php
+// Dit is de pagina waar uitgeschreven kan worden voor de nieuwsbrief.
 //
 
 // Zet het niveau van foutmeldingen zo dat warnings niet getoond worden.
 error_reporting(E_ERROR | E_PARSE);
 
 // Zet de titel en laad de HTML header uit het externe bestand.
-$page_title = 'Welkom op Tijd voor een box! - Nieuwsbrief inschrijving';
+$page_title = 'Welkom op Tijd voor een box! - Nieuwsbrief uitschrijving';
 $active = 1;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
 include ('includes/header.html');
 
@@ -47,18 +47,12 @@ if (mysqli_connect_errno()) {
 // in het formulier niet juist is ingevuld. De volgende code
 // toont deze meldingen.
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
-	isset($_POST['name'], $_POST['email']) )
+	isset($_POST['email']) )
 {
 	// We gaan de errors in een array bijhouden
 	// We kunnen dan alle foutmeldingen in een keer afdrukken.
 	$aErrors = array();
-
-	//  Een naam bevat letters en spaties (minimaal 3)
-	if ( !isset($_POST['name']) or !preg_match( '~^[\w ]{3,}$~', $_POST['name'] ) ) {
-		$aErrors['name'] = 'Uw naam is niet juist ingevuld';
-	}
-
-	//  Een email-adres is wat ingewikkelder
+//  Een email-adres is wat ingewikkelder
 	if ( !isset($_POST['email']) or !preg_match( '~^[a-z0-9][a-z0-9_.\-]*@([a-z0-9]+\.)*[a-z0-9][a-z0-9\-]+\.([a-z]{2,6})$~i', $_POST['email'] ) ) {
 		$aErrors['email'] = 'Het e-mail adres is onjuist.';
 	}
@@ -71,34 +65,17 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			printf("Connect failed: %s\n", mysqli_connect_error());
 		}
 
-		$sql = "INSERT INTO Nieuwsbrief (`naam`, `email`) VALUES ".
-				"('".$_POST['name']."', '".$_POST['email']."');";
+		$sql = "DELETE * FFOM Nieuwsbrief WHERE Email = ".
+				"('".$_POST['email']."');";
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
 			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
 		} else {
-			$klant = $_POST['name'];
-			$to = $_POST['email'];
-			$subject = "Nieuwsbriefaanmelding Tijdvooreenbox.nl";
-			$message = "Beste $klant,
-			
-Bedankt voor het het inschrijven voor de nieuwsbrief van Tijdvooreenbox.nl!
-
-Is deze inschrijving niet door u zelf gedaan of heeft u toch besloten dat u de nieuwsbrief niet wilt ontvangen? Klik dan <a href=\"http://www.tijdvooreenbox.nl/nonieuwsbrief.php\">hierhttp://www.tijdvooreenbox.nl/nonieuwsbrief.php</a>.
- 
-Veel plezier in onze Webshop!
-
-Namens het team van Tijdvooreenbox.nl";
-			$from = "noreply@tijdvooreenbox.nl";
-			$headers = "From: $from";
-			mail($to,$subject,$message,$headers);
-			
-		
 			// Sluit de connection
 			mysqli_close($conn);
 
-			echo 'Bedankt voor uw inschrijving!';
+			echo 'U bent uitgeschreven voor de nieuwsbrief. U kunt ten alle tijde weer opnieuw inschrijven.';
 			include ('includes/footer.html');
 			exit();
 		}
@@ -115,22 +92,18 @@ Namens het team van Tijdvooreenbox.nl";
 		print '</ul>';
   }
   ?>
-  <p>Meld u hier aan voor de nieuwsbrief.</p><br />
-  <i>Indien u een account heeft, graag inloggen en bij accountoverzicht -> instellingen uw voorkeur aangeven.</i><br /><br />
+  <p>Meld u hier af voor de nieuwsbrief.</p>
+  <p><i>Indien u een account heeft, graag inloggen en bij accountoverzicht -> instellingen uw voorkeur aangeven.</i></p>
+  <p><b>LET OP!</b> Op het moment dat u op 'Uitschrijven' klikt, zal u niet langer onze nieuwsbrief ontvangen. U kunt ten alle tijde weer opnieuw inschrijven. U krijgt geen bevestiging van uw uitschrijving per mail.</p>
 
   <fieldset>
 	<legend>Uw gegevens</legend>
 	<ol>
-	  <?php echo isset($aErrors['name']) ? '<li class="error">' : '<li>' ?>
-		<label for="name">Volledige naam<em>*</em></label>
-		<input id="name" name="name" placeholder="Jan Klaassen" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>" REQUIRED/>
-	  </li>
-	  <?php echo isset($aErrors['email']) ? '<li class="error">' : '<li>' ?>
+	   <?php echo isset($aErrors['email']) ? '<li class="error">' : '<li>' ?>
 		<label for="email">E-mail<em>*</em></label>
 		<input id="email" name="email" placeholder="mijnemail@site.nl" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : '' ?>" REQUIRED/>
-	  </li>
 	</ol>
-	<input type="submit" value="Verstuur" class="button"/>
+	<input type="submit" value="Uitschrijven" class="button"/>
   </fieldset>
 </form>
 <?php	
