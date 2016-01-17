@@ -55,7 +55,7 @@ $wachtwoordinstelling = ($wachtwoordinstelling2['wachtwoord']);
 
 $emailinstelling1 = mysql_query("SELECT Email FROM $tabel WHERE KlantID='$idi'");
 $emailinstelling2 = mysql_fetch_array($emailinstelling1);
-$emailinstelling = ($emailinstelling2['email']);
+$emailinstelling = ($emailinstelling2['Email']);
 
 ?>
  
