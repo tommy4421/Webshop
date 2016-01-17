@@ -133,7 +133,7 @@ else
 }
 echo '</tr>
 </table>
-<table id="contactinfo" border="1">
+<table id="contactinfo" style="float: right" border="1">
   <tr>
   <h1> Contactinformatie</h1>
   </tr>
