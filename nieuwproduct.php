@@ -39,8 +39,7 @@ mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="formulier">
       <fieldset>
         
-        <legend><h1>Product toevoegen</h1></legend>
-        <i><b>Let op!</b> Het plaatje dient hetzelfde ID nummer te hebben als het product.</i><br />
+        <legend><h1>Product toevoegen</h1></legend><br />
         <ol>
           <li>
             <label for="naam">Naam</label>
