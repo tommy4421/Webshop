@@ -1,8 +1,17 @@
-﻿<?php
-//
-// categorieA.php
-// Deze pagina toont de documenten uit een van de categorieën uit de webwinkel.
-//
+<?php
+//startscherm van de webwinkel
+// Zet het niveau van foutmeldingen zo dat warnings niet getoond worden.
+error_reporting(E_ERROR | E_PARSE);
+$page_title = 'Tijdvooreenbox.nl ~ ';
+include ('includes/header.html');
+// mysqli_connect.php bevat de inloggegevens voor de database.
+// Per server is er een apart inlogbestand - localhost vs. remote server
+//include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
+include ('includes/mysqli_connect_localhost.php');
+
+ob_start();
+session_start();
+
 ?>
 
 	<html>
@@ -23,20 +32,6 @@
 
 <?php
 
-	
-// Zet het niveau van foutmeldingen zo dat warnings niet getoond worden.
-error_reporting(E_ERROR | E_PARSE);
-
-// Zet de titel en laad de HTML header uit het externe bestand.
-$page_title = 'Welkom in de WebWinkel';
-$active = 2;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
-include ('includes/header.html');
-
-// mysqli_connect.php bevat de inloggegevens voor de database.
-// Per server is er een apart inlogbestand - localhost vs. remote server
-//include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
-include ('includes/mysqli_connect_localhost.php');
-
 echo "<h1><center>Streekpakketten</center></h1>";
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -46,44 +41,73 @@ if (mysqli_connect_errno()) {
 	printf("<p><b>Fout: verbinding met de database mislukt.</b><br/>\n%s</p>\n", mysqli_connect_error());
 	exit();
 } 
- 
+
 $sql = "SELECT * FROM Product"; 
 
 // Voer de query uit en sla het resultaat op 
 $result = mysqli_query($conn, $sql);
 	
 if($result === false) {
-	echo "<p>Er zijn geen producten in de winkel gevonden.</p>\n";
+	echo "<p>Er zijn geen producten gevonden.</p>\n";
 } else {
 	$num = 0;
 	$num = mysqli_num_rows($result);
 	echo "<p>Er zijn ".$num." producten gevonden.</p>\n";
 }
 
-// Laat de producten zien in een form, zodat de gebruiker ze kan selecteren.
-// Haal een nieuwe regel op uit het resultaat, zolang er nog regels beschikbaar zijn.
-// We gebruiken in dit geval een associatief array.
-while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) 
+
+
+$query1=mysql_connect("localhost","bimivp2e4","Welkom01");
+mysql_select_db("avans_bimivp2e4",$query1);
+
+$start=0;
+$limit=8;
+
+if(isset($_GET['id']))
+{
+$id=$_GET['id'];
+$start=($id-1)*$limit;
+}
+
+$query=mysql_query("select * from Product LIMIT $start, $limit");
+echo "<ul>";
+while($query2=mysql_fetch_array($query))
 {
 	echo "<!-- ---------------------------------- -->\n";
 	echo "<div id=\"product\">\n<form action=\"add.php\" method=\"post\">\n";
-	echo "<input type=\"hidden\" name=\"productid\" value=\"".$row["ProductID"]."\" />\n";
-	echo "<input type=\"hidden\" name=\"prijs\" value=\"".$row["prijs"]."\" />\n";
-	echo '<p><center><img id=\'plaatje\' src="showfile.php?ImageID='.$row["ProductID"].'"></center></p>';
-	echo "<div id=\"prijs\">€ ".number_format($row["Prijs_Perstuk"], 2, ',', '.')."</div>\n";
-	echo "<div id=\"prodnaam\">".$row["Naam"]."</div>\n";
-	echo "<div id=\"beschrijving\">".$row["Beschrijving"]."</div>\n";
-	echo "<div id=\"leverbaar\">Leverbaar: ".$row["Leverbaar"]."</div>\n";
-	echo "<div id=\"voorraad\">Voorraad: ".$row["Voorraad_aantal"]."</div>\n";
-	echo "<br /><div id=\"selecteer\">Aantal: <input type=\"number\" name=\"hoeveelheid\" size=\"2\" maxlength=\"2\" value=\"1\" min=\"1\" max=\"".$row["Voorraad_aantal"]."\"/>";
+	echo "<input type=\"hidden\" name=\"productid\" value=\"".$query2["ProductID"]."\" />\n";
+	echo "<input type=\"hidden\" name=\"prijs\" value=\"".$query2["prijs"]."\" />\n";
+	echo '<p><center><img id=\'plaatje\' src="showfile.php?ImageID='.$query2["ProductID"].'"></center></p>';
+	echo "<div id=\"prijs\">€ ".number_format($query2["Prijs_Perstuk"], 2, ',', '.')."</div>\n";
+	echo "<div id=\"prodnaam\">".$query2["Naam"]."</div>\n";
+	echo "<div id=\"beschrijving\">".$query2["Beschrijving"]."</div>\n";
+	echo "<div id=\"leverbaar\">Leverbaar: ".$query2["Leverbaar"]."</div>\n";
+	echo "<div id=\"voorraad\">Voorraad: ".$query2["Voorraad_aantal"]."</div>\n";
+	echo "<br /><div id=\"selecteer\">Aantal: <input type=\"number\" name=\"hoeveelheid\" size=\"2\" maxlength=\"2\" value=\"1\" min=\"1\" max=\"".$query2["Voorraad_aantal"]."\"/>";
 	echo "<center><input type=\"submit\" value=\"Bestel\" class=\"button\"/></div>\n</center>";
 	echo "</form>\n</div>\n";
 }
+echo "</ul><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><center>";
+$rows=mysql_num_rows(mysql_query("select * from Product"));
+$total=ceil($rows/$limit);
 
-/* maak de resultset leeg */
-mysqli_free_result($result);
+if($id>1)
+{
+echo "<a href='?id=".($id-1)."' class='button'>Vorige pagina</a>&nbsp;&nbsp;";
+}
+if($id!=$total)
+{
+echo "<a href='?id=".($id+1)."' class='button'>Volgende pagina</a>";
+}
 
-/* sluit de connection */
-mysqli_close($conn);
+echo "<ul class='page'>";
+for($i=1;$i<=$total;$i++)
+{
+if($i==$id) { 
 
+echo "".$i."&nbsp;"; }
+
+else { echo "<a href='?id=".$i."'>".$i."&nbsp;</a>"; }
+}
+echo "</ul></center>";
 ?>
