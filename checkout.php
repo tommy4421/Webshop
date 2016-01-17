@@ -91,7 +91,7 @@ if (empty($_SESSION['klantnr'])) {
     }
                 
 		$sql = "INSERT INTO Order_Product (`Ord_orderID`, `Pro_ProductID`, `Productprijs`, `Aantal`, `Totaalprijs`) VALUES
-		(".$bestelnr.", ".$product[0].", ".$product[1].", $prijs[0], '$totaalprijs')";
+		(".$bestelnr.", ".$product[0].", ".$product[1].", ".$prijs[0].", ".$totaalprijs.");";
 		$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
 	}
         
