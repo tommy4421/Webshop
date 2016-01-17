@@ -50,7 +50,7 @@ mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
           </li>
 		  <li>
             <label for="naam">Beschrijving</label>
-            <input id="beschrijving" name="beschrijving" REQUIRED/>
+	    <textarea rows="4" cols="50" name="beschrijving">REQUIRED/>
           </li>
 		  <li>
             <label for="naam">Provincie</label>
