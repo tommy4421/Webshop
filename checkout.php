@@ -106,7 +106,7 @@ if (empty($_SESSION['klantnr'])) {
 	// query in de bestelling zetten. Je hebt $bestelnr, dus voeg daar de totaalprijs aan toe.
 	// 
 	
-	//Vanaf hier mail naar klant met bestelling
+	//Vanaf hier echo van bestelling
 	$con = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
 if (!$con)
   {
@@ -117,7 +117,7 @@ mysql_select_db(DB_NAME, $con);
 
 $result = mysql_query("SELECT * FROM Klant,`Order`,`Order_Product`,`Product` WHERE Order_Product.Pro_ProductID = Product.ProductID AND Order_Product.Ord_OrderID = Order.OrderID AND Order.Kla_Klant = Klant.KlantID AND KlantID = '".$_SESSION['klantnr']."' AND OrderID = $bestelnr;");
 
-echo "<h1> Uw bestelling is geplaatst met bestelnummer $bestelnr</h1>
+echo "<p> Uw bestelling is geplaatst met bestelnummer $bestelnr</p>
 <table width=\"50%\" border='1'>
 <tr>
 <th>Product</th>
@@ -125,7 +125,7 @@ echo "<h1> Uw bestelling is geplaatst met bestelnummer $bestelnr</h1>
 <th>Aantal</th>
 </tr>";
 
-$result2 = mysql_query('SELECT SUM(Totaalprijs) AS value_sum FROM Order_Product');
+$result2 = mysql_query("SELECT SUM(Totaalprijs) AS value_sum FROM Order_Product WHERE Order_Product.Pro_ProductID = Product.ProductID AND Order_Product.Ord_OrderID = Order.OrderID AND Order.Kla_Klant = Klant.KlantID AND KlantID = '".$_SESSION['klantnr']."' AND OrderID = $bestelnr;");
 $row2 = mysql_fetch_assoc($result2);
 $sum = $row2['value_sum'];
 
@@ -141,9 +141,47 @@ echo "</table><br />
 <table width=\"50%\" border=\"1\">
   <tr>
     <td>Totaalprijs:</td>
-    <td>€ ".$sum."</td>
+    <td>€ ".number_format($total, 2, ',', '.')."</td>
   </tr>
 </table>";
+		//Tot hier
+		
+		//Vanaf hier mail naar klant met bestelling
+		$result3 = mysql_query("SELECT email FROM Klant WHERE KlantID = '".$_SESSION['klantnr']."'");
+		$result4 = mysql_query("SELECT naam FROM Klant WHERE KlantID = '".$_SESSION['klantnr']."'");
+		
+		$klant = mysql_fetch_assoc($result4);
+			$to = mysql_fetch_assoc($result3);
+			$subject = "Uw bestelling bij Tijdvooreenbox.nl";
+			$message = "Beste $klant,
+			
+Bedankt voor uw bestelling bij Tijdvooreenbox.nl! Hieronder vindt u een overzicht van uw bestelling:
+ 
+------------------------
+";
+while($row = mysql_fetch_array($result))
+  {
+  echo "<tr>";
+  echo "<td>" . $row['Naam'] . "</td>";
+  echo "<td>" . $row['Prijs_Perstuk'] . "</td>";
+  echo "<td>" . $row['Aantal'] . " stuks</td>";
+  echo "</tr>";
+  }
+echo "</table><br />
+<table width=\"50%\" border=\"1\">
+  <tr>
+    <td>Totaalprijs:</td>
+    <td>€ ".number_format($total, 2, ',', '.')."</td>
+  </tr>
+</table>";
+echo "------------------------
+ 
+Veel plezier in onze Webshop!
+
+Namens het team van Tijdvooreenbox.nl";
+			$from = "noreply@tijdvooreenbox.nl";
+			$headers = "From: $from";
+			mail($to,$subject,$message,$headers);
 		//Tot hier
         
 	
