@@ -115,6 +115,7 @@ mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
 	
 	
 	}
+	}
 
 	
 
