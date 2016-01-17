@@ -400,14 +400,12 @@ a:hover.slidesjs-stop {
 }
 
 
-
-
-    
-/*.molen{
+.molen{
+    padding-top: 100px;
+    right: 10%;
     float: right;
     
-    
-}*/
+}
 
 
 .tekens{
@@ -462,16 +460,58 @@ a:hover.slidesjs-stop {
     padding-right: 50px;
 }
 
-@media (max-width: 768px){
+@media (max-width: 1010px){
+    .molen{
+        width: 50%;
+    }
+    .text{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+    .orgineel{
+       padding-top: 65px;
+       width: 200px;
+       padding-bottom: 15px;
+
+    }
+    .strik{
+        padding-top: 110px;
+        padding-bottom: 20px;
+        width: 200px;
+    }
+
+    .kalender{
+        padding-top: 30px;
+        width: 200px;
+
+    }
+}
+    
+    @media (max-width: 810px){
+    .streken{
+        height: 630px;
+        width: 100%;
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    } 
+    
+        
+    }
+
+@media (max-width: 765px){
     
     .molen{
         width: 100%;
         padding-left: 10%;
         padding-right: 10%;
-          
+        padding-top: 10px;
+        float: none;
+        right: 0px; 
     }
     
-    .streken{
+     .streken{
         height: 800px;
         width: 100%;
         padding-top: 10px;
@@ -489,7 +529,7 @@ a:hover.slidesjs-stop {
    
     .tekens{
      
-        height: 900px;
+        height: 910px;
         width: 100%;
         padding-top: 30px;
         padding-left: 50px;
@@ -521,7 +561,16 @@ a:hover.slidesjs-stop {
         margin-left: auto;
         margin-right: auto;
         }
-}
+        
+ }       
+    @media (max-width: 458px){
+        
+        .streken{
+            height: 870px;
+        }
+
+    }
+
 /* ---------------------- footer (aangepast) ----------------------------- 
 #footer {
 	border-top:1px solid #999; 
