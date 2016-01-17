@@ -105,7 +105,7 @@ Namens het team van Tijdvooreenbox.nl";
 	}
 }
 ?>
-<form action="nonieuwsbrief.php" method="post" class="formulier">
+<form action="nieuwsbrief.php" method="post" class="formulier">
   <?php
   if ( isset($aErrors) and count($aErrors) > 0 ) {
 		print '<ul class="errorlist">';

@@ -82,7 +82,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	}
 }
 ?>
-<form action="nieuwsbrief.php" method="post" class="formulier">
+<form action="nonieuwsbrief.php" method="post" class="formulier">
   <?php
   if ( isset($aErrors) and count($aErrors) > 0 ) {
 		print '<ul class="errorlist">';
