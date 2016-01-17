@@ -152,8 +152,7 @@ Namens het team van Tijdvooreenbox.nl";
 			$from = "noreply@tijdvooreenbox.nl";
 			$headers = "From: $from";
 			mail($email,$subject,$message,$headers);
-				echo "De gegevens zijn succesvol opgeslagen!";
-				header("refresh: 1; url=accountinstellingen.php");			
+				echo "De gegevens zijn succesvol opgeslagen!";			
 				
 				} else {
 				echo "Er is iets fout gegaan: " . $conn->error;
