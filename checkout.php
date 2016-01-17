@@ -94,7 +94,7 @@ if (empty($_SESSION['klantnr'])) {
                 //$prijs{$i}
                               
 		$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
-                echo $result;
+                //echo $result;
                 
                   }
         
