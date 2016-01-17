@@ -35,7 +35,8 @@ else echo "</h1>\n";
 // Zorg ervoor dat MySQL (via XAMPP) gestart is.
 //
 
-
+echo '<table id="contactform" border="1">
+  <tr>';
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     if (empty($_POST['naam']))
@@ -130,7 +131,13 @@ else
       <p><b>Onze excuses.</b> Het contactformulier kon niet verzonden worden.</p>';
   }
 }
-
+echo '</tr>
+</table>
+<table id="contactinfo" border="1">
+  <tr>
+  <h1> Contactinformatie</h1>
+  </tr>
+</table>';
 include ('includes/footer.html');
 
 

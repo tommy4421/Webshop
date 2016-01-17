@@ -591,3 +591,6 @@ text-align: right;
 
     }
 }
+#contactinfo {
+	float: right;
+}
