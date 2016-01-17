@@ -165,12 +165,7 @@ echo "</table><br />
 Bedankt voor uw bestelling bij Tijdvooreenbox.nl! Hieronder vindt u een overzicht van uw bestelling:
  
 ------------------------
-$bestelnr
- $product[0]
- $product[1]
- $prijs
- $totaalprijs
- $datum
+
 ------------------------
  
 Veel plezier in onze Webshop!
