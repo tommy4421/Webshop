@@ -158,14 +158,27 @@ echo "</table><br />
     $row4 = mysql_fetch_assoc($result4);
     $klant = $row4['naam'];
 }
-			echo $to;
-			echo $klant;
 			$subject = "Uw bestelling bij Tijdvooreenbox.nl";
 			$message = "Beste $klant,
 			
 Bedankt voor uw bestelling bij Tijdvooreenbox.nl! Hieronder vindt u een overzicht van uw bestelling:
  
 ------------------------
+while($row = mysql_fetch_array($result))
+  {
+  echo \"<tr>\";
+  echo \"<td>\"" . $row['Naam'] . "\"</td>\";
+  echo \"<td>\"" . $row['Prijs_Perstuk'] . "\"</td>\";
+  echo \"<td>\"" . $row['Aantal'] . "\" x</td>\";
+  echo \"</tr>\";
+  }
+echo \"</table><br />
+<table width=\"50%\" border=\"1\">
+  <tr>
+    <td>Totaalprijs:</td>
+    <td>€ ".number_format($sum, 2, ',', '.')."</td>
+  </tr>
+</table>
 ------------------------
  
 Veel plezier in onze Webshop!
