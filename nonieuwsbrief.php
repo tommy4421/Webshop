@@ -70,7 +70,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 
 		// Voer de query uit en vang fouten op 
 		if( !mysqli_query($conn, $sql) ) {
-			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
+			$aErrors['email'] = 'Dit e-mailadres is al uitgeschreven of is nooit ingeschreven geweest.';
 		} else {
 			// Sluit de connection
 			mysqli_close($conn);
