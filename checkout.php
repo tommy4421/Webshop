@@ -82,18 +82,26 @@ if (empty($_SESSION['klantnr'])) {
  
 		  echo $i . $product[0] . "<br>";
 		
-		  $prijs[$i] = number_format($pro_cart->Prijs_Perstuk, 2, ',', '.') . "<br>";
+                  $prijs{$i} = number_format($pro_cart->Prijs_Perstuk, 2, '.', '.') . "<br>";
 		  $lineprice = $product[1] * $pro_cart->Prijs_Perstuk . "<br>";    // regelprijs uitrekenen > hoeveelheid * prijs
-                  $totaalprijs = number_format($lineprice, 2, ',', '');
+                  $totaalprijs = $lineprice;
 		  // Total
 		  //$total = $total + $lineprice;         // Totaal updaten
-      }
-    }
+
                 
-		$sql = "INSERT INTO Order_Product (`Ord_orderID`, `Pro_ProductID`, `Productprijs`, `Aantal`, `Totaalprijs`) VALUES
-		(".$bestelnr.", ".$product[0].", ".$product[1].", ".$prijs[0].", ".$totaalprijs.");";
+		$sql = "INSERT INTO Order_Product (`Ord_orderID`, `Pro_ProductID`, `Productprijs`, `Aantal`, `Totaalprijs`) VALUES"
+                        . "('$bestelnr', '$product[0]', '$product[1]', '0', '$totaalprijs');";
+                
+                //$prijs{$i}
+                                          
 		$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
-	}
+                echo $result;
+                
+                  }
+        
+        
+              }
+    }
         
 	// 
 	// Op dit moment hebben we de totaalprijs berekend. Deze moeten we nu nog in een aparte
