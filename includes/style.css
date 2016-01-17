@@ -240,8 +240,18 @@ a:hover.slidesjs-stop {
   border-top-color: #000000;
   border-bottom-color: #000000;
 }
-p.antwoord {
-   display: none;
+.text {
+        display:none;
+        width:461px;
+        margin:15px 0px 15px 0px;
+        padding:10px;
+        border:1px solid #ccc;
+        background-color:#FFF;
+}
+.expand {
+        text-decoration:underline;
+        cursor:hand;
+        cursor:pointer;
 }
 @media (max-width: 767) {
   .navbar-custom .navbar-nav .open .dropdown-menu > li > a {

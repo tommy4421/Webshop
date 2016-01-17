@@ -36,30 +36,31 @@ else echo "</h1>\n";
 //
 ?>
 <script type="text/javascript">
-function klap(id)
-{
-   var o = document.getElementById(id).style;
- 
-   o.display = (o.display == 'block') ? 'none' : 'block';
-}
+$(document).ready(function() {
+        $(".text").hide();
+        $(".accordeon div:first-child").addClass("expand_first");
+        $(".expand").click(function() {
+                $(".text").slideUp(500);
+                if ($(this).next(".text").is(":visible")) {
+                        $(this).next(".text").slideUp(500);
+                } else {
+                        $(this).next(".text").slideToggle(500);
+                }
+        });
+});
 </script>
-<p>
-   <a href="#" onclick="klap('antwoord1');">
-      Vraag 1: .....
-   </a>
-</p>
-<p id="antwoord1" class='antwoord'>
-   Antwoord1: blablabla....
-</p>
- 
-<p>
-   <a href="#" onclick="klap('antwoord2');">
-      Vraag 2: .....
-   </a>
-</p>
-<p id="antwoord2" class='antwoord'>
-   Antwoord2: blablabla....
-</p>
+
+<div class="accordeon">
+        <div class="expand">1. Klik hier om de content open te klappen.</div>
+        <div class="text">Lorem ipsum dolor sit amet.</div>
+
+        <div class="expand">2. Klik hier om de content open te klappen.</div>
+        <div class="text">Lorem ipsum dolor sit amet.</div>
+
+        <div class="expand">3. Klik hier om de content open te klappen.</div>
+        <div class="text">Lorem ipsum dolor sit amet.</div>
+</div>
+
 <?php
 include ('includes/footer.html');
 
