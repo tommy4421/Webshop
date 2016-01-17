@@ -80,7 +80,7 @@ if (empty($_SESSION['klantnr'])) {
 		  $pro_cart = mysqli_fetch_object($result);
 		  $i++;
  
-		  echo $i . $product[0] . "<br>";
+		  
 		
                   $prijs{$i} = number_format($pro_cart->Prijs_Perstuk, 2, ',', '.') . "<br>";
 		  $lineprice = $product[1] * $pro_cart->Prijs_Perstuk . "<br>";    // regelprijs uitrekenen > hoeveelheid * prijs
@@ -93,9 +93,7 @@ if (empty($_SESSION['klantnr'])) {
                         . "('$bestelnr', '$product[0]', '$product[1]', '0', '$totaalprijs', '$datum');";
                 
                 //$prijs{$i}
-                
-                echo $sql;
-                                          
+                              
 		$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
                 echo $result;
                 
