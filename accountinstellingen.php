@@ -91,6 +91,15 @@ $emailinstelling = ($emailinstelling2['Email']);
            <li>
             <label for="email">E-mailadres</label>
             <input id="email" name="email" value="<?php echo "$emailinstelling"; ?>" REQUIRED/>
+            </li>
+            <li>
+            <label for="nieuwsbrief">Nieuwsbrief<em>*</em></label><br />
+          <label>
+            <input type="radio" name="nieuwsbrief" value="ja" checked="checked" REQUIRED/>
+            ja</label>
+          <label>
+            <input type="radio" name="nieuwsbrief" value="nee"/>
+            nee</label>
           </li>
         </ol>
         <input type="submit" value="Sla wijzigingen op" class="button"/>
@@ -128,10 +137,11 @@ $emailinstelling = ($emailinstelling2['Email']);
 				die("Kan geen verbinding maken: " . $conn->connect_error);
 			} 
 				
-				$sql = "UPDATE $tabel SET Naam='$naam', Wachtwoord='$wachtwoord', Plaats='$plaats', Postcode='$postcode', Adres='$adres' WHERE KlantID='$idi'";
+				$sql = "UPDATE $tabel SET Naam='$naam', Wachtwoord='$wachtwoord', Plaats='$plaats', Postcode='$postcode', Adres='$adres' Nieuwsbrief='$nieuwsbrief' WHERE KlantID='$idi'";
 
 				if ($conn->query($sql) === TRUE) {
 					$pass = $_POST['wachtwoord'];
+					$nieuwbrief = $_POST['nieuwsbrief'];
 			$subject = "Uw nieuwe gegevens bij Tijdvooreenbox.nl";
 			$message = "Beste $naam,
 			
@@ -144,6 +154,7 @@ Postcode: $postcode
 Plaats: $plaats
 Wachtwoord: $pass
 E-mailadres: $email
+Nieuwsbrief ontvangen: $nieuwsbrief
 ------------------------
  
 Veel plezier in onze Webshop!
