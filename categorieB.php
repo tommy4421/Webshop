@@ -12,8 +12,5 @@ $page_title = 'Welkom in de WebWinkel';
 $active = 3;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
 include ('includes/header.html');
 
-echo "<h1><center>Streekpakketten</center></h1>";
-
-
 include ('includes/footer.html');
 ?>
