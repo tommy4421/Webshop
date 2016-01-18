@@ -80,7 +80,7 @@ if (empty($_SESSION['klantnr'])) {
 		  $i++;
  
 		  
-		
+                  $Pro_Naam = $pro_cart->Naam;
                   $prijs = number_format($pro_cart->Prijs_Perstuk, 2, ',', '.') . "<br>";
 		  $lineprice = $product[1] * $pro_cart->Prijs_Perstuk . "<br>";    // regelprijs uitrekenen > hoeveelheid * prijs
                   $totaalprijs = $lineprice;
@@ -88,8 +88,8 @@ if (empty($_SESSION['klantnr'])) {
 		  //$total = $total + $lineprice;         // Totaal updaten
                   $datum = date("Y-m-d H:i:s");
                 
-		$sql = "INSERT INTO `Order_Product` (`Ord_orderID`, `Pro_ProductID`, `Aantal`, `Product_prijs`, `Totaalprijs`, `Datum`) VALUES"
-                        . "('$bestelnr', '$product[0]', '$product[1]', '$prijs', '$totaalprijs', '$datum');";
+		$sql = "INSERT INTO `Order_Product` (`Ord_orderID`, `Pro_ProductID`, `Aantal`, `Product_prijs`, `Totaalprijs`, `Datum`, `Pro_Naam`) VALUES"
+                        . "('$bestelnr', '$product[0]', '$product[1]', '$prijs', '$totaalprijs', '$datum', '$Pro_Naam');";
                 
                 //$prijs{$i}
                               
