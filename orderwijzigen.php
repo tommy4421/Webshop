@@ -36,7 +36,7 @@ if (mysqli_connect_errno()) {
 
 $orderid = $_POST['OrderID'];
 $sql = "SELECT * FROM Order WHERE OrderID ='$orderid'";
-$sql2 = "SELECT * FROM Order_Product WHERE Or_orderID = '$orderid'";
+$sql2 = "SELECT * FROM Order_Product WHERE Ord_orderID = '$orderid'";
 
 
 // Voer de query uit en sla het resultaat op 
@@ -65,7 +65,7 @@ while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC))
 	echo "<div id=\"klantgebeuren\">\n<form action=\"factuurbekijken.php\" method=\"post\">\n";
 	echo "<center>Product</center><br />";
 	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
-	echo "Productnaam: <input type=\"text\" name=\"klantnr\" value=\"".$row["Pro_Naam"]."\" />\n<br />";
+	echo "Productnaam: <input type=\"text\" name=\"klantnr\" value=\"".$row["Pro_ProductID"]."\" />\n<br />";
 	echo "ProductID: <input type=\"text\" name=\"klantnr\" value=\"".$row["Pro_ProductID"]."\" />\n";
 	echo "Prijs: <div id=\"Prijs\">&euro;".$row["Prijs"]."</div>\n<br />";
 	echo "<div id=\"postcode\">Aantal: ".$row["Aantal"]."</div>\n";
