@@ -66,6 +66,10 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
         <ol>
           <li>
             <label for="naam">Naam</label>
+            <input id="naam" name="productid" type="hidden "value="<?php echo "$idi"; ?>" REQUIRED/>
+          </li>
+          <li>
+            <label for="naam">Naam</label>
             <input id="naam" name="naam" value="<?php echo "$naam"; ?>" REQUIRED/>
           </li>
 		  <li>
@@ -121,13 +125,14 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
 				$host = "localhost";
 				$database = "avans_bimivp2e4";
 				$tabel = 'Product';
+				$idi 
 				
 				$conn = new mysqli($host, $gebruikersnaam, $wachtwoord, $database);
 
 				if ($conn->connect_error) {
 				die("Kan geen verbinding maken: " . $conn->connect_error);
 			} 
-				$sql = "UPDATE $tabel SET Naam='$naam2', Beschrijving='$beschrijving2', Provincie='$provincie2', Voorrraad_aantal='$voorraad2', Prijs_Perstuk='$prijs2' Leverbaar='$leverbaar2' WHERE ProductID='$idi'";
+				$sql = "UPDATE `Product` SET Naam='$naam2', Beschrijving='$beschrijving2', Provincie='$provincie2', Voorrraad_aantal='$voorraad2', Prijs_Perstuk='$prijs2' Leverbaar='$leverbaar2' WHERE ProductID='$idi'";
 
 					if ($conn->query($sql) === TRUE) {
 					echo "Product succesvol gewijzigd!";
