@@ -62,20 +62,11 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC))
 	echo "FactuurID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["FactuurID"]."\" />\n";
 	echo "Totaal bedrag: <div id=\"Prijs\">&euro;".$row["Totaalbedrag"]."</div>\n<br />";
 	echo "<div id=\"postcode\">Datum: ".$row["Datum"]."</div>\n";
+	echo "<br /><div id=\"selecteer\">";
+	echo "<center><input type=\"submit\" value=\"Bekijk factuur\" class=\"button\"/></div>\n</center>";
 	echo "</form>\n</div>\n";
 }
 
-while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) 
-{
-	echo "<!-- ---------------------------------- -->\n";
-	echo "<div id=\"klantgebeuren\">\n<form action=\"factuurbekijken.php\" method=\"post\">\n";
-	echo "<center>Factuur overzicht</center><br />";
-	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
-	echo "ProductID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["Pro_ProductID"]."\" />\n";
-	echo "Totaal bedrag: <div id=\"Prijs\">&euro;".$row["Totaalbedrag"]."</div>\n<br />";
-	echo "<div id=\"postcode\">Datum: ".$row["Datum"]."</div>\n";
-	echo "</form>\n</div>\n";
-}
 
 /* maak de resultset leeg */
 mysqli_free_result($result);
