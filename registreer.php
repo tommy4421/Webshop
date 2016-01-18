@@ -19,7 +19,9 @@ echo '<h1>Registreren</h1>';
 //
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
- 
+$email1 = $_POST['email'];
+$sql2=mysql_query("SELECT * Klant WHERE Email='$email1'");
+
 // check connection
 if (mysqli_connect_errno()) {
 	printf("<p><b>Fout: verbinding met de database mislukt.</b><br/>\n%s</p>\n", mysqli_connect_error());
@@ -83,20 +85,19 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		
 		if( !mysqli_query($conn, $sql) ) {
 			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
+		}
 		
-		$email1 = $_POST['email'];
-		$sql2=mysql_query("SELECT * Klant WHERE Email='$email1'");
+
  		 elseif(mysql_num_rows($sql2)>=1)
 		 {
     		echo"name already exists";
-		exit()
+		exit();
 
-   //insert query goes here
     }	
 			
 			
 			
-		}else {
+		else {
 			$klant = $_POST['name'];
 			$to = $_POST['email'];
 			$pass = $_POST['password'];
