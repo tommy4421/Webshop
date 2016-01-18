@@ -139,7 +139,7 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
 				if ($conn->connect_error) {
 				die("Kan geen verbinding maken: " . $conn->connect_error);
 			} 
-				$sql = "UPDATE `Product` SET `Naam`='$naam2', `Beschrijving`='$beschrijving2', `Provincie`='$provincie2', `Voorraad_aantal`='$voorraad2' WHERE `ProductID`='$idi2'";
+				$sql = "UPDATE `Product` SET `Naam`='$naam2', `Beschrijving`='$beschrijving2', `Provincie`='$provincie2', `Voorraad_aantal`='$voorraad2', `Prijs_perstuk`='$prijs2' WHERE `ProductID`='$idi2'";
 				
 					
 					if ($conn->query($sql) === TRUE) {
