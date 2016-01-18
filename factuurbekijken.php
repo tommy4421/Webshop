@@ -38,6 +38,7 @@ $factuurid = $_POST['FactuurID'];
 $sql = "SELECT * FROM Factuur WHERE FactuurID ='$factuurid'";
 $sql2 = "SELECT * FROM Factuur_Product";
 
+
 // Voer de query uit en sla het resultaat op 
 $result = mysqli_query($conn, $sql);
 $result2 = mysqli_query($conn, $sql2);
@@ -71,9 +72,23 @@ while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC))
 	echo "<div id=\"klantgebeuren\">\n<form action=\"factuurbekijken.php\" method=\"post\">\n";
 	echo "<center>Product</center><br />";
 	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
+	echo " $product = "".$row["Pro_ProductID"].""\n";
 	echo "ProductID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["Pro_ProductID"]."\" />\n";
 	echo "Aantal: <div id=\"Prijs\">&euro;".$row["Prijs"]."</div>\n<br />";
 	echo "<div id=\"postcode\">Aantal: ".$row["Aantal"]."</div>\n";
+	echo "</form>\n</div>\n";
+}
+
+$sql3 = "SELECT * FROM Product WHERE ProductID = $product";
+$result3 = mysqli_query($conn, $sql3);
+
+while($row = mysqli_fetch_array($result3, MYSQLI_ASSOC)) 
+{
+	echo "<!-- ---------------------------------- -->\n";
+	echo "<div id=\"klantgebeuren\">\n<form action=\"factuurbekijken.php\" method=\"post\">\n";
+	echo "<center>Product</center><br />";
+	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
+	echo "Product naam: <input type=\"text\" name=\"FactuurID\" value=\"".$row["Naam"]."\" />\n";
 	echo "</form>\n</div>\n";
 }
 
