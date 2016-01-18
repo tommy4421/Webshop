@@ -1,16 +1,18 @@
-﻿<?php
-//
-// categorieA.php
-// Deze pagina toont de documenten uit een van de categorieën uit de webwinkel.
-//
-
+<?php
+//index.php
+//startscherm van de webwinkel
 // Zet het niveau van foutmeldingen zo dat warnings niet getoond worden.
 error_reporting(E_ERROR | E_PARSE);
-
-// Zet de titel en laad de HTML header uit het externe bestand.
-$page_title = 'Welkom in de WebWinkel';
-$active = 3;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
+$page_title = 'Tijdvooreenbox.nl ~ ';
 include ('includes/header.html');
+// mysqli_connect.php bevat de inloggegevens voor de database.
+// Per server is er een apart inlogbestand - localhost vs. remote server
+//include ('includes/mysqli_connect_'.$_SERVER['SERVER_NAME'].'.php');
+include ('includes/mysqli_connect_localhost.php');
 
-include ('includes/footer.html');
+?>
+
+
+<?php	
+	include ('includes/footer.html');
 ?>
