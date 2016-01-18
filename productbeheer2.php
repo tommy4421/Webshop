@@ -65,7 +65,8 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
         <legend><h1>Product wijzigen</h1></legend><br />
         <ol>
           <li>
-            <input id="naam" name="productid" type="hidden" "value="<?php echo "$idi"; ?>" REQUIRED/>
+            <label for="naam">Naam</label>
+            <input id="naam" name="idproduct" type="text" "value="<?php echo "$idi"; ?>" REQUIRED/>
           </li>
           <li>
             <label for="naam">Naam</label>
@@ -112,7 +113,7 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
 		$voorraad2 = $_POST['voorraad'];
 		$prijs2 = $_POST['prijs'];
 		$leverbaar2 = $_POST['leverbaar'];
-		$idi = $_POST['productid'];
+		$idi2 = $_POST['idproduct'];
 	
 			if(!isset($naam2) || trim($naam2) == '' ||!isset($beschrijving2) || trim($beschrijving2) == '' ||!isset($provincie2) || trim($provincie2) == '' ||!isset($voorraad2) || trim($voorraad2) == '' ||!isset($prijs2) || trim($prijs2) == '' ||!isset($leverbaar2) || trim($leverbaar2) == '') {
 				echo "U heeft niet alles ingevuld. De wijzigingen zijn NIET opgeslagen.";
@@ -125,13 +126,20 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
 				$host = "localhost";
 				$database = "avans_bimivp2e4";
 				$tabel = 'Product';
+				$naam2 = $_POST['naam'];
+				$beschrijving2 = $_POST['beschrijving'];
+				$provincie2 = $_POST['provincie'];
+				$voorraad2 = $_POST['voorraad'];
+				$prijs2 = $_POST['prijs'];
+				$leverbaar2 = $_POST['leverbaar'];
+				$idi2 = $_POST['idproduct'];
 				
 				$conn = new mysqli($host, $gebruikersnaam, $wachtwoord, $database);
 
 				if ($conn->connect_error) {
 				die("Kan geen verbinding maken: " . $conn->connect_error);
 			} 
-				$sql = "UPDATE `Product` SET Naam='$naam2', Beschrijving='$beschrijving2', Provincie='$provincie2', Voorrraad_aantal='$voorraad2', Prijs_Perstuk='$prijs2' Leverbaar='$leverbaar2' WHERE `ProductID`='$idi'";
+				$sql = "UPDATE `Product` SET Naam='$naam2', Beschrijving='$beschrijving2', Provincie='$provincie2', Voorrraad_aantal='$voorraad2', Prijs_Perstuk='$prijs2' Leverbaar='$leverbaar2' WHERE `ProductID`='$idi2'";
 				
 					
 					if ($conn->query($sql) === TRUE) {
@@ -140,7 +148,7 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
 					else 
 					{
 						echo "Product NIET gewijzigd! (Foutmelding?)";
-						echo "$idi";
+						echo "$idi2";
 					}
 	
 	
