@@ -103,14 +103,14 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST"){ 
 	
-		$naam = $_POST['naam'];
-		$beschrijving = $_POST['beschrijving'];
-		$provincie = $_POST['provincie'];
-		$voorraad = $_POST['voorraad'];
-		$prijs = $_POST['prijs'];
-		$leverbaar = $_POST['leverbaar'];
+		$naam2 = $_POST['naam'];
+		$beschrijving2 = $_POST['beschrijving'];
+		$provincie2 = $_POST['provincie'];
+		$voorraad2 = $_POST['voorraad'];
+		$prijs2 = $_POST['prijs'];
+		$leverbaar2 = $_POST['leverbaar'];
 	
-			if(!isset($naam) || trim($naam) == '' ||!isset($beschrijving) || trim($beschrijving) == '' ||!isset($provincie) || trim($provincie) == '' ||!isset($voorraad) || trim($voorraad) == '' ||!isset($prijs) || trim($prijs) == '' ||!isset($leverbaar) || trim($leverbaar) == '') {
+			if(!isset($naam2) || trim($naam2) == '' ||!isset($beschrijving2) || trim($beschrijving2) == '' ||!isset($provincie2) || trim($provincie2) == '' ||!isset($voorraad2) || trim($voorraad2) == '' ||!isset($prijs2) || trim($prijs2) == '' ||!isset($leverbaar2) || trim($leverbaar2) == '') {
 				echo "U heeft niet alles ingevuld. De wijzigingen zijn NIET opgeslagen.";
 			}
 			else
@@ -127,7 +127,7 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
 				if ($conn->connect_error) {
 				die("Kan geen verbinding maken: " . $conn->connect_error);
 			} 
-				$sql = "UPDATE $tabel SET Naam='$naam', Beschrijving='$beschrijving', Provincie='$provincie', Voorrraad='$voorraad', Prijs='$prijs' Leverbaar='$leverbaar' WHERE ProductID='$idi'";
+				$sql = "UPDATE $tabel SET Naam='$naam2', Beschrijving='$beschrijving2', Provincie='$provincie2', Voorrraad_aantal='$voorraad2', Prijs_Perstuk='$prijs2' Leverbaar='$leverbaar2' WHERE ProductID='$idi'";
 
 					if ($conn->query($sql) === TRUE) {
 					echo "Product succesvol gewijzigd!";
