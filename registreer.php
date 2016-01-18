@@ -19,8 +19,7 @@ echo '<h1>Registreren</h1>';
 //
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-$email1 = $_POST['email'];
-$sql2=mysql_query("SELECT * Klant WHERE Email='$email1'");
+$sql2=mysql_query("SELECT * Klant WHERE Email='$_POST['email']'");
 
 // check connection
 if (mysqli_connect_errno()) {
