@@ -74,15 +74,15 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
           </li>
 		  <li>
             <label for="naam">Provincie</label>
-            <input id="provincie" name="provincie" REQUIRED value="<?php echo "$provincie"; ?> />
+            <input id="provincie" name="provincie" REQUIRED value="<?php echo "$provincie"; ?>" />
           </li>
 		  <li>
             <label for="naam">Voorraad aantal</label>
-            <input id="naam" name="voorraad" REQUIRED value="<?php echo "$voorraad"; ?> />
+            <input id="naam" name="voorraad" REQUIRED value="<?php echo "$voorraad"; ?>" />
           </li>
            <li>
             <label for="naam">Prijs per stuk</label>
-            <input id="naam" name="prijs" REQUIRED value="<?php echo "$prijs"; ?> />
+            <input id="naam" name="prijs" REQUIRED value="<?php echo "$prijs"; ?>" />
             </li>
             <li>
             <label for="leverbaar">Leverbaar<em>*</em></label><br />
