@@ -160,17 +160,44 @@ echo "</table><br />
 }
 
 			$subject = "Uw bestelling bij Tijdvooreenbox.nl";
+			
 			$message = "Beste $klant,
 			
 Bedankt voor uw bestelling bij Tijdvooreenbox.nl! Hieronder vindt u een overzicht van uw bestelling:
  
-------------------------
-Het totaalbedrag is € ".number_format($sum, 2, ',', '.')."
+------------------------";
+
+$message = $message . "<table width=\"50%\" border='1'>
+<tr>
+<th>Product</th>
+<th>Prijs per stuk</th>
+<th>Aantal</th>
+</tr>";
+
+
+while($row = mysql_fetch_array($result)) {
+
+  $message = $message . "<tr>";
+  $message = $message . "<td>" . $row['Naam'] . "</td>";
+  $message = $message . "<td>" . $row['Prijs_Perstuk'] . "</td>";
+  $message = $message . "<td>" . $row['Aantal'] . " stuks</td>";
+  $message = $message . "</tr>";
+
+}
+
+$message = $message . "</table><br />
+<table width=\"50%\" border=\"1\">
+  <tr>
+    <td>Totaalprijs:</td>
+    <td>€ ".number_format($sum, 2, ',', '.')."</td>
+  </tr>
+</table>
 ------------------------
  
 Veel plezier in onze Webshop!
 
 Namens het team van Tijdvooreenbox.nl";
+			
 			$from = "noreply@tijdvooreenbox.nl";
 			$headers = "From: $from";
 			mail($to,$subject,$message,$headers);
