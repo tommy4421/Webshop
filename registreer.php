@@ -86,7 +86,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 		
 		$email1 = $_POST['email'];
 		$sql2=mysql_query("SELECT * Klant WHERE Email='$email1'");
- 		 }elseif(mysql_num_rows($sql2)>=1)
+ 		 elseif(mysql_num_rows($sql2)>=1)
 		 {
     		echo"name already exists";
 		exit()
@@ -96,7 +96,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			
 			
 			
-		else {
+		}else {
 			$klant = $_POST['name'];
 			$to = $_POST['email'];
 			$pass = $_POST['password'];
