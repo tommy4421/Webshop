@@ -15,7 +15,7 @@ include ('includes/header.html');
 echo "<h1>Producten van categorie B</h1>";
 echo "<h1><center>Streekpakketten</center></h1>";
 echo "<h4><center>Selecteer een provincie</center></h4><br />";
-echo "<a href=\"friesland.php\">Friesland</a>";
+echo "<A HREF=\"friesland.php\" TARGET=\"_blank\">Friesland</A>";
 echo "<h4><center>Groningen</center></h4>";
 
 include ('includes/footer.html');
