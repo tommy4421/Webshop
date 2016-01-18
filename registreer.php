@@ -80,18 +80,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 
 		// Voer de query uit en vang fouten op 
 		
-		$emailvariabele = $_POST['email'];
-		$sql2=mysql_query("SELECT * FROM Klant WHERE Email='$emailvariabele'");
- 		if(mysql_num_rows($sql2)>=1)
-   		{
-	 	echo"Dit emailadres is al geregistreerd.";
-   		}
- 		else
-    		{
-   		
-		 
-		
-		
 		if( !mysqli_query($conn, $sql) ) {
 			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
 		} else {
@@ -190,6 +178,6 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
   </fieldset>
 </form>
 <?php	
-	}
+	
 include ('includes/footer.html');
 ?>
