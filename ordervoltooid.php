@@ -22,7 +22,7 @@ session_start();
 <?php
 
 $orderid = $_POST['Orderidvoltooid'];
-$sql = "UPDATE TABLE `Order` SET `Orderstatus` = 'Voltooid' WHERE `OrderID` = '$orderid'";
+$sql = "UPDATE `Order` SET `Orderstatus` = 'Voltooid' WHERE `OrderID` = '$orderid'";
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  
