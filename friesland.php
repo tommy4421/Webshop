@@ -30,7 +30,7 @@ session_start();
     <link rel="stylesheet" href="includes/style.css" type="text/css" media="screen" />
 	 </head>
 
-<?ph
+<?php
 
 echo "<h1><center>Thema: Friesland</center></h1>";
 
