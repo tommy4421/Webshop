@@ -113,6 +113,7 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
 		$voorraad2 = $_POST['voorraad'];
 		$prijs2 = $_POST['prijs'];
 		$leverbaar2 = $_POST['leverbaar'];
+		$idi = $_POST['productid'];
 	
 			if(!isset($naam2) || trim($naam2) == '' ||!isset($beschrijving2) || trim($beschrijving2) == '' ||!isset($provincie2) || trim($provincie2) == '' ||!isset($voorraad2) || trim($voorraad2) == '' ||!isset($prijs2) || trim($prijs2) == '' ||!isset($leverbaar2) || trim($leverbaar2) == '') {
 				echo "U heeft niet alles ingevuld. De wijzigingen zijn NIET opgeslagen.";
@@ -125,7 +126,6 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
 				$host = "localhost";
 				$database = "avans_bimivp2e4";
 				$tabel = 'Product';
-				$idi 
 				
 				$conn = new mysqli($host, $gebruikersnaam, $wachtwoord, $database);
 
