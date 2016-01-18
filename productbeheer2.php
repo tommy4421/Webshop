@@ -167,7 +167,7 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
 
 		<form action="productverwijderen.php" method="POST" class="formulier">
 		<ul>
-            <input id="productid" name="productid" type="hidden" value="<?php echo "$ProductID"; ?>" />
+            <input id="productid" name="productid" type="hidden" value="<?php echo "$idi"; ?>" />
         </ul>
 		<input type="submit" value="Verwijder product" class="button"/>
 	</form><br />
