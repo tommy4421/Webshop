@@ -91,7 +91,7 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
             <li>
             <label for="leverbaar">Leverbaar<em>*</em></label><br />
           <label>
-            <input type="radio" name="leverbaar" value="Ja" checked="checked"/>
+            <input type="radio" name="leverbaar" value="Ja"/>
             Ja</label>
           <label>
             <input type="radio" name="leverbaar" value="Nee"/>
