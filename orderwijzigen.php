@@ -47,17 +47,6 @@ $result2 = mysqli_query($conn, $sql2);
 // Laat de producten zien in een form, zodat de gebruiker ze kan selecteren.
 // Haal een nieuwe regel op uit het resultaat, zolang er nog regels beschikbaar zijn.
 // We gebruiken in dit geval een associatief array.
-while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) 
-{
-	echo "<!-- ---------------------------------- -->\n";
-	echo "<div id=\"klantgebeuren\">\n<form action=\"factuurbekijken.php\" method=\"post\">\n";
-	echo "<center>Factuur overzicht</center><br />";
-	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
-	echo "FactuurID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["FactuurID"]."\" />\n";
-	echo "Totaal bedrag: <div id=\"Prijs\">&euro;".$row["Totaalbedrag"]."</div>\n<br />";
-	echo "<div id=\"postcode\">Datum: ".$row["Datum"]."</div>\n";
-	echo "</form>\n</div>\n";
-}
 
 while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) 
 {
@@ -70,6 +59,7 @@ while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC))
 	echo "Productnaam: <input type=\"text\" name=\"klantnr\" value=\"".$row["Pro_Naam"]."\" />\n";
 	echo "Prijs: <div id=\"Prijs\">&euro;".$row["Product_prijs"]."</div>\n<br />";
 	echo "<div id=\"postcode\">Aantal: ".$row["Aantal"]."</div>\n";
+	echo "<center><input type=\"submit\" value=\"Order voltooid\" class=\"button\"/></div>\n</center>";
 	echo "</form>\n</div>\n";
 }
 
