@@ -33,9 +33,6 @@ session_start();
 <?php
 
 echo "<h1><center>Streekpakketten</center></h1>";
-echo "<h4><center>Selecteer een provincie</center></h4><br />";
-echo "<h4><center>Friesland";
-echo "<h4>Groningen</center></h4>";
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  
