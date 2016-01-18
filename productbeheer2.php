@@ -62,7 +62,7 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="formulier">
       <fieldset>
         
-        <legend><h1>Product toevoegen</h1></legend><br />
+        <legend><h1>Product wijzigen</h1></legend><br />
         <ol>
           <li>
             <label for="naam">Naam</label>
@@ -70,7 +70,7 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
           </li>
 		  <li>
             <label for="naam">Beschrijving</label>
-	    <textarea rows="4" cols="50" name="beschrijving" value="<?php echo "$beschrijving"; ?> REQUIRED></textarea>
+	    <textarea rows="4" cols="50" name="beschrijving" value="<?php echo "$beschrijving"; ?> REQUIRED ></textarea>
           </li>
 		  <li>
             <label for="naam">Provincie</label>
