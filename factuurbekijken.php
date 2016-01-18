@@ -72,6 +72,7 @@ while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC))
 	echo "<center>Product</center><br />";
 	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
 	$productnaam = "SELECT Naam FROM Product WHERE ProductID =".$row["Pro_ProductID"]."";
+	echo "$result = mysqli_query($conn, $productnaam)";
 	echo "Product naam: VARIABELE NAAM HIER<br />";
 	echo "ProductID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["Pro_ProductID"]."\" />\n";
 	echo "Aantal: <div id=\"Prijs\">&euro;".$row["Prijs"]."</div>\n<br />";
