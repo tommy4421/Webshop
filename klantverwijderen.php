@@ -29,7 +29,7 @@ if (mysqli_connect_errno()) {
 	exit();
 } 
 $result = mysqli_query($conn, $sql);
-echo "Klant succesvol verwijderd!";
+echo "<center>Klant succesvol verwijderd!</center>";
 
 
 
