@@ -30,12 +30,16 @@ ob_start();
     <title><?php echo $page_title; ?></title>	
     
    
-    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-    <!-- JS Bootsrap -->
+   
+    
+    <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
     <!--Font awesome-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Google Font -->
@@ -49,6 +53,7 @@ ob_start();
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
     <!-- SlidesJS Required (if responsive): Sets the page width to the device width. -->
     <meta name="viewport" content="width=device-width">
+    
     
     <!-- navbar sticky-->
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -167,9 +172,19 @@ ob_start();
      
 <div id="nav">
         <nav id="navbar-main" class="navbar navbar-custom">
-          <div class="container-fluid">
-            <div>
-              <ul class="nav navbar-nav">
+         <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+          </div>
+            
+          <div class="container-fluid">              
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+               <ul id="myNavbar" class="nav navbar-nav">
                 <li<?php if ($active =="1") {?> class="active"<?php } ?>><a href="index.php">Homepage</a></li>
                 <li<?php if ($active =="2") {?> class="active"<?php } ?>><a href="categorieA.php">Streekpakketten</a></li>
                 <li<?php if ($active =="3") {?> class="active"<?php } ?>><a href="provincie.php">Pakket per Provincie</a></li>
