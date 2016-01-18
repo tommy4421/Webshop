@@ -36,7 +36,7 @@ if (mysqli_connect_errno()) {
 
 $orderid = $_POST['OrderID'];
 $sql = "SELECT * FROM Order WHERE OrderID ='$orderid'";
-$sql2 = "SELECT * FROM Order_Product";
+$sql2 = "SELECT * FROM Order_Product WHERE Or_orderID = '$orderid'";
 
 
 // Voer de query uit en sla het resultaat op 
