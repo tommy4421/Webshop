@@ -23,6 +23,7 @@ session_start();
 <?php 
 
 echo "<h1><center>Order bekijken</center></h1>";
+echo "<h3><center>Er hoeft slecht één keer geklikt te worden op order voltooid!</center></h3>";
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  
