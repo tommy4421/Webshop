@@ -18,10 +18,24 @@ session_start();
 
 
 ?>
-    <center>
+
+<?php
+
+$orderid = $_POST['Orderidvoltooid'];
+$sql = "UPDATE TABLE `Order` SET `Orderstatus` = 'Voltooid' WHERE `OrderID` = '$orderid'";
+
+$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+ 
+// check connection
+if (mysqli_connect_errno()) {
+	printf("<p><b>Fout: verbinding met de database mislukt.</b><br/>\n%s</p>\n", mysqli_connect_error());
+	exit();
+} 
 
 
-     </center>
+$result = mysqli_query($conn, $sql);
+
+?>
 
 <?php	
 
