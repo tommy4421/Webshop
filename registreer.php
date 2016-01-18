@@ -68,7 +68,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	}
 
 	if ( count($aErrors) == 0 ) 
-	{
+	{ 
 		// Gebruiker in database registreren.
 		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 		if (mysqli_connect_errno()) {
@@ -79,6 +79,19 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 				"('".$_POST['name']."', '".$_POST['adres']."', '".$_POST['postcode']."', '".$_POST['towncity']."', '".$_POST['email']."', '".$_POST['password']."', '".$_POST['nieuwsbrief']."');";
 
 		// Voer de query uit en vang fouten op 
+		
+		$emailvariabele = $_POST['email'];
+		$sql2=mysql_query("SELECT * FROM Klant WHERE Email='$emailvariabele'");
+ 		if(mysql_num_rows($sql2)>=1)
+   		{
+	 	echo"Dit emailadres is al geregistreerd.";
+   		}
+ 		else
+{
+   		//insert query goes here
+		 
+		
+		
 		if( !mysqli_query($conn, $sql) ) {
 			$aErrors['email'] = 'Registratie mislukt, email adres bestaat al.';
 		} else {
@@ -87,6 +100,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			$pass = $_POST['password'];
 			$subject = "Registratie Tijdvooreenbox.nl";
 			$message = "Beste $klant,
+		
 			
 Bedankt voor het registreren bij Tijdvooreenbox.nl! U kunt inloggen met onderstaande gegevens:
  
@@ -113,9 +127,9 @@ Namens het team van Tijdvooreenbox.nl";
 
 			header('Location: account.php');
 			exit();
-		}
-	}
-}
+		
+	
+
 ?>
 <script type="text/javascript">
 function MM_jumpMenu(targ,selObj,restore){ //v3.0
@@ -177,5 +191,6 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
   </fieldset>
 </form>
 <?php	
+	} } }
 include ('includes/footer.html');
 ?>
