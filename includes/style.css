@@ -167,6 +167,13 @@ a:hover.slidesjs-stop {
 
 /* Nieuwe menu */
 
+.navbar-toggle .icon-bar
+{
+    background-color: black;
+    color: black;
+}
+
+
 .navbar-custom {
   background-color: #ff2c32;
   border-color: #ff2c32;
@@ -207,14 +214,14 @@ a:hover.slidesjs-stop {
   background-color: transparent;
 }
 .navbar-custom .navbar-toggle {
-  border-color: #dddddd;
+  border-color: black;
 }
 .navbar-custom .navbar-toggle:hover,
 .navbar-custom .navbar-toggle:focus {
   background-color: #ffffff;
 }
 .navbar-custom .navbar-toggle .icon-bar {
-  background-color: #ff2c32;
+  background-color: black;
 }
 .navbar-custom .navbar-collapse,
 .navbar-custom .navbar-form {
