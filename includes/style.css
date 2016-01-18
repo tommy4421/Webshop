@@ -468,6 +468,11 @@ a:hover.slidesjs-stop {
 }
 
 @media (max-width: 1010px){
+    .provincie{
+    	width: 50%;
+    }
+    
+    
     .molen{
         width: 50%;
     }
