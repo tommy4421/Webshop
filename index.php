@@ -26,8 +26,8 @@ include ('includes/mysqli_connect_localhost.php');
 //echo '<h3>Het orgineelste kado!';
 
 // Print een aangepast welkomstbericht wanneer de gebruiker bekend is.
-if (isset($_SESSION['klantnaam'])) 
-	echo "Welkom, ".$_SESSION['klantnaam']."</h1>!";
+if (isset($_SESSION['Naam'])) 
+	echo "Welkom, ".$_SESSION['Naam']."</h1>!";
 else echo "</h1>\n";	
 
 // 
