@@ -132,7 +132,7 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
 				$voorraad2 = $_POST['voorraad'];
 				$prijs2 = $_POST['prijs'];
 				$leverbaar2 = $_POST['leverbaar'];
-				$idi2 = $_POST['idproduct'];
+				$idi2 = $_POST['productid'];
 				
 				$conn = new mysqli($host, $gebruikersnaam, $wachtwoord, $database);
 
