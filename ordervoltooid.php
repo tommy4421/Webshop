@@ -20,11 +20,10 @@ session_start();
 ?>
     <center>
 
-Test
 
      </center>
 
 <?php	
-} 	echo "<br />";
+
 	include ('includes/footer.html');
 ?>
