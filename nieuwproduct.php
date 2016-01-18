@@ -64,7 +64,7 @@ mysql_select_db("$database")or die("De database kan niet worden geselecteerd!");
             <li>
             <label for="leverbaar">Leverbaar<em>*</em></label><br />
           <label>
-            <input type="radio" name="leverbaar" value="Ja" checked="checked" REQUIRED/>
+            <input type="radio" name="leverbaar" value="Ja" checked="checked"/>
             Ja</label>
           <label>
             <input type="radio" name="leverbaar" value="Nee"/>
