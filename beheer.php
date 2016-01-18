@@ -23,7 +23,6 @@ include ('includes/header.html');
 
 <p><b>Beheer van orders</b><br />
 <a href="nieuweorders.php">Nieuwe orders</a><br />
-<a href="orderbeheer.php">Orders beheren</a><br />
 </p>
 
 <p><b>Beheer van gegevens</b><br />
