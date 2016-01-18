@@ -22,7 +22,7 @@ session_start();
  
 <?php 
 
-echo "<h1><center>Factuur bekijken</center></h1>";
+echo "<h1><center>Order bekijken</center></h1>";
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  
