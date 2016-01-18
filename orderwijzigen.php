@@ -36,20 +36,13 @@ if (mysqli_connect_errno()) {
 
 $orderid = $_POST['OrderID'];
 $sql = "SELECT * FROM Order WHERE OrderID ='$orderid'";
-$sql2 = "SELECT * FROM Factuur_Product";
+$sql2 = "SELECT * FROM Order_Product";
 
 
 // Voer de query uit en sla het resultaat op 
 $result = mysqli_query($conn, $sql);
 $result2 = mysqli_query($conn, $sql2);
 	
-if($result === false) {
-	echo "<p>Er zijn geen facturen gevonden.</p>\n";
-} else {
-	$num = 0;
-	$num = mysqli_num_rows($result);
-	echo "<p>Er zijn ".$num." facturen gevonden.</p>\n";
-}
 
 // Laat de producten zien in een form, zodat de gebruiker ze kan selecteren.
 // Haal een nieuwe regel op uit het resultaat, zolang er nog regels beschikbaar zijn.
