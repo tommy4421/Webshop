@@ -65,8 +65,8 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
         <legend><h1>Product wijzigen</h1></legend><br />
         <ol>
           <li>
-            <label for="naam">ProductID (NIET WIJZIGEN)</label>
-            <input id="naam" name="idproduct" type="text" "value="<?php echo "$idi"; ?>" REQUIRED/>
+            <label for="naam">ProductID (Afblijven)</label>
+            <input id="naam" name="productid" type="text" "value="<?php echo "$idi"; ?>" REQUIRED/>
           </li>
           <li>
             <label for="naam">Naam</label>
