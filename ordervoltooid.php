@@ -34,6 +34,7 @@ if (mysqli_connect_errno()) {
 
 
 $result = mysqli_query($conn, $sql);
+header("location:nieuweorders.php");
 
 ?>
 
