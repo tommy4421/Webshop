@@ -72,8 +72,8 @@ while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC))
 	echo "<div id=\"klantgebeuren\">\n<form action=\"factuurbekijken.php\" method=\"post\">\n";
 	echo "<center>Product</center><br />";
 	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
-	echo "Productnaam: <input type=\"text\" name=\"FactuurID\" value=\"".$row["Pro_Naam"]."\" />\n";
-	echo "ProductID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["Pro_ProductID"]."\" />\n";
+	echo "Productnaam: <input type=\"text\" name=\"naam\" value=\"".$row["Pro_Naam"]."\" />\n";
+	echo "ProductID: <input type=\"text\" name=\"naam\" value=\"".$row["Pro_ProductID"]."\" />\n";
 	echo "Aantal: <div id=\"Prijs\">&euro;".$row["Prijs"]."</div>\n<br />";
 	echo "<div id=\"postcode\">Aantal: ".$row["Aantal"]."</div>\n";
 	echo "</form>\n</div>\n";
