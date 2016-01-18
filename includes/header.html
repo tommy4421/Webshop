@@ -156,32 +156,45 @@ ob_start();
             // Hier kijken we of er een actief menu-item is. Zo niet, dan 0.
             if (!isset($active)) $active = 0;
     ?>
-    </header>
     
-    <nav class="navbar navbar-fixed-top custom-bootstrap-menu navbar-custom">
-      <div class="container-fluid">
-        <div>
-          <ul class="nav navbar-nav">
-            <li<?php if ($active =="1") {?> class="active"<?php } ?>><a href="index.php">Homepage</a></li>
-            <li<?php if ($active =="2") {?> class="active"<?php } ?>><a href="categorieA.php">Streekpakketten</a></li>
-            <li<?php if ($active =="3") {?> class="active"<?php } ?>><a href="provincie.php">Pakket per Provincie</a></li>
-            <li<?php if ($active =="5") {?> class="active"<?php } ?>><a href="faq.php">FAQ</a></li>
-            <li<?php if ($active =="6") {?> class="active"<?php } ?>><a href="contact.php">Contact</a></li>
-			<?php
-			if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-			?>
-			<li<?php if ($active =="7") {?> class="active"<?php } ?>><a href="membersarea.php">Account overzicht</a></li>
-			<?php	   } ?>
-			
-			<?php  if($_SESSION["Admin"] == 1) {
-			?>
-			<li<?php if ($active =="4") {?> class="active"<?php } ?>><a href="beheer.php">Beheer</a></li>
-			<?php	   } ?>
-			
-		  </ul>
-        </div>
-      </div>
-    </nav>
+    
+    <script type="text/javascript">
+        $('#nav').affix({
+          offset: {
+            top: 0
+          }
+        });		
+    </script>
+    
+    </header>
+     
+<div id="nav">
+        <nav class="navbar custom-bootstrap-menu navbar-custom navbar-static">
+          <div class="container-fluid">
+            <div>
+              <ul class="nav navbar-nav">
+                <li<?php if ($active =="1") {?> class="active"<?php } ?>><a href="index.php">Homepage</a></li>
+                <li<?php if ($active =="2") {?> class="active"<?php } ?>><a href="categorieA.php">Streekpakketten</a></li>
+                <li<?php if ($active =="3") {?> class="active"<?php } ?>><a href="provincie.php">Pakket per Provincie</a></li>
+                <li<?php if ($active =="5") {?> class="active"<?php } ?>><a href="faq.php">FAQ</a></li>
+                <li<?php if ($active =="6") {?> class="active"<?php } ?>><a href="contact.php">Contact</a></li>
+                            <?php
+                            if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                            ?>
+                            <li<?php if ($active =="7") {?> class="active"<?php } ?>><a href="membersarea.php">Account overzicht</a></li>
+                            <?php	   } ?>
+
+                            <?php  if($_SESSION["Admin"] == 1) {
+                            ?>
+                            <li<?php if ($active =="4") {?> class="active"<?php } ?>><a href="beheer.php">Beheer</a></li>
+                            <?php	   } ?>
+
+                      </ul>
+            </div>
+          </div>
+        </nav>
+</div>
+
     
    
     
