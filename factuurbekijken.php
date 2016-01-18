@@ -22,7 +22,7 @@ session_start();
  
 <?php 
 
-echo "<h1><center>Facturen</center></h1>";
+echo "<h1><center>Factuur bekijken</center></h1>";
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  
@@ -71,7 +71,7 @@ while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC))
 	echo "<div id=\"klantgebeuren\">\n<form action=\"factuurbekijken.php\" method=\"post\">\n";
 	echo "<center>Product</center><br />";
 	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
-	$productnaam = "SELECT Naam FROM Product WHERE ProductID =".$row["Pro_ProductID"]."";
+	$productnaam = "SELECT Naam FROM Product WHERE ProductID =".$row['Pro_ProductID']."";
 	echo "$result = mysqli_query($productnaam)";
 	echo "Product naam: VARIABELE NAAM HIER<br />";
 	echo "ProductID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["Pro_ProductID"]."\" />\n";
