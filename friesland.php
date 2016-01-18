@@ -41,19 +41,6 @@ if (mysqli_connect_errno()) {
 	printf("<p><b>Fout: verbinding met de database mislukt.</b><br/>\n%s</p>\n", mysqli_connect_error());
 	exit();
 } 
-$sql = "SELECT * FROM Product WHERE `Provincie`='Friesland'"; 
- 
- // Voer de query uit en sla het resultaat op 
- $result = mysqli_query($conn, $sql);
- 	
- if($result === false) {
- 	echo "<p>Er zijn geen producten gevonden.</p>\n";
- } else {
- 	$num = 0;
- 	$num = mysqli_num_rows($result);
- 	echo "<p>Er zijn ".$num." producten gevonden.</p>\n";
- }
-
 
 $query1=mysql_connect("localhost","bimivp2e4","Welkom01");
 mysql_select_db("avans_bimivp2e4",$query1);
