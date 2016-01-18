@@ -70,7 +70,7 @@ $prijs = ($prijsinstelling2['Prijs_Perstuk']);
           </li>
 		  <li>
             <label for="naam">Beschrijving</label>
-	    <textarea rows="4" cols="50" name="beschrijving" value="<?php echo "$beschrijving"; ?>></textarea>
+	    <textarea rows="4" cols="50" name="beschrijving"><?php echo "$beschrijving"; ?></textarea>
           </li>
 		  <li>
             <label for="naam">Provincie</label>
