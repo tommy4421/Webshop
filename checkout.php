@@ -44,7 +44,7 @@ if (empty($_SESSION['klantnr'])) {
 	// en status (default: open).
         $datum = date("Y-m-d H:i:s");
 
-	$sql = "INSERT INTO `Order` (`Kla_klant`, `ODatum`) VALUES ('".$_SESSION['klantnr']."', '$datum');"; 
+	$sql = "INSERT INTO `Order` (`Kla_klant`, `ODatum`, `Orderstatus`) VALUES ('".$_SESSION['klantnr']."', '$datum', 'Ontvangen');"; 
 	$result = mysqli_query($conn, $sql) or die (mysqli_error($conn)."<br>in file ".__FILE__." on line ".__LINE__);
 
 	$bestelnr = mysqli_insert_id($conn); // insert_id geeft de id terug van het autoincrement veld - het bestelnr dus.
