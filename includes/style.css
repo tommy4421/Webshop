@@ -34,19 +34,8 @@ p {
 }   
 
 
-.hidden{
-     opacity:0;
-}
-.visible{
-     opacity:1;
-}
-
-
 /* header */
 
-header {
-	height:280px;
-}
 
 .header {
     position: absolute;
