@@ -13,7 +13,10 @@ $active = 3;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item 
 include ('includes/header.html');
 
 echo "<h1>Producten van categorie B</h1>";
-echo "<p>Opdracht: Voeg een productcategorie toe aan de producten uit de webwinkel, en zorg ervoor dat je webwinkel verschillende categorieën ondersteunt.</p>";
+echo "<h1><center>Streekpakketten</center></h1>";
+echo "<h4><center>Selecteer een provincie</center></h4><br />";
+echo "<h4><center><a href="friesland.php">Friesland</a></center></h4>";
+echo "<h4><center>Groningen</center></h4>";
 
 include ('includes/footer.html');
 ?>
