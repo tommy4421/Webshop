@@ -23,7 +23,7 @@ session_start();
  
  <?php
 
-$ProductID = $_POST['ProductID'];
+$ProductID = $_POST['productid'];
 $gebruikersnaam = "bimivp2e4";
 $wachtwoord = "Welkom01";
 $host = "localhost";
