@@ -74,7 +74,7 @@ while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC))
 	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
 	echo "Productnaam: <input type=\"text\" name=\"klantnr\" value=\"".$row["Pro_Naam"]."\" />\n<br />";
 	echo "ProductID: <input type=\"text\" name=\"klantnr\" value=\"".$row["Pro_ProductID"]."\" />\n";
-	echo "Aantal: <div id=\"Prijs\">&euro;".$row["Prijs"]."</div>\n<br />";
+	echo "Prijs: <div id=\"Prijs\">&euro;".$row["Prijs"]."</div>\n<br />";
 	echo "<div id=\"postcode\">Aantal: ".$row["Aantal"]."</div>\n";
 	echo "</form>\n</div>\n";
 }
