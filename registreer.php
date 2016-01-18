@@ -68,7 +68,7 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	}
 
 	if ( count($aErrors) == 0 ) 
-	{ 
+	{
 		// Gebruiker in database registreren.
 		$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 		if (mysqli_connect_errno()) {
@@ -87,8 +87,8 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 	 	echo"Dit emailadres is al geregistreerd.";
    		}
  		else
-{
-   		//insert query goes here
+    		{
+   		
 		 
 		
 		
@@ -100,7 +100,6 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' &&
 			$pass = $_POST['password'];
 			$subject = "Registratie Tijdvooreenbox.nl";
 			$message = "Beste $klant,
-		
 			
 Bedankt voor het registreren bij Tijdvooreenbox.nl! U kunt inloggen met onderstaande gegevens:
  
@@ -127,9 +126,9 @@ Namens het team van Tijdvooreenbox.nl";
 
 			header('Location: account.php');
 			exit();
-		
-	
-
+		}
+	}
+}
 ?>
 <script type="text/javascript">
 function MM_jumpMenu(targ,selObj,restore){ //v3.0
@@ -191,6 +190,6 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
   </fieldset>
 </form>
 <?php	
-	} } }
+	}
 include ('includes/footer.html');
 ?>
