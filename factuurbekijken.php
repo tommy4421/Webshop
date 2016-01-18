@@ -11,7 +11,6 @@ include ('includes/mysqli_connect_localhost.php');
 
 ob_start();
 
-
 session_start();
     if(!$_SESSION["Admin"] == 1){
      header("location: index.php");
@@ -23,93 +22,67 @@ session_start();
  
 <?php 
 
-//$KlantID = $_POST['KlantID'];
-
 echo "<h1><center>Facturen</center></h1>";
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
  
+
 // check connection
 if (mysqli_connect_errno()) {
 	printf("<p><b>Fout: verbinding met de database mislukt.</b><br/>\n%s</p>\n", mysqli_connect_error());
 	exit();
 } 
+
+
+$factuurid = $_POST['FactuurID'];
+$sql = "SELECT * FROM Factuur WHERE FactuurID ='$factuurid'";
+$sql2 = "SELECT * FROM Factuur_Product";
+
+// Voer de query uit en sla het resultaat op 
+$result = mysqli_query($conn, $sql);
+$result2 = mysqli_query($conn, $sql2);
 	
+if($result === false) {
+	echo "<p>Er zijn geen facturen gevonden.</p>\n";
+} else {
+	$num = 0;
+	$num = mysqli_num_rows($result);
+	echo "<p>Er zijn ".$num." facturen gevonden.</p>\n";
+}
 
-$gebruikersnaam = "bimivp2e4";
-$wachtwoord2 = "Welkom01";
-$host = "localhost";
-$database = "avans_bimivp2e4";
-$tabel = 'Klant';
-$KlantID = $_SESSION['klantnr'];
+// Laat de producten zien in een form, zodat de gebruiker ze kan selecteren.
+// Haal een nieuwe regel op uit het resultaat, zolang er nog regels beschikbaar zijn.
+// We gebruiken in dit geval een associatief array.
+while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) 
+{
+	echo "<!-- ---------------------------------- -->\n";
+	echo "<div id=\"klantgebeuren\">\n<form action=\"factuurbekijken.php\" method=\"post\">\n";
+	echo "<center>Factuur overzicht</center><br />";
+	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
+	echo "FactuurID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["FactuurID"]."\" />\n";
+	echo "Totaal bedrag: <div id=\"Prijs\">&euro;".$row["Totaalbedrag"]."</div>\n<br />";
+	echo "<div id=\"postcode\">Datum: ".$row["Datum"]."</div>\n";
+	echo "</form>\n</div>\n";
+}
 
-mysql_connect("$host", "$gebruikersnaam", "$wachtwoord2")or die("Het is niet gelukt om te verbinden met MYSQL.");
-mysql_select_db("$database")or die("De database kan niet worden geselecteerd.");
-
-$naaminstelling1 = mysql_query("SELECT Naam FROM $tabel WHERE KlantID='$KlantID'");
-$naaminstelling2 = mysql_fetch_array($naaminstelling1);
-$naaminstelling = ($naaminstelling2['Naam']);
-
-$adresinstelling1 = mysql_query("SELECT Adres FROM $tabel WHERE KlantID='$KlantID'");
-$adresinstelling2 = mysql_fetch_array($adresinstelling1);
-$adresinstelling = ($adresinstelling2['Adres']);
-
-$postcodeinstelling1 = mysql_query("SELECT postcode FROM $tabel WHERE KlantID='$KlantID'");
-$postcodeinstelling2 = mysql_fetch_array($postcodeinstelling1);
-$postcodeinstelling = ($postcodeinstelling2['postcode']);
-
-$plaatsinstelling1 = mysql_query("SELECT plaats FROM $tabel WHERE KlantID='$KlantID'");
-$plaatsinstelling2 = mysql_fetch_array($plaatsinstelling1);
-$plaatsinstelling = ($plaatsinstelling2['plaats']);
-
-$wachtwoordinstelling1 = mysql_query("SELECT wachtwoord FROM $tabel WHERE KlantID='$KlantID'");
-$wachtwoordinstelling2 = mysql_fetch_array($wachtwoordinstelling1);
-$wachtwoordinstelling = ($wachtwoordinstelling2['wachtwoord']);
-
-?>
- 
- 
-<center>
-
-    <form method="post" action="klantopslaan.php" class="formulier">
-      <fieldset>
-        
-        <legend><h1>Factuur overzicht</h1></legend>
-        <ol>
-           <li>
-            <input id="klantnr" name="klantnr" type="hidden" value="<?php echo "$KlantID"; ?>" />
-          </li>
-		  <li>
-            <label for="naam">KlantNr</label>
-            <input id="naam" name="naam" placeholder="<?php echo "$KlantID"; ?>" disabled />
-          </li>
-		  <li>
-            <label for="naam">Naam</label>
-            <input id="naam" name="naam" value="<?php echo "$naaminstelling"; ?>" REQUIRED/>
-          </li>
-		  <li>
-            <label for="adres">Adres</label>
-            <input id="adres" name="adres" value="<?php echo "$adresinstelling"; ?>" REQUIRED/>
-          </li>
-		  <li>
-            <label for="postcode">Postcode</label>
-            <input id="postcode" name="postcode" value="<?php echo "$postcodeinstelling"; ?>" REQUIRED/>
-          </li>
-		  <li>
-            <label for="plaats">Plaats</label>
-            <input id="plaats" name="plaats" value="<?php echo "$plaatsinstelling"; ?>" REQUIRED/>
-          </li>
-		  <li>
-            <label for="wachtwoord">Wachtwoord</label>
-            <input id="wachtwoord" name="wachtwoord" type="password" value="<?php echo "$wachtwoordinstelling"; ?>" REQUIRED/>
-          </li>
-        </ol>
-      </fieldset>
-    </form>
-	
+while($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)) 
+{
+	echo "<!-- ---------------------------------- -->\n";
+	echo "<div id=\"klantgebeuren\">\n<form action=\"factuurbekijken.php\" method=\"post\">\n";
+	echo "<center>Factuur overzicht</center><br />";
+	echo "<input type=\"hidden\" name=\"klantnr\" value=\"".$klantid."\" />\n";
+	echo "ProductID: <input type=\"text\" name=\"FactuurID\" value=\"".$row["Pro_ProductID"]."\" />\n";
+	echo "Aantal: <div id=\"Prijs\">&euro;".$row["Prijs"]."</div>\n<br />";
+	echo "<div id=\"postcode\">Aantal: ".$row["Aantal"]."</div>\n";
+	echo "</form>\n</div>\n";
+}
 
 
-<?php
-include ('includes/footer.html');
+/* maak de resultset leeg */
+mysqli_free_result($result);
+
+/* sluit de connection */
+mysqli_close($conn);
+
 ?>
 
