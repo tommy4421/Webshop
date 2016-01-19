@@ -66,6 +66,7 @@ $emailinstelling = ($emailinstelling2['Email']);
       <fieldset>
         
         <legend><h1>Account instellingen</h1></legend>
+        <p>
         <i><b>Let op!</b> Uw postcode mag geen spatie bevatten, dus 1234AB.</i><br />
         <ol>
           <li>
@@ -105,6 +106,7 @@ $emailinstelling = ($emailinstelling2['Email']);
         <input type="submit" value="Sla wijzigingen op" class="button"/>
       </fieldset>
     </form>
+</p>
 	
 	<?php  
     

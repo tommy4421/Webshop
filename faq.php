@@ -43,7 +43,7 @@ elm.style.display = (elm.style.display=='none'?'block':'none');
 }
 </SCRIPT>
 <h1> FAQ (Veel Gestelde Vragen)<h1>
-<small><i>Klik op de vraag om het antwoord te zien</i></small><br /><br />
+        <p><i>Klik op de vraag om het antwoord te lezen</i></p>
 
 <table width="100%" border="1">
   <tr>
@@ -52,25 +52,25 @@ elm.style.display = (elm.style.display=='none'?'block':'none');
   </tr>
   <tr>
     <td valign="top">
-    <a href="#" onclick="showHide('A1'); return false;"><b>Heb ik een account nodig om te kunnen bestellen?</b></a>
-<div id="A1" style="padding-left:20px; display:none;">Nee. U kan ook zonder account een product bestellen.</div><br /><br />
+        <a href="#" onclick="showHide('A1'); return false;"><p><b>Heb ik een account nodig om te kunnen bestellen?</b></p></a>
+<div id="A1" style="padding-left:20px; display:none;"><p>Nee. U kan ook zonder account een product bestellen.</p></div>
 
-<a href="#" onclick="showHide('A2'); return false;"><b>Kan ik meerdere producten per keer bestellen?</b></a>
-<div id="A2" style="padding-left:20px; display:none;">Ja, dit kan.</div><br /><br />
+<a href="#" onclick="showHide('A2'); return false;"><p><b>Kan ik meerdere producten per keer bestellen?</b></p></a>
+<div id="A2" style="padding-left:20px; display:none;"><p>Ja, dit kan.</div></p>
 
-<a href="#" onclick="showHide('A3'); return false;"><b>Hoe kan ik betalen?</b></a>
-<div id="A3" style="padding-left:20px; display:none;">Aangezien dit een fictieve webshop is voor een schoolproject, kan u niet echt betalen. Normaliter zou dit kunnen met bijvoorbeeld Ideal en Paypal.</div><br /><br />
+<a href="#" onclick="showHide('A3'); return false;"><p><b>Hoe kan ik betalen?</b></p></a>
+<div id="A3" style="padding-left:20px; display:none;"><p>Aangezien dit een fictieve webshop is voor een schoolproject, kan u niet echt betalen. Normaliter zou dit kunnen met bijvoorbeeld Ideal en Paypal.</div></p>
 </td>
 
     <td valign="top">
-    <a href="#" onclick="showHide('A4'); return false;"><b>Hoe kan ik mijn gegevens aanpassen?</b></a>
-<div id="A4" style="padding-left:20px; display:none;">Als u bent ingelogd klikt u eerst op 'Account Overzicht' in de menu-balk. Hierna klikt u op 'Account gegevens' onder 'Instellingen'. Op deze pagina kan u uw gegevens inzien en eventueel aanpassen.<br />
-Kunt u de pagina niet vinden? Klik dan <a href="http://tijdvooreenbox.nl/accountinstellingen.php">HIER</a> om naar de pagina te gaan.</div><br /><br />
+    <a href="#" onclick="showHide('A4'); return false;"><p><b>Hoe kan ik mijn gegevens aanpassen?</b></p></a>
+<div id="A4" style="padding-left:20px; display:none;"><p>Als u bent ingelogd klikt u eerst op 'Account Overzicht' in de menu-balk. Hierna klikt u op 'Account gegevens' onder 'Instellingen'. Op deze pagina kan u uw gegevens inzien en eventueel aanpassen.</p>
+<p>Kunt u de pagina niet vinden? Klik dan <a href="http://tijdvooreenbox.nl/accountinstellingen.php">HIER</a> om naar de pagina te gaan.</p></div>
 
-<a href="#" onclick="showHide('A5'); return false;"><b>Hoe kan ik mijn facturen bekijken?</b></a>
-<div id="A5" style="padding-left:20px; display:none;">Als u bent ingelogd klikt u eerst op 'Account Overzicht' in de menu-balk. Hierna klikt u op 'Overzicht facturen' onder 'Overzicht'. Op deze pagina kan u uw facturen bekijken.<br />
-Kunt u de pagina niet vinden? Klik dan <a href="http://tijdvooreenbox.nl/facturen.php">HIER</a> om naar de pagina te gaan.
-</div><br /><br />
+<a href="#" onclick="showHide('A5'); return false;"><p><b>Hoe kan ik mijn facturen bekijken?</b></p></a>
+<div id="A5" style="padding-left:20px; display:none;"><p>Als u bent ingelogd klikt u eerst op 'Account Overzicht' in de menu-balk. Hierna klikt u op 'Overzicht facturen' onder 'Overzicht'. Op deze pagina kan u uw facturen bekijken.</p>
+<p>Kunt u de pagina niet vinden? Klik dan </p><a href="http://tijdvooreenbox.nl/facturen.php">HIER</a> <p>om naar de pagina te gaan.</p>
+</div>
     </td>
   </tr>
 </table>
@@ -82,22 +82,22 @@ Kunt u de pagina niet vinden? Klik dan <a href="http://tijdvooreenbox.nl/facture
   </tr>
   <tr>
     <td valign="top">
-    <a href="#" onclick="showHide('A6'); return false;"><b>Hoe worden de producten geleverd?</b></a>
-<div id="A6" style="padding-left:20px; display:none;">De producten worden met POSTNL geleverd.</div><br /><br />
+    <a href="#" onclick="showHide('A6'); return false;"><p><b>Hoe worden de producten geleverd?</b></p></a>
+<div id="A6" style="padding-left:20px; display:none;"><p>De producten worden met POSTNL geleverd.</p></div>
 
-<a href="#" onclick="showHide('A7'); return false;"><b>Hoe lang duurt het voordat ik mijn bestelling binnen heb?</b></a>
-<div id="A7" style="padding-left:20px; display:none;">Meestal heeft u uw bestelling binnen 1-2 dagen binnen, feestdagen en het weekend uitgezonderd.</div><br /><br />
+<a href="#" onclick="showHide('A7'); return false;"><p><b>Hoe lang duurt het voordat ik mijn bestelling binnen heb?</b></p></a>
+<div id="A7" style="padding-left:20px; display:none;"><p>Meestal heeft u uw bestelling binnen 1-2 dagen binnen, feestdagen en het weekend uitgezonderd.</p></div>
 </td>
 
     <td valign="top">
-    <a href="#" onclick="showHide('A8'); return false;"><b>Wie zijn wij?</b></a>
-<div id="A8" style="padding-left:20px; display:none;">Wij zijn 4 studenten; Kevin, Niels, Tom en Mirjam. We studeren Informatica en Businees IT & Management aan de Avans te Breda.</div><br /><br />
+    <a href="#" onclick="showHide('A8'); return false;"><p><b>Wie zijn wij?</b></a>
+<div id="A8" style="padding-left:20px; display:none;"><p>Wij zijn 4 studenten; Kevin, Niels, Tom en Mirjam. We studeren Informatica en Businees IT & Management aan de Avans te Breda.</p></div>
 
-    <a href="#" onclick="showHide('A9'); return false;"><b>Waarom hebben wij Tijdvooreenbox opgezet?</b></a>
-<div id="A9" style="padding-left:20px; display:none;">Voor een opdracht in ons eerste jaar, kwartaal twee, hebben wij een webshop mogen opzetten. Na vele dagen brainstormen en ideeën bedenken hebben we gekozen voor ons zelfbedachte concept Tijdvooreenbox.</div><br /><br />
+    <a href="#" onclick="showHide('A9'); return false;"><p><b>Waarom hebben wij Tijdvooreenbox opgezet?</p></b></a>
+<div id="A9" style="padding-left:20px; display:none;"><p>Voor een opdracht in ons eerste jaar, kwartaal twee, hebben wij een webshop mogen opzetten. Na vele dagen brainstormen en ideeën bedenken hebben we gekozen voor ons zelfbedachte concept Tijdvooreenbox.</p></div>
 
-<a href="#" onclick="showHide('A10'); return false;"><b>Kan ik echt niet ECHT iets bestellen?</b></a>
-<div id="A10" style="padding-left:20px; display:none;">Helaas, deze webshop is puur fictief. Enorm bedankt voor uw interesse en enthousiasme!</div><br /><br />
+<a href="#" onclick="showHide('A10'); return false;"><p><b>Kan ik echt niet ECHT iets bestellen?</b></p></a>
+<div id="A10" style="padding-left:20px; display:none;"><p>Helaas, deze webshop is puur fictief. Enorm bedankt voor uw interesse en enthousiasme!</p></div>
     </td>
   </tr>
 </table>
