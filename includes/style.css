@@ -34,6 +34,12 @@ p {
 }   
 
 
+.btn-default{
+    width: 50px;
+}
+.navbar-form .navbar-right{
+    width: 80px;
+}
 /* header */
 
 
@@ -468,7 +474,7 @@ a:hover.slidesjs-stop {
 .provincie{
     background-repeat: no-repeat;
     background-size: cover;
-    height: 950px;
+    height: 670px;
     width: 100%;
     padding-top: 10px;
     padding-left: 50px;
@@ -553,8 +559,6 @@ a:hover.slidesjs-stop {
         padding-right: 10%;
         padding-bottom: 25px;
         
-        
-        
     }
    
     .tekens{
@@ -592,9 +596,16 @@ a:hover.slidesjs-stop {
         margin-right: auto;
         }
         
+    .provincie{
+    height: 1250px;
+    width: 100%;
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+        
  }
+}
  
- @media (max-width)
     @media (max-width: 458px){
         
         .streken{
