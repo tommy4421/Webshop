@@ -403,7 +403,7 @@ a:hover.slidesjs-stop {
 }
 
 .text{
-    padding-top: 100px;
+    padding-top: 125px;
     padding-bottom: 100px;
 }
 
@@ -415,6 +415,11 @@ a:hover.slidesjs-stop {
     
 }
 
+
+.streekpro{
+    padding-top: 100px;
+    width: 450px;
+}
 
 .tekens{
     background-repeat: no-repeat;
