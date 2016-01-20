@@ -8,7 +8,7 @@
 error_reporting(E_ERROR | E_PARSE);
 
 // Zet de titel en laad de HTML header uit het externe bestand.
-$page_title = 'Welkom op Tijd voor een box!';
+$page_title = 'Orgineel kado: Boxkado';
 $active = 1;	// Zorgt ervoor dat header.html weet dat dit het actieve menu-item is.
 include ('includes/header.html');
 

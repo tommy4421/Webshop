@@ -80,11 +80,11 @@ while($query2=mysql_fetch_array($query))
 	echo '<p><center><img id=\'plaatje\' src="showfile.php?ImageID='.$query2["ProductID"].'"></center></p>';
 	echo "<div id=\"prijs\">€ ".number_format($query2["Prijs_Perstuk"], 2, ',', '.')."</div>\n";
 	echo "<div id=\"prodnaam\">".$query2["Naam"]."</div>\n";
-	echo "<div id=\"beschrijving\">".$query2["Beschrijving"]."</div>\n";
-	echo "<div id=\"leverbaar\">Leverbaar: ".$query2["Leverbaar"]."</div>\n";
-	echo "<div id=\"voorraad\">Voorraad: ".$query2["Voorraad_aantal"]."</div>\n";
-	echo "<br /><div id=\"selecteer\">Aantal: <input type=\"number\" name=\"hoeveelheid\" size=\"2\" maxlength=\"2\" value=\"1\" min=\"1\" max=\"".$query2["Voorraad_aantal"]."\"/>";
-	echo "<center><input type=\"submit\" value=\"Bestel\" class=\"button\"/></div>\n</center>";
+	echo "<div id=\"beschrijving\"><p>".$query2["Beschrijving"]."</p></div>\n";
+	echo "<div id=\"leverbaar\"><p>Leverbaar: <b>".$query2["Leverbaar"]."</b></p></div>\n";
+	echo "<div id=\"voorraad\"><p>Voorraad: <b>".$query2["Voorraad_aantal"]."</b></p></div><br />\n";
+	echo "<br /><br /><div id=\"selecteer\">Aantal: <input type=\"number\" name=\"hoeveelheid\" size=\"2\" maxlength=\"2\" value=\"1\" min=\"1\" max=\"".$query2["Voorraad_aantal"]."\"/>";
+	echo "<center><input type=\"submit\" value=\"Bestel\" class=\"btn btn-danger\"/></div>\n</center>";
 	echo "</form>\n</div>\n";
 }
 echo "</ul><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><center>";
@@ -110,4 +110,7 @@ echo "".$i."&nbsp;"; }
 else { echo "<a href='?id=".$i."'>".$i."&nbsp;</a>"; }
 }
 echo "</ul></center>";
+
+
+
 ?>
