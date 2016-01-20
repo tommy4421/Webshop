@@ -487,8 +487,9 @@ a:hover.slidesjs-stop {
     .molen{
         width: 50%;
     }
+    
     .text{
-        padding-top: 30px;
+        padding-top: 100px;
         padding-bottom: 30px;
     }
     
@@ -522,7 +523,7 @@ a:hover.slidesjs-stop {
     
     @media (max-width: 810px){
     .streken{
-        height: 630px;
+       
         width: 100%;
         padding-top: 10px;
         padding-left: 10px;
@@ -614,7 +615,7 @@ a:hover.slidesjs-stop {
     
     .provincie{
             height: 1200px;
-            width: 100%;
+            
     }
  
 }
@@ -628,19 +629,12 @@ a:hover.slidesjs-stop {
         
         .provincie{
             height: 1000px;
-            width: 100%;
+            
         }
 
     }
  
-    @media (max-width: 458px){
-        
-        .streken{
-            height: 870px;
-        }
-
-    }
-
+ 
 /* ---------------------- footer (aangepast) ----------------------------- 
 #footer {
 	border-top:1px solid #999; 
