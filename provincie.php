@@ -3,7 +3,7 @@
 //startscherm van de webwinkel
 // Zet het niveau van foutmeldingen zo dat warnings niet getoond worden.
 error_reporting(E_ERROR | E_PARSE);
-$page_title = 'Tijdvooreenbox.nl ~ Login';
+$page_title = 'Streekpakket per Provincie';
 include ('includes/header.html');
 // mysqli_connect.php bevat de inloggegevens voor de database.
 // Per server is er een apart inlogbestand - localhost vs. remote server
