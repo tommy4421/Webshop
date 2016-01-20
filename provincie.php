@@ -108,7 +108,6 @@ include ('includes/mysqli_connect_localhost.php');
         </div>
 </div>
 
-
 <?php	
 	include ('includes/footer.html');
 ?>
