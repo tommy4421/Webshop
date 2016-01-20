@@ -481,6 +481,8 @@ a:hover.slidesjs-stop {
     padding-right: 50px;
 }
 
+
+
 @media (max-width: 1010px){
     .molen{
         width: 50%;
@@ -509,12 +511,14 @@ a:hover.slidesjs-stop {
 
     }
     
-     .provincie{
-        height: 820px;
-    }
-    
-    
 }
+
+    @media (max-width: 990px){
+          .provincie{
+            height: 830px;
+            width: 100%;
+          }
+    }
     
     @media (max-width: 810px){
     .streken{
@@ -525,10 +529,16 @@ a:hover.slidesjs-stop {
         padding-right: 10px;
     } 
     
+    .provincie{
+        
+        padding-top: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
         
     }
 
-@media (max-width: 765px){
+@media (max-width: 767px){
     
     .molen{
         width: 100%;
@@ -600,17 +610,28 @@ a:hover.slidesjs-stop {
         display: block;
         margin-left: auto;
         margin-right: auto;
+    }
+    
+    .provincie{
+            height: 1200px;
+            width: 100%;
+    }
+ 
+}
+
+  
+
+    @media (max-width: 530px){
+        .vlag{
+            width: 150px;
         }
         
-    .provincie{
-        height: 1250px;
-        width: 100%;
-        padding-top: 10px;
-        padding-left: 50px;
-        padding-right: 50px;
-        
- }
-}
+        .provincie{
+            height: 1000px;
+            width: 100%;
+        }
+
+    }
  
     @media (max-width: 458px){
         
